@@ -1,0 +1,45 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "أوقات الصلاة - Prayer Times",
+  "alternateName": ["Prayer Times", "Salah Times", "Islamic Prayer Schedule"],
+  "url": "https://prayertimes.com",
+  "description": "Accurate Islamic prayer times for cities worldwide with Hijri calendar - مواقيت الصلاة الدقيقة لجميع مدن العالم",
+  "inLanguage": ["ar", "en", "ur"],
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://prayertimes.com/prayer-times?city={search_term_string}",
+    "query-input": "required name=search_term_string"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Prayer Times",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://prayertimes.com/logo.png"
+    }
+  },
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Makkah Prayer Times",
+        "url": "https://prayertimes.com/#makkah"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Madinah Prayer Times",
+        "url": "https://prayertimes.com/#madinah"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Hijri Calendar",
+        "url": "https://prayertimes.com/#calendar"
+      }
+    ]
+  }
+}
