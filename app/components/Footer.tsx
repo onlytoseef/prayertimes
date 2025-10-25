@@ -91,9 +91,6 @@ export default function Footer() {
               © {currentYear} Prayer Times - All Rights Reserved
             </p>
           </div>
-          <p className="text-center text-xs text-gray-500 mt-4">
-            Powered by Aladhan API | Built with Next.js & TailwindCSS
-          </p>
         </div>
       </div>
     </footer>

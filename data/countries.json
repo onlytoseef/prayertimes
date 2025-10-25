@@ -1,150 +1,15 @@
 {
-  "saudi-arabia": {
-    "name": "Saudi Arabia",
-    "nameAr": "المملكة العربية السعودية",
-    "code": "SA",
-    "flag": "🇸🇦",
-    "slug": "saudi-arabia",
+  "algeria": {
+    "name": "Algeria",
+    "nameAr": "الجزائر",
+    "code": "DZ",
+    "flag": "🇩🇿",
+    "slug": "algeria",
     "cities": [
-      {
-        "name": "Riyadh",
-        "nameAr": "الرياض",
-        "slug": "riyadh",
-        "latitude": 24.7136,
-        "longitude": 46.6753
-      },
-      {
-        "name": "Jeddah",
-        "nameAr": "جدة",
-        "slug": "jeddah",
-        "latitude": 21.5433,
-        "longitude": 39.1728
-      },
-      {
-        "name": "Makkah",
-        "nameAr": "مكة المكرمة",
-        "slug": "makkah",
-        "latitude": 21.3891,
-        "longitude": 39.8579
-      },
-      {
-        "name": "Madinah",
-        "nameAr": "المدينة المنورة",
-        "slug": "madinah",
-        "latitude": 24.5247,
-        "longitude": 39.5692
-      },
-      {
-        "name": "Dammam",
-        "nameAr": "الدمام",
-        "slug": "dammam",
-        "latitude": 26.4207,
-        "longitude": 50.0888
-      },
-      {
-        "name": "Taif",
-        "nameAr": "الطائف",
-        "slug": "taif",
-        "latitude": 21.2703,
-        "longitude": 40.4158
-      }
-    ]
-  },
-  "united-arab-emirates": {
-    "name": "United Arab Emirates",
-    "nameAr": "الإمارات العربية المتحدة",
-    "code": "AE",
-    "flag": "🇦🇪",
-    "slug": "united-arab-emirates",
-    "cities": [
-      {
-        "name": "Dubai",
-        "nameAr": "دبي",
-        "slug": "dubai",
-        "latitude": 25.2048,
-        "longitude": 55.2708
-      },
-      {
-        "name": "Abu Dhabi",
-        "nameAr": "أبوظبي",
-        "slug": "abu-dhabi",
-        "latitude": 24.4539,
-        "longitude": 54.3773
-      },
-      {
-        "name": "Sharjah",
-        "nameAr": "الشارقة",
-        "slug": "sharjah",
-        "latitude": 25.3463,
-        "longitude": 55.4209
-      },
-      {
-        "name": "Ajman",
-        "nameAr": "عجمان",
-        "slug": "ajman",
-        "latitude": 25.4052,
-        "longitude": 55.5136
-      }
-    ]
-  },
-  "kuwait": {
-    "name": "Kuwait",
-    "nameAr": "الكويت",
-    "code": "KW",
-    "flag": "🇰🇼",
-    "slug": "kuwait",
-    "cities": [
-      {
-        "name": "Kuwait City",
-        "nameAr": "مدينة الكويت",
-        "slug": "kuwait-city",
-        "latitude": 29.3759,
-        "longitude": 47.9774
-      },
-      {
-        "name": "Hawalli",
-        "nameAr": "حولي",
-        "slug": "hawalli",
-        "latitude": 29.3333,
-        "longitude": 48.0294
-      },
-      {
-        "name": "Salmiya",
-        "nameAr": "السالمية",
-        "slug": "salmiya",
-        "latitude": 29.3336,
-        "longitude": 48.0760
-      }
-    ]
-  },
-  "qatar": {
-    "name": "Qatar",
-    "nameAr": "قطر",
-    "code": "QA",
-    "flag": "🇶🇦",
-    "slug": "qatar",
-    "cities": [
-      {
-        "name": "Doha",
-        "nameAr": "الدوحة",
-        "slug": "doha",
-        "latitude": 25.2854,
-        "longitude": 51.5310
-      },
-      {
-        "name": "Al Rayyan",
-        "nameAr": "الريان",
-        "slug": "al-rayyan",
-        "latitude": 25.2919,
-        "longitude": 51.4244
-      },
-      {
-        "name": "Al Wakrah",
-        "nameAr": "الوكرة",
-        "slug": "al-wakrah",
-        "latitude": 25.1716,
-        "longitude": 51.5997
-      }
+      {"name": "Algiers", "nameAr": "الجزائر العاصمة", "slug": "algiers", "latitude": 36.7538, "longitude": 3.0588},
+      {"name": "Oran", "nameAr": "وهران", "slug": "oran", "latitude": 35.6969, "longitude": -0.6331},
+      {"name": "Constantine", "nameAr": "قسنطينة", "slug": "constantine", "latitude": 36.3650, "longitude": 6.6147},
+      {"name": "Annaba", "nameAr": "عنابة", "slug": "annaba", "latitude": 36.9000, "longitude": 7.7667}
     ]
   },
   "bahrain": {
@@ -154,166 +19,67 @@
     "flag": "🇧🇭",
     "slug": "bahrain",
     "cities": [
-      {
-        "name": "Manama",
-        "nameAr": "المنامة",
-        "slug": "manama",
-        "latitude": 26.2285,
-        "longitude": 50.5860
-      },
-      {
-        "name": "Muharraq",
-        "nameAr": "المحرق",
-        "slug": "muharraq",
-        "latitude": 26.2572,
-        "longitude": 50.6117
-      },
-      {
-        "name": "Riffa",
-        "nameAr": "الرفاع",
-        "slug": "riffa",
-        "latitude": 26.1300,
-        "longitude": 50.5550
-      }
+      {"name": "Manama", "nameAr": "المنامة", "slug": "manama", "latitude": 26.2285, "longitude": 50.5860},
+      {"name": "Muharraq", "nameAr": "المحرق", "slug": "muharraq", "latitude": 26.2572, "longitude": 50.6119},
+      {"name": "Riffa", "nameAr": "الرفاع", "slug": "riffa", "latitude": 26.1300, "longitude": 50.5550}
     ]
   },
-  "oman": {
-    "name": "Oman",
-    "nameAr": "عمان",
-    "code": "OM",
-    "flag": "🇴🇲",
-    "slug": "oman",
+  "chad": {
+    "name": "Chad",
+    "nameAr": "تشاد",
+    "code": "TD",
+    "flag": "🇹🇩",
+    "slug": "chad",
     "cities": [
-      {
-        "name": "Muscat",
-        "nameAr": "مسقط",
-        "slug": "muscat",
-        "latitude": 23.5880,
-        "longitude": 58.3829
-      },
-      {
-        "name": "Salalah",
-        "nameAr": "صلالة",
-        "slug": "salalah",
-        "latitude": 17.0150,
-        "longitude": 54.0924
-      },
-      {
-        "name": "Sohar",
-        "nameAr": "صحار",
-        "slug": "sohar",
-        "latitude": 24.3477,
-        "longitude": 56.7085
-      }
+      {"name": "N'Djamena", "nameAr": "نجامينا", "slug": "ndjamena", "latitude": 12.1348, "longitude": 15.0557},
+      {"name": "Moundou", "nameAr": "موندو", "slug": "moundou", "latitude": 8.5667, "longitude": 16.0833}
     ]
   },
-  "pakistan": {
-    "name": "Pakistan",
-    "nameAr": "باكستان",
-    "code": "PK",
-    "flag": "🇵🇰",
-    "slug": "pakistan",
+  "comoros": {
+    "name": "Comoros",
+    "nameAr": "جزر القمر",
+    "code": "KM",
+    "flag": "🇰🇲",
+    "slug": "comoros",
     "cities": [
-      {
-        "name": "Karachi",
-        "nameAr": "كراتشي",
-        "slug": "karachi",
-        "latitude": 24.8607,
-        "longitude": 67.0011
-      },
-      {
-        "name": "Lahore",
-        "nameAr": "لاهور",
-        "slug": "lahore",
-        "latitude": 31.5497,
-        "longitude": 74.3436
-      },
-      {
-        "name": "Islamabad",
-        "nameAr": "إسلام آباد",
-        "slug": "islamabad",
-        "latitude": 33.6844,
-        "longitude": 73.0479
-      },
-      {
-        "name": "Faisalabad",
-        "nameAr": "فيصل آباد",
-        "slug": "faisalabad",
-        "latitude": 31.4504,
-        "longitude": 73.1350
-      },
-      {
-        "name": "Rawalpindi",
-        "nameAr": "راولبندي",
-        "slug": "rawalpindi",
-        "latitude": 33.5651,
-        "longitude": 73.0169
-      },
-      {
-        "name": "Multan",
-        "nameAr": "ملتان",
-        "slug": "multan",
-        "latitude": 30.1575,
-        "longitude": 71.5249
-      },
-      {
-        "name": "Peshawar",
-        "nameAr": "بيشاور",
-        "slug": "peshawar",
-        "latitude": 34.0151,
-        "longitude": 71.5249
-      },
-      {
-        "name": "Quetta",
-        "nameAr": "كويتا",
-        "slug": "quetta",
-        "latitude": 30.1798,
-        "longitude": 66.9750
-      }
+      {"name": "Moroni", "nameAr": "موروني", "slug": "moroni", "latitude": -11.7172, "longitude": 43.2473},
+      {"name": "Mutsamudu", "nameAr": "موتسامودو", "slug": "mutsamudu", "latitude": -12.1667, "longitude": 44.4000}
     ]
   },
-  "turkey": {
-    "name": "Turkey",
-    "nameAr": "تركيا",
-    "code": "TR",
-    "flag": "🇹🇷",
-    "slug": "turkey",
+  "djibouti": {
+    "name": "Djibouti",
+    "nameAr": "جيبوتي",
+    "code": "DJ",
+    "flag": "🇩🇯",
+    "slug": "djibouti",
     "cities": [
-      {
-        "name": "Istanbul",
-        "nameAr": "إسطنبول",
-        "slug": "istanbul",
-        "latitude": 41.0082,
-        "longitude": 28.9784
-      },
-      {
-        "name": "Ankara",
-        "nameAr": "أنقرة",
-        "slug": "ankara",
-        "latitude": 39.9334,
-        "longitude": 32.8597
-      },
-      {
-        "name": "Izmir",
-        "nameAr": "إزمير",
-        "slug": "izmir",
-        "latitude": 38.4237,
-        "longitude": 27.1428
-      },
-      {
-        "name": "Bursa",
-        "nameAr": "بورصة",
-        "slug": "bursa",
-        "latitude": 40.1826,
-        "longitude": 29.0665
-      },
-      {
-        "name": "Antalya",
-        "nameAr": "أنطاليا",
-        "slug": "antalya",
-        "latitude": 36.8969,
-        "longitude": 30.7133
-      }
+      {"name": "Djibouti City", "nameAr": "مدينة جيبوتي", "slug": "djibouti-city", "latitude": 11.8251, "longitude": 42.5903},
+      {"name": "Ali Sabieh", "nameAr": "علي صبيح", "slug": "ali-sabieh", "latitude": 11.1558, "longitude": 42.7128}
+    ]
+  },
+  "egypt": {
+    "name": "Egypt",
+    "nameAr": "مصر",
+    "code": "EG",
+    "flag": "🇪🇬",
+    "slug": "egypt",
+    "cities": [
+      {"name": "Cairo", "nameAr": "القاهرة", "slug": "cairo", "latitude": 30.0444, "longitude": 31.2357},
+      {"name": "Alexandria", "nameAr": "الإسكندرية", "slug": "alexandria", "latitude": 31.2001, "longitude": 29.9187},
+      {"name": "Giza", "nameAr": "الجيزة", "slug": "giza", "latitude": 30.0131, "longitude": 31.2089},
+      {"name": "Luxor", "nameAr": "الأقصر", "slug": "luxor", "latitude": 25.6872, "longitude": 32.6396},
+      {"name": "Aswan", "nameAr": "أسوان", "slug": "aswan", "latitude": 24.0889, "longitude": 32.8998}
+    ]
+  },
+  "eritrea": {
+    "name": "Eritrea",
+    "nameAr": "إريتريا",
+    "code": "ER",
+    "flag": "🇪🇷",
+    "slug": "eritrea",
+    "cities": [
+      {"name": "Asmara", "nameAr": "أسمرة", "slug": "asmara", "latitude": 15.3229, "longitude": 38.9251},
+      {"name": "Massawa", "nameAr": "مصوع", "slug": "massawa", "latitude": 15.6089, "longitude": 39.4517}
     ]
   },
   "indonesia": {
@@ -323,41 +89,309 @@
     "flag": "🇮🇩",
     "slug": "indonesia",
     "cities": [
-      {
-        "name": "Jakarta",
-        "nameAr": "جاكرتا",
-        "slug": "jakarta",
-        "latitude": -6.2088,
-        "longitude": 106.8456
-      },
-      {
-        "name": "Surabaya",
-        "nameAr": "سورابايا",
-        "slug": "surabaya",
-        "latitude": -7.2575,
-        "longitude": 112.7521
-      },
-      {
-        "name": "Bandung",
-        "nameAr": "باندونغ",
-        "slug": "bandung",
-        "latitude": -6.9175,
-        "longitude": 107.6191
-      },
-      {
-        "name": "Medan",
-        "nameAr": "ميدان",
-        "slug": "medan",
-        "latitude": 3.5952,
-        "longitude": 98.6722
-      },
-      {
-        "name": "Yogyakarta",
-        "nameAr": "يوجياكارتا",
-        "slug": "yogyakarta",
-        "latitude": -7.7956,
-        "longitude": 110.3695
-      }
+      {"name": "Jakarta", "nameAr": "جاكرتا", "slug": "jakarta", "latitude": -6.2088, "longitude": 106.8456},
+      {"name": "Surabaya", "nameAr": "سورابايا", "slug": "surabaya", "latitude": -7.2575, "longitude": 112.7521},
+      {"name": "Bandung", "nameAr": "باندونغ", "slug": "bandung", "latitude": -6.9175, "longitude": 107.6191},
+      {"name": "Medan", "nameAr": "ميدان", "slug": "medan", "latitude": 3.5952, "longitude": 98.6722},
+      {"name": "Yogyakarta", "nameAr": "يوجياكارتا", "slug": "yogyakarta", "latitude": -7.7956, "longitude": 110.3695}
+    ]
+  },
+  "iran": {
+    "name": "Iran",
+    "nameAr": "إيران",
+    "code": "IR",
+    "flag": "🇮🇷",
+    "slug": "iran",
+    "cities": [
+      {"name": "Tehran", "nameAr": "طهران", "slug": "tehran", "latitude": 35.6892, "longitude": 51.3890},
+      {"name": "Mashhad", "nameAr": "مشهد", "slug": "mashhad", "latitude": 36.2974, "longitude": 59.6059},
+      {"name": "Isfahan", "nameAr": "أصفهان", "slug": "isfahan", "latitude": 32.6546, "longitude": 51.6680},
+      {"name": "Shiraz", "nameAr": "شيراز", "slug": "shiraz", "latitude": 29.5918, "longitude": 52.5836},
+      {"name": "Tabriz", "nameAr": "تبريز", "slug": "tabriz", "latitude": 38.0800, "longitude": 46.2919}
+    ]
+  },
+  "iraq": {
+    "name": "Iraq",
+    "nameAr": "العراق",
+    "code": "IQ",
+    "flag": "🇮🇶",
+    "slug": "iraq",
+    "cities": [
+      {"name": "Baghdad", "nameAr": "بغداد", "slug": "baghdad", "latitude": 33.3152, "longitude": 44.3661},
+      {"name": "Basra", "nameAr": "البصرة", "slug": "basra", "latitude": 30.5085, "longitude": 47.7835},
+      {"name": "Mosul", "nameAr": "الموصل", "slug": "mosul", "latitude": 36.3350, "longitude": 43.1189},
+      {"name": "Erbil", "nameAr": "أربيل", "slug": "erbil", "latitude": 36.1911, "longitude": 44.0091},
+      {"name": "Najaf", "nameAr": "النجف", "slug": "najaf", "latitude": 31.9996, "longitude": 44.3145},
+      {"name": "Karbala", "nameAr": "كربلاء", "slug": "karbala", "latitude": 32.6160, "longitude": 44.0244}
+    ]
+  },
+  "jordan": {
+    "name": "Jordan",
+    "nameAr": "الأردن",
+    "code": "JO",
+    "flag": "🇯🇴",
+    "slug": "jordan",
+    "cities": [
+      {"name": "Amman", "nameAr": "عمّان", "slug": "amman", "latitude": 31.9454, "longitude": 35.9284},
+      {"name": "Irbid", "nameAr": "إربد", "slug": "irbid", "latitude": 32.5556, "longitude": 35.8500},
+      {"name": "Zarqa", "nameAr": "الزرقاء", "slug": "zarqa", "latitude": 32.0604, "longitude": 36.0881},
+      {"name": "Aqaba", "nameAr": "العقبة", "slug": "aqaba", "latitude": 29.5267, "longitude": 35.0078}
+    ]
+  },
+  "kuwait": {
+    "name": "Kuwait",
+    "nameAr": "الكويت",
+    "code": "KW",
+    "flag": "🇰🇼",
+    "slug": "kuwait",
+    "cities": [
+      {"name": "Kuwait City", "nameAr": "مدينة الكويت", "slug": "kuwait-city", "latitude": 29.3759, "longitude": 47.9774},
+      {"name": "Hawalli", "nameAr": "حولي", "slug": "hawalli", "latitude": 29.3334, "longitude": 48.0292},
+      {"name": "Salmiya", "nameAr": "السالمية", "slug": "salmiya", "latitude": 29.3336, "longitude": 48.0755}
+    ]
+  },
+  "lebanon": {
+    "name": "Lebanon",
+    "nameAr": "لبنان",
+    "code": "LB",
+    "flag": "🇱🇧",
+    "slug": "lebanon",
+    "cities": [
+      {"name": "Beirut", "nameAr": "بيروت", "slug": "beirut", "latitude": 33.8886, "longitude": 35.4955},
+      {"name": "Tripoli", "nameAr": "طرابلس", "slug": "tripoli-lebanon", "latitude": 34.4333, "longitude": 35.8333},
+      {"name": "Sidon", "nameAr": "صيدا", "slug": "sidon", "latitude": 33.5633, "longitude": 35.3750},
+      {"name": "Tyre", "nameAr": "صور", "slug": "tyre", "latitude": 33.2704, "longitude": 35.2038}
+    ]
+  },
+  "libya": {
+    "name": "Libya",
+    "nameAr": "ليبيا",
+    "code": "LY",
+    "flag": "🇱🇾",
+    "slug": "libya",
+    "cities": [
+      {"name": "Tripoli", "nameAr": "طرابلس", "slug": "tripoli", "latitude": 32.8872, "longitude": 13.1913},
+      {"name": "Benghazi", "nameAr": "بنغازي", "slug": "benghazi", "latitude": 32.1167, "longitude": 20.0686},
+      {"name": "Misrata", "nameAr": "مصراتة", "slug": "misrata", "latitude": 32.3754, "longitude": 15.0919}
+    ]
+  },
+  "mali": {
+    "name": "Mali",
+    "nameAr": "مالي",
+    "code": "ML",
+    "flag": "🇲🇱",
+    "slug": "mali",
+    "cities": [
+      {"name": "Bamako", "nameAr": "باماكو", "slug": "bamako", "latitude": 12.6392, "longitude": -8.0029},
+      {"name": "Sikasso", "nameAr": "سيكاسو", "slug": "sikasso", "latitude": 11.3167, "longitude": -5.6667},
+      {"name": "Timbuktu", "nameAr": "تمبكتو", "slug": "timbuktu", "latitude": 16.7734, "longitude": -3.0074}
+    ]
+  },
+  "mauritania": {
+    "name": "Mauritania",
+    "nameAr": "موريتانيا",
+    "code": "MR",
+    "flag": "🇲🇷",
+    "slug": "mauritania",
+    "cities": [
+      {"name": "Nouakchott", "nameAr": "نواكشوط", "slug": "nouakchott", "latitude": 18.0735, "longitude": -15.9582},
+      {"name": "Nouadhibou", "nameAr": "نواذيبو", "slug": "nouadhibou", "latitude": 20.9008, "longitude": -17.0330}
+    ]
+  },
+  "morocco": {
+    "name": "Morocco",
+    "nameAr": "المغرب",
+    "code": "MA",
+    "flag": "🇲🇦",
+    "slug": "morocco",
+    "cities": [
+      {"name": "Casablanca", "nameAr": "الدار البيضاء", "slug": "casablanca", "latitude": 33.5731, "longitude": -7.5898},
+      {"name": "Rabat", "nameAr": "الرباط", "slug": "rabat", "latitude": 34.0209, "longitude": -6.8416},
+      {"name": "Fes", "nameAr": "فاس", "slug": "fes", "latitude": 34.0181, "longitude": -5.0078},
+      {"name": "Marrakech", "nameAr": "مراكش", "slug": "marrakech", "latitude": 31.6295, "longitude": -7.9811},
+      {"name": "Tangier", "nameAr": "طنجة", "slug": "tangier", "latitude": 35.7595, "longitude": -5.8340}
+    ]
+  },
+  "niger": {
+    "name": "Niger",
+    "nameAr": "النيجر",
+    "code": "NE",
+    "flag": "🇳🇪",
+    "slug": "niger",
+    "cities": [
+      {"name": "Niamey", "nameAr": "نيامي", "slug": "niamey", "latitude": 13.5127, "longitude": 2.1128},
+      {"name": "Zinder", "nameAr": "زيندر", "slug": "zinder", "latitude": 13.8069, "longitude": 8.9881}
+    ]
+  },
+  "oman": {
+    "name": "Oman",
+    "nameAr": "عمان",
+    "code": "OM",
+    "flag": "🇴🇲",
+    "slug": "oman",
+    "cities": [
+      {"name": "Muscat", "nameAr": "مسقط", "slug": "muscat", "latitude": 23.5880, "longitude": 58.3829},
+      {"name": "Salalah", "nameAr": "صلالة", "slug": "salalah", "latitude": 17.0150, "longitude": 54.0924},
+      {"name": "Sohar", "nameAr": "صحار", "slug": "sohar", "latitude": 24.3477, "longitude": 56.7085}
+    ]
+  },
+  "pakistan": {
+    "name": "Pakistan",
+    "nameAr": "باكستان",
+    "code": "PK",
+    "flag": "🇵🇰",
+    "slug": "pakistan",
+    "cities": [
+      {"name": "Karachi", "nameAr": "كراتشي", "slug": "karachi", "latitude": 24.8607, "longitude": 67.0011},
+      {"name": "Lahore", "nameAr": "لاهور", "slug": "lahore", "latitude": 31.5204, "longitude": 74.3587},
+      {"name": "Islamabad", "nameAr": "إسلام آباد", "slug": "islamabad", "latitude": 33.6844, "longitude": 73.0479},
+      {"name": "Faisalabad", "nameAr": "فيصل آباد", "slug": "faisalabad", "latitude": 31.4504, "longitude": 73.1350},
+      {"name": "Rawalpindi", "nameAr": "راولبندي", "slug": "rawalpindi", "latitude": 33.5651, "longitude": 73.0169},
+      {"name": "Multan", "nameAr": "ملتان", "slug": "multan", "latitude": 30.1575, "longitude": 71.5249},
+      {"name": "Peshawar", "nameAr": "بيشاور", "slug": "peshawar", "latitude": 34.0151, "longitude": 71.5249},
+      {"name": "Quetta", "nameAr": "كويتا", "slug": "quetta", "latitude": 30.1798, "longitude": 66.9750}
+    ]
+  },
+  "palestine": {
+    "name": "Palestine",
+    "nameAr": "فلسطين",
+    "code": "PS",
+    "flag": "🇵🇸",
+    "slug": "palestine",
+    "cities": [
+      {"name": "Jerusalem", "nameAr": "القدس", "slug": "jerusalem", "latitude": 31.7683, "longitude": 35.2137},
+      {"name": "Gaza", "nameAr": "غزة", "slug": "gaza", "latitude": 31.5000, "longitude": 34.4667},
+      {"name": "Hebron", "nameAr": "الخليل", "slug": "hebron", "latitude": 31.5292, "longitude": 35.0936},
+      {"name": "Nablus", "nameAr": "نابلس", "slug": "nablus", "latitude": 32.2211, "longitude": 35.2544},
+      {"name": "Ramallah", "nameAr": "رام الله", "slug": "ramallah", "latitude": 31.9038, "longitude": 35.2034}
+    ]
+  },
+  "qatar": {
+    "name": "Qatar",
+    "nameAr": "قطر",
+    "code": "QA",
+    "flag": "🇶🇦",
+    "slug": "qatar",
+    "cities": [
+      {"name": "Doha", "nameAr": "الدوحة", "slug": "doha", "latitude": 25.2854, "longitude": 51.5310},
+      {"name": "Al Rayyan", "nameAr": "الريان", "slug": "al-rayyan", "latitude": 25.2919, "longitude": 51.4244},
+      {"name": "Al Wakrah", "nameAr": "الوكرة", "slug": "al-wakrah", "latitude": 25.1714, "longitude": 51.5997}
+    ]
+  },
+  "saudi-arabia": {
+    "name": "Saudi Arabia",
+    "nameAr": "المملكة العربية السعودية",
+    "code": "SA",
+    "flag": "🇸🇦",
+    "slug": "saudi-arabia",
+    "cities": [
+      {"name": "Riyadh", "nameAr": "الرياض", "slug": "riyadh", "latitude": 24.7136, "longitude": 46.6753},
+      {"name": "Jeddah", "nameAr": "جدة", "slug": "jeddah", "latitude": 21.5433, "longitude": 39.1728},
+      {"name": "Makkah", "nameAr": "مكة المكرمة", "slug": "makkah", "latitude": 21.3891, "longitude": 39.8579},
+      {"name": "Madinah", "nameAr": "المدينة المنورة", "slug": "madinah", "latitude": 24.5247, "longitude": 39.5692},
+      {"name": "Dammam", "nameAr": "الدمام", "slug": "dammam", "latitude": 26.4207, "longitude": 50.0888},
+      {"name": "Taif", "nameAr": "الطائف", "slug": "taif", "latitude": 21.2703, "longitude": 40.4158}
+    ]
+  },
+  "somalia": {
+    "name": "Somalia",
+    "nameAr": "الصومال",
+    "code": "SO",
+    "flag": "🇸🇴",
+    "slug": "somalia",
+    "cities": [
+      {"name": "Mogadishu", "nameAr": "مقديشو", "slug": "mogadishu", "latitude": 2.0469, "longitude": 45.3182},
+      {"name": "Hargeisa", "nameAr": "هرجيسا", "slug": "hargeisa", "latitude": 9.5600, "longitude": 44.0650},
+      {"name": "Bosaso", "nameAr": "بوساسو", "slug": "bosaso", "latitude": 11.2842, "longitude": 49.1816}
+    ]
+  },
+  "south-sudan": {
+    "name": "South Sudan",
+    "nameAr": "جنوب السودان",
+    "code": "SS",
+    "flag": "🇸🇸",
+    "slug": "south-sudan",
+    "cities": [
+      {"name": "Juba", "nameAr": "جوبا", "slug": "juba", "latitude": 4.8594, "longitude": 31.5713},
+      {"name": "Wau", "nameAr": "واو", "slug": "wau", "latitude": 7.7029, "longitude": 27.9950}
+    ]
+  },
+  "sudan": {
+    "name": "Sudan",
+    "nameAr": "السودان",
+    "code": "SD",
+    "flag": "🇸🇩",
+    "slug": "sudan",
+    "cities": [
+      {"name": "Khartoum", "nameAr": "الخرطوم", "slug": "khartoum", "latitude": 15.5007, "longitude": 32.5599},
+      {"name": "Omdurman", "nameAr": "أم درمان", "slug": "omdurman", "latitude": 15.6446, "longitude": 32.4777},
+      {"name": "Port Sudan", "nameAr": "بورتسودان", "slug": "port-sudan", "latitude": 19.6157, "longitude": 37.2164}
+    ]
+  },
+  "syria": {
+    "name": "Syria",
+    "nameAr": "سوريا",
+    "code": "SY",
+    "flag": "🇸🇾",
+    "slug": "syria",
+    "cities": [
+      {"name": "Damascus", "nameAr": "دمشق", "slug": "damascus", "latitude": 33.5138, "longitude": 36.2765},
+      {"name": "Aleppo", "nameAr": "حلب", "slug": "aleppo", "latitude": 36.2021, "longitude": 37.1343},
+      {"name": "Homs", "nameAr": "حمص", "slug": "homs", "latitude": 34.7333, "longitude": 36.7167},
+      {"name": "Latakia", "nameAr": "اللاذقية", "slug": "latakia", "latitude": 35.5309, "longitude": 35.7850}
+    ]
+  },
+  "tunisia": {
+    "name": "Tunisia",
+    "nameAr": "تونس",
+    "code": "TN",
+    "flag": "🇹🇳",
+    "slug": "tunisia",
+    "cities": [
+      {"name": "Tunis", "nameAr": "تونس العاصمة", "slug": "tunis", "latitude": 36.8065, "longitude": 10.1815},
+      {"name": "Sfax", "nameAr": "صفاقس", "slug": "sfax", "latitude": 34.7406, "longitude": 10.7603},
+      {"name": "Sousse", "nameAr": "سوسة", "slug": "sousse", "latitude": 35.8256, "longitude": 10.6369},
+      {"name": "Kairouan", "nameAr": "القيروان", "slug": "kairouan", "latitude": 35.6781, "longitude": 10.0963}
+    ]
+  },
+  "turkey": {
+    "name": "Turkey",
+    "nameAr": "تركيا",
+    "code": "TR",
+    "flag": "🇹🇷",
+    "slug": "turkey",
+    "cities": [
+      {"name": "Istanbul", "nameAr": "إسطنبول", "slug": "istanbul", "latitude": 41.0082, "longitude": 28.9784},
+      {"name": "Ankara", "nameAr": "أنقرة", "slug": "ankara", "latitude": 39.9334, "longitude": 32.8597},
+      {"name": "Izmir", "nameAr": "إزمير", "slug": "izmir", "latitude": 38.4192, "longitude": 27.1287},
+      {"name": "Bursa", "nameAr": "بورصة", "slug": "bursa", "latitude": 40.1826, "longitude": 29.0665},
+      {"name": "Antalya", "nameAr": "أنطاليا", "slug": "antalya", "latitude": 36.8969, "longitude": 30.7133}
+    ]
+  },
+  "united-arab-emirates": {
+    "name": "United Arab Emirates",
+    "nameAr": "الإمارات العربية المتحدة",
+    "code": "AE",
+    "flag": "🇦🇪",
+    "slug": "united-arab-emirates",
+    "cities": [
+      {"name": "Dubai", "nameAr": "دبي", "slug": "dubai", "latitude": 25.2048, "longitude": 55.2708},
+      {"name": "Abu Dhabi", "nameAr": "أبو ظبي", "slug": "abu-dhabi", "latitude": 24.4539, "longitude": 54.3773},
+      {"name": "Sharjah", "nameAr": "الشارقة", "slug": "sharjah", "latitude": 25.3463, "longitude": 55.4209},
+      {"name": "Ajman", "nameAr": "عجمان", "slug": "ajman", "latitude": 25.4052, "longitude": 55.5136}
+    ]
+  },
+  "yemen": {
+    "name": "Yemen",
+    "nameAr": "اليمن",
+    "code": "YE",
+    "flag": "🇾🇪",
+    "slug": "yemen",
+    "cities": [
+      {"name": "Sana'a", "nameAr": "صنعاء", "slug": "sanaa", "latitude": 15.3694, "longitude": 44.1910},
+      {"name": "Aden", "nameAr": "عدن", "slug": "aden", "latitude": 12.7855, "longitude": 45.0187},
+      {"name": "Taiz", "nameAr": "تعز", "slug": "taiz", "latitude": 13.5795, "longitude": 44.0216},
+      {"name": "Hodeidah", "nameAr": "الحديدة", "slug": "hodeidah", "latitude": 14.7978, "longitude": 42.9545}
     ]
   }
 }
