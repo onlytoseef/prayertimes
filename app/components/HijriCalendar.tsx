@@ -1,20 +1,30 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { Calendar as CalendarIcon } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 interface CalendarDay {
   gregorianDay: number;
+  gregorianMonth: string;
+  gregorianYear: number;
   hijriDay: number;
   hijriMonth: string;
   hijriMonthEn: string;
+  hijriYear: number;
   gregorianDate: string;
+  weekDay: string;
+  weekDayAr: string;
   isToday: boolean;
 }
 
 export default function HijriCalendar() {
+  const { t, language } = useLanguage();
   const [calendarDays, setCalendarDays] = useState<CalendarDay[]>([]);
   const [currentMonth, setCurrentMonth] = useState('');
+  const [currentYear, setCurrentYear] = useState('');
   const [currentHijriMonth, setCurrentHijriMonth] = useState('');
+  const [currentHijriYear, setCurrentHijriYear] = useState('');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -46,16 +56,23 @@ export default function HijriCalendar() {
           
           days.push({
             gregorianDay: day,
+            gregorianMonth: gregorian.month.en,
+            gregorianYear: year,
             hijriDay: parseInt(hijri.day),
             hijriMonth: hijri.month.ar,
             hijriMonthEn: hijri.month.en,
+            hijriYear: parseInt(hijri.year),
             gregorianDate: date,
+            weekDay: gregorian.weekday.en,
+            weekDayAr: hijri.weekday.ar,
             isToday: day === today.getDate(),
           });
 
           if (day === 1) {
             setCurrentMonth(gregorian.month.en);
+            setCurrentYear(year.toString());
             setCurrentHijriMonth(hijri.month.ar);
+            setCurrentHijriYear(hijri.year);
           }
         }
       }
@@ -69,69 +86,105 @@ export default function HijriCalendar() {
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-lg p-6 md:p-8">
+    <div className="bg-white rounded-xl shadow-lg overflow-hidden">
       {/* Header */}
-      <div className="text-center mb-8">
-        <h2 className="text-3xl font-bold text-gray-800 font-[var(--font-tajawal)] mb-2">
-          التقويم الهجري والميلادي
-        </h2>
-        <p className="text-gray-600">Gregorian & Hijri Calendar</p>
+      <div className="bg-gradient-to-r from-amber-600 to-amber-500 text-white p-4 text-center">
+        <div className="flex items-center justify-center gap-2 mb-2">
+          <CalendarIcon className="w-6 h-6" />
+          <h2 className="text-2xl font-bold font-[var(--font-tajawal)]">
+            {t('hijriCalendarTitle')}
+          </h2>
+        </div>
         {currentMonth && (
-          <div className="mt-4 flex items-center justify-center gap-4 flex-wrap">
-            <span className="bg-emerald-100 text-emerald-800 px-4 py-2 rounded-full font-semibold">
-              {currentMonth}
-            </span>
-            <span className="bg-amber-100 text-amber-800 px-4 py-2 rounded-full font-semibold font-[var(--font-tajawal)]">
-              {currentHijriMonth}
-            </span>
+          <div className="flex flex-wrap items-center justify-center gap-2 text-sm">
+            <div className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-lg">
+              <span className="font-semibold">{currentMonth} {currentYear}</span>
+            </div>
+            <div className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-lg">
+              <span className="font-semibold font-[var(--font-tajawal)]">{currentHijriMonth} {currentHijriYear}</span>
+            </div>
           </div>
         )}
       </div>
 
       {loading ? (
-        <div className="text-center py-12">
-          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-emerald-600"></div>
-          <p className="mt-4 text-gray-600">جاري تحميل التقويم...</p>
+        <div className="text-center py-8">
+          <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-amber-600"></div>
+          <p className="mt-3 text-sm text-gray-600 font-[var(--font-tajawal)]">جاري التحميل...</p>
         </div>
       ) : (
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-3">
-          {calendarDays.map((day, index) => (
-            <div
-              key={index}
-              className={`
-                p-4 rounded-lg border-2 transition-all hover:scale-105 cursor-pointer
-                ${day.isToday 
-                  ? 'bg-gradient-to-br from-emerald-500 to-emerald-600 border-emerald-700 text-white shadow-lg' 
-                  : 'bg-gray-50 border-gray-200 hover:border-emerald-300 hover:bg-emerald-50'
-                }
-              `}
-            >
-              {/* Gregorian Date */}
-              <div className={`text-center mb-2 ${day.isToday ? 'text-white' : 'text-gray-800'}`}>
-                <div className="text-2xl font-bold">{day.gregorianDay}</div>
-                <div className="text-xs opacity-75">Gregorian</div>
-              </div>
-              
-              {/* Divider */}
-              <div className={`border-t ${day.isToday ? 'border-white/30' : 'border-gray-300'} my-2`}></div>
-              
-              {/* Hijri Date */}
-              <div className={`text-center ${day.isToday ? 'text-white' : 'text-emerald-700'}`}>
-                <div className="text-xl font-bold font-[var(--font-tajawal)]">{day.hijriDay}</div>
-                <div className="text-xs opacity-75 font-[var(--font-tajawal)]">هجري</div>
+        <>
+          {/* Table */}
+          <div className="overflow-x-auto">
+            <table className="w-full">
+              <thead>
+                <tr className="bg-gray-50 border-b-2 border-amber-500">
+                  <th className="px-3 py-2 text-center text-sm font-bold text-gray-800 font-[var(--font-tajawal)]">
+                    {t('day')}
+                  </th>
+                  <th className="px-3 py-2 text-center text-sm font-bold text-gray-800 font-[var(--font-tajawal)]">
+                    {t('gregorian')}
+                  </th>
+                  <th className="px-3 py-2 text-center text-sm font-bold text-gray-800 font-[var(--font-tajawal)]">
+                    {t('hijri')}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {calendarDays.map((day, index) => (
+                  <tr 
+                    key={index}
+                    className={`
+                      border-b border-gray-100 transition-colors
+                      ${day.isToday 
+                        ? 'bg-amber-50' 
+                        : 'hover:bg-gray-50'
+                      }
+                    `}
+                  >
+                    {/* Week Day */}
+                    <td className="px-3 py-2">
+                      <div className="text-center">
+                        <div className={`text-sm font-semibold font-[var(--font-tajawal)] ${day.isToday ? 'text-amber-700' : 'text-gray-800'}`}>
+                          {language === 'ar' || language === 'ur' ? day.weekDayAr : day.weekDay}
+                        </div>
+                      </div>
+                    </td>
+                    
+                    {/* Gregorian Date */}
+                    <td className="px-3 py-2">
+                      <div className="text-center">
+                        <div className={`text-base font-bold ${day.isToday ? 'text-amber-700' : 'text-gray-800'}`}>
+                          {day.gregorianDay}
+                        </div>
+                      </div>
+                    </td>
+                    
+                    {/* Hijri Date */}
+                    <td className="px-3 py-2">
+                      <div className="text-center">
+                        <div className={`text-base font-bold font-[var(--font-tajawal)] ${day.isToday ? 'text-amber-700' : 'text-emerald-700'}`}>
+                          {day.hijriDay}
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {/* Today Indicator */}
+          {calendarDays.some(d => d.isToday) && (
+            <div className="bg-amber-50 px-4 py-2 text-center border-t border-amber-200">
+              <div className="flex items-center justify-center gap-2 text-xs text-amber-800">
+                <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
+                <span className="font-semibold font-[var(--font-tajawal)]">{language === 'ar' || language === 'ur' ? 'اليوم' : 'Today'}</span>
               </div>
             </div>
-          ))}
-        </div>
+          )}
+        </>
       )}
-
-      {/* Legend */}
-      <div className="mt-6 flex justify-center items-center gap-4 text-sm text-gray-600">
-        <div className="flex items-center gap-2">
-          <div className="w-4 h-4 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded"></div>
-          <span>اليوم (Today)</span>
-        </div>
-      </div>
     </div>
   );
 }

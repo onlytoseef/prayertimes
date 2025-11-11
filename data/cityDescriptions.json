@@ -1,0 +1,110 @@
+{
+  "pakistan": {
+    "karachi": {
+      "en": "Karachi is the largest city and financial hub of Pakistan, located on the Arabian Sea coast. Home to over 20 million people, it's a diverse metropolis with numerous mosques including the iconic Masjid-e-Tooba and Memon Masjid. The city's prayer times are calculated based on the standard Karachi coordinates, ensuring accurate Salah timings for all five daily prayers.",
+      "ar": "كراتشي هي أكبر مدينة في باكستان والمركز المالي للبلاد، وتقع على ساحل بحر العرب. يبلغ عدد سكانها أكثر من 20 مليون نسمة، وهي مدينة متنوعة تضم العديد من المساجد بما في ذلك مسجد طوبى الشهير ومسجد ميمون. يتم حساب أوقات الصلاة في المدينة بناءً على إحداثيات كراتشي القياسية.",
+      "ur": "کراچی پاکستان کا سب سے بڑا شہر اور مالی مرکز ہے، جو بحیرہ عرب کے ساحل پر واقع ہے۔ 20 ملین سے زائد آبادی کے ساتھ، یہ ایک متنوع شہر ہے جس میں مسجد طوبیٰ اور میمن مسجد سمیت متعدد مساجد ہیں۔"
+    },
+    "lahore": {
+      "en": "Lahore, the cultural capital of Pakistan, is renowned for its rich Islamic heritage and magnificent Mughal architecture. The Badshahi Mosque, one of the largest mosques in the world, and Wazir Khan Mosque are architectural marvels. Prayer times in Lahore follow precise astronomical calculations to serve its diverse Muslim population.",
+      "ar": "لاهور، العاصمة الثقافية لباكستان، مشهورة بتراثها الإسلامي الغني وعمارتها المغولية الرائعة. مسجد بادشاهي، أحد أكبر المساجد في العالم، ومسجد وزير خان من الروائع المعمارية.",
+      "ur": "لاہور، پاکستان کا ثقافتی دارالحکومت، اپنی بھرپور اسلامی ورثے اور شاندار مغل فن تعمیر کے لیے مشہور ہے۔ بادشاہی مسجد، دنیا کی سب سے بڑی مساجد میں سے ایک، اور وزیر خان مسجد تعمیراتی شاہکار ہیں۔"
+    },
+    "islamabad": {
+      "en": "Islamabad, the capital city of Pakistan, is home to the magnificent Faisal Mosque, one of Asia's largest mosques. The city's modern planning includes numerous mosques in each sector, making it convenient for residents to perform their daily prayers. Prayer timings are precisely calculated for Islamabad's unique geographical location.",
+      "ar": "إسلام أباد، عاصمة باكستان، هي موطن مسجد فيصل الرائع، أحد أكبر المساجد في آسيا. يتضمن التخطيط الحديث للمدينة العديد من المساجد في كل قطاع.",
+      "ur": "اسلام آباد، پاکستان کا دارالحکومت، شاندار فیصل مسجد کا گھر ہے، جو ایشیا کی سب سے بڑی مساجد میں سے ایک ہے۔ شہر کی جدید منصوبہ بندی میں ہر سیکٹر میں متعدد مساجد شامل ہیں۔"
+    },
+    "faisalabad": {
+      "en": "Faisalabad, Pakistan's third-largest city, is an industrial hub known for its textile manufacturing. The city has a strong Islamic tradition with numerous mosques serving its population. Prayer times are calculated using the city's coordinates to ensure accuracy for the five daily prayers.",
+      "ar": "فيصل آباد، ثالث أكبر مدينة في باكستان، هي مركز صناعي معروف بصناعة النسيج. تتمتع المدينة بتقاليد إسلامية قوية مع العديد من المساجد.",
+      "ur": "فیصل آباد، پاکستان کا تیسرا سب سے بڑا شہر، ٹیکسٹائل مینوفیکچرنگ کے لیے مشہور ایک صنعتی مرکز ہے۔ شہر میں مضبوط اسلامی روایات ہیں اور متعدد مساجد موجود ہیں۔"
+    },
+    "rawalpindi": {
+      "en": "Rawalpindi, twin city of Islamabad, has a rich military and cultural history. The city features several historic mosques and serves as an important religious center in the region. Prayer times are accurately maintained for the city's diverse Muslim community.",
+      "ar": "راولبندي، المدينة التوأم لإسلام أباد، لها تاريخ عسكري وثقافي غني. تضم المدينة العديد من المساجد التاريخية.",
+      "ur": "راولپنڈی، اسلام آباد کا جڑواں شہر، بھرپور فوجی اور ثقافتی تاریخ رکھتا ہے۔ شہر میں کئی تاریخی مساجد ہیں۔"
+    },
+    "multan": {
+      "en": "Multan, the City of Saints, is one of Pakistan's oldest cities with deep spiritual significance. Home to numerous Sufi shrines and historic mosques, the city maintains strong Islamic traditions. Prayer times follow traditional calculation methods respected for centuries.",
+      "ar": "ملتان، مدينة القديسين، واحدة من أقدم المدن في باكستان ذات أهمية روحية عميقة. موطن للعديد من الأضرحة الصوفية والمساجد التاريخية.",
+      "ur": "ملتان، اولیاء کا شہر، پاکستان کے قدیم ترین شہروں میں سے ایک ہے جس کی گہری روحانی اہمیت ہے۔ متعدد صوفی مزارات اور تاریخی مساجد کا گھر ہے۔"
+    },
+    "gujranwala": {
+      "en": "Gujranwala is an important industrial and commercial city in Punjab province. Known for its strong Muslim community and numerous mosques, the city ensures accurate prayer timings for its residents following traditional Islamic calculation methods.",
+      "ar": "غجرانوالا مدينة صناعية وتجارية مهمة في مقاطعة البنجاب. معروفة بمجتمعها المسلم القوي والعديد من المساجد.",
+      "ur": "گوجرانوالہ پنجاب صوبے کا ایک اہم صنعتی اور تجارتی شہر ہے۔ مضبوط مسلم کمیونٹی اور متعدد مساجد کے لیے مشہور ہے۔"
+    },
+    "peshawar": {
+      "en": "Peshawar, one of the oldest cities in South Asia, is the capital of Khyber Pakhtunkhwa province. Rich in Islamic history with the famous Mahabat Khan Mosque and Qissa Khwani Bazaar Mosque, the city maintains precise prayer schedules following traditional methods.",
+      "ar": "بيشاوار، واحدة من أقدم المدن في جنوب آسيا، عاصمة مقاطعة خيبر بختونخوا. غنية بالتاريخ الإسلامي مع مسجد محبت خان الشهير.",
+      "ur": "پشاور، جنوبی ایشیا کے قدیم ترین شہروں میں سے ایک، صوبہ خیبر پختونخوا کا دارالحکومت ہے۔ مشہور محبت خان مسجد کے ساتھ اسلامی تاریخ سے بھرپور ہے۔"
+    }
+  },
+  "saudi-arabia": {
+    "makkah": {
+      "en": "Makkah (Mecca) is the holiest city in Islam, home to the Sacred Masjid al-Haram and the Holy Kaaba. Millions of Muslims perform Hajj and Umrah here annually. Prayer times in Makkah are of utmost importance as they set the standard for Islamic worship worldwide. The city's Adhan echoes five times daily from the Grand Mosque.",
+      "ar": "مكة المكرمة هي أقدس مدينة في الإسلام، موطن المسجد الحرام والكعبة المشرفة. يؤدي ملايين المسلمين فريضة الحج والعمرة هنا سنوياً. أوقات الصلاة في مكة ذات أهمية قصوى حيث تحدد المعيار للعبادة الإسلامية في جميع أنحاء العالم.",
+      "ur": "مکہ مکرمہ اسلام کا مقدس ترین شہر ہے، مسجد الحرام اور خانہ کعبہ کا گھر ہے۔ لاکھوں مسلمان یہاں سالانہ حج اور عمرہ ادا کرتے ہیں۔"
+    },
+    "madinah": {
+      "en": "Madinah (Medina) is the second holiest city in Islam, home to the Prophet's Mosque (Masjid an-Nabawi) and the burial place of Prophet Muhammad (PBUH). The city holds immense spiritual significance for Muslims worldwide. Prayer times follow precise calculations, with the call to prayer originating from the Prophet's Mosque.",
+      "ar": "المدينة المنورة هي ثاني أقدس مدينة في الإسلام، موطن المسجد النبوي ومكان دفن النبي محمد صلى الله عليه وسلم. تحمل المدينة أهمية روحية هائلة للمسلمين في جميع أنحاء العالم.",
+      "ur": "مدینہ منورہ اسلام کا دوسرا مقدس ترین شہر ہے، مسجد نبوی اور حضور نبی کریم صلی اللہ علیہ وسلم کی آرام گاہ کا گھر ہے۔"
+    },
+    "riyadh": {
+      "en": "Riyadh, the capital of Saudi Arabia, is a modern metropolis with deep Islamic roots. The city features numerous grand mosques and maintains strict adherence to prayer times. As the political and administrative center, Riyadh sets an example in Islamic practice and worship schedules.",
+      "ar": "الرياض، عاصمة المملكة العربية السعودية، مدينة حديثة ذات جذور إسلامية عميقة. تضم المدينة العديد من المساجد الكبرى وتحافظ على الالتزام الصارم بأوقات الصلاة.",
+      "ur": "ریاض، سعودی عرب کا دارالحکومت، گہری اسلامی جڑوں کے ساتھ ایک جدید شہر ہے۔ شہر میں متعدد بڑی مساجد ہیں۔"
+    },
+    "jeddah": {
+      "en": "Jeddah, the gateway to the holy cities, is Saudi Arabia's second-largest city and main port on the Red Sea. The city serves millions of pilgrims annually and maintains precise prayer schedules. Historic mosques and modern Islamic centers coexist in this vibrant coastal city.",
+      "ar": "جدة، بوابة الحرمين الشريفين، ثاني أكبر مدينة في المملكة العربية السعودية والميناء الرئيسي على البحر الأحمر. تخدم المدينة ملايين الحجاج سنوياً.",
+      "ur": "جدہ، مقدس شہروں کا دروازہ، سعودی عرب کا دوسرا بڑا شہر اور بحیرہ احمر پر اہم بندرگاہ ہے۔"
+    },
+    "dammam": {
+      "en": "Dammam, located in the Eastern Province of Saudi Arabia, is a major administrative and commercial hub. The city maintains strict prayer schedules and features modern mosques serving its growing population. Prayer times are calculated with precision for this important Saudi city.",
+      "ar": "الدمام، الواقعة في المنطقة الشرقية من المملكة العربية السعودية، مركز إداري وتجاري رئيسي. تحافظ المدينة على جداول صلاة صارمة.",
+      "ur": "دمام، سعودی عرب کے مشرقی صوبے میں واقع، ایک بڑا انتظامی اور تجارتی مرکز ہے۔"
+    },
+    "taif": {
+      "en": "Taif, situated in the mountains of Hejaz, is known for its pleasant climate and historic significance in Islamic history. The city features several important mosques and maintains traditional prayer schedules. Many pilgrims visit Taif before or after performing Hajj in nearby Makkah.",
+      "ar": "الطائف، الواقعة في جبال الحجاز، معروفة بمناخها اللطيف وأهميتها التاريخية في التاريخ الإسلامي. تضم المدينة العديد من المساجد المهمة.",
+      "ur": "طائف، حجاز کے پہاڑوں میں واقع، خوشگوار آب و ہوا اور اسلامی تاریخ میں تاریخی اہمیت کے لیے جانا جاتا ہے۔"
+    }
+  },
+  "uae": {
+    "dubai": {
+      "en": "Dubai is a global city and business hub of the UAE, home to millions of Muslims from around the world. The city features stunning mosques including the Grand Bur Dubai Mosque and ensures accurate prayer times for its diverse population. Islamic traditions are maintained alongside modern development.",
+      "ar": "دبي مدينة عالمية ومركز أعمال في الإمارات العربية المتحدة، موطن لملايين المسلمين من جميع أنحاء العالم. تضم المدينة مساجد مذهلة بما في ذلك مسجد بر دبي الكبير.",
+      "ur": "دبئی متحدہ عرب امارات کا عالمی شہر اور کاروباری مرکز ہے، دنیا بھر سے لاکھوں مسلمانوں کا گھر ہے۔"
+    },
+    "abu-dhabi": {
+      "en": "Abu Dhabi, the capital of the UAE, is home to the magnificent Sheikh Zayed Grand Mosque, one of the world's largest mosques. The city maintains strict adherence to Islamic prayer times and features numerous mosques throughout its modern landscape.",
+      "ar": "أبوظبي، عاصمة الإمارات العربية المتحدة، موطن مسجد الشيخ زايد الكبير الرائع، أحد أكبر المساجد في العالم. تحافظ المدينة على الالتزام الصارم بأوقات الصلاة الإسلامية.",
+      "ur": "ابوظبی، متحدہ عرب امارات کا دارالحکومت، شاندار شیخ زاید گرینڈ مسجد کا گھر ہے، جو دنیا کی سب سے بڑی مساجد میں سے ایک ہے۔"
+    },
+    "sharjah": {
+      "en": "Sharjah is known as the cultural capital of the UAE, with strong Islamic heritage and numerous historic mosques. The emirate strictly follows Islamic principles and maintains precise prayer schedules. The city's commitment to Islamic values is evident in its architecture and daily life.",
+      "ar": "الشارقة معروفة بأنها العاصمة الثقافية للإمارات العربية المتحدة، مع تراث إسلامي قوي والعديد من المساجد التاريخية. تتبع الإمارة المبادئ الإسلامية بدقة.",
+      "ur": "شارجہ متحدہ عرب امارات کے ثقافتی دارالحکومت کے طور پر جانا جاتا ہے، مضبوط اسلامی ورثے اور متعدد تاریخی مساجد کے ساتھ۔"
+    },
+    "ajman": {
+      "en": "Ajman, the smallest emirate in the UAE, maintains strong Islamic traditions and features beautiful mosques serving its community. Prayer times are carefully observed, and the city's mosques call Muslims to prayer five times daily following precise calculations.",
+      "ar": "عجمان، أصغر إمارة في الإمارات العربية المتحدة، تحافظ على التقاليد الإسلامية القوية وتضم مساجد جميلة تخدم مجتمعها.",
+      "ur": "عجمان، متحدہ عرب امارات میں سب سے چھوٹی امارت، مضبوط اسلامی روایات کو برقرار رکھتی ہے۔"
+    }
+  },
+  "egypt": {
+    "cairo": {
+      "en": "Cairo, the capital of Egypt, is one of the world's oldest Islamic cities, featuring over a thousand mosques including the historic Al-Azhar Mosque and Muhammad Ali Mosque. The city's rich Islamic heritage spans over a millennium, and prayer times are meticulously observed across this ancient metropolis.",
+      "ar": "القاهرة، عاصمة مصر، واحدة من أقدم المدن الإسلامية في العالم، تضم أكثر من ألف مسجد بما في ذلك الجامع الأزهر التاريخي ومسجد محمد علي. يمتد التراث الإسلامي الغني للمدينة لأكثر من ألف عام.",
+      "ur": "قاہرہ، مصر کا دارالحکومت، دنیا کے قدیم ترین اسلامی شہروں میں سے ایک ہے، جس میں تاریخی الازہر مسجد اور محمد علی مسجد سمیت ایک ہزار سے زائد مساجد ہیں۔"
+    },
+    "alexandria": {
+      "en": "Alexandria, Egypt's second-largest city on the Mediterranean coast, has a rich Islamic history dating back to the early Islamic conquests. The city features numerous historic and modern mosques, with prayer times precisely maintained for its diverse Muslim population.",
+      "ar": "الإسكندرية، ثاني أكبر مدينة في مصر على ساحل البحر الأبيض المتوسط، لها تاريخ إسلامي غني يعود إلى الفتوحات الإسلامية الأولى.",
+      "ur": "اسکندریہ، بحیرہ روم کے ساحل پر مصر کا دوسرا بڑا شہر، ابتدائی اسلامی فتوحات سے تعلق رکھنے والی بھرپور اسلامی تاریخ رکھتا ہے۔"
+    }
+  }
+}
