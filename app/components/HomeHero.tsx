@@ -10,35 +10,35 @@ export default function HomeHero() {
     <section className="relative bg-gradient-to-br from-emerald-600 via-emerald-700 to-emerald-800 text-white overflow-hidden">
       {/* Decorative Background Pattern */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 left-0 w-64 h-64 md:w-96 md:h-96 bg-white rounded-full -translate-x-1/2 -translate-y-1/2"></div>
-        <div className="absolute bottom-0 right-0 w-64 h-64 md:w-96 md:h-96 bg-white rounded-full translate-x-1/2 translate-y-1/2"></div>
+        <div className="absolute top-0 left-0 w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-white rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute bottom-0 right-0 w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-white rounded-full translate-x-1/2 translate-y-1/2"></div>
       </div>
       
-      <div className="container mx-auto px-4 py-12 sm:py-16 md:py-20 lg:py-24 relative z-10">
-        <div className="text-center max-w-4xl mx-auto">
+      <div className="container mx-auto px-4 sm:px-6 py-16 sm:py-20 md:py-24 lg:py-28 xl:py-32 relative z-10">
+        <div className="text-center max-w-5xl mx-auto">
           {/* Main Heading */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4 font-[var(--font-tajawal)] leading-tight">
+          <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-4 sm:mb-5 md:mb-6 font-[var(--font-tajawal)] leading-tight tracking-tight">
             {t('heroTitle')}
           </h1>
           
           {/* Description */}
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 text-emerald-50 font-[var(--font-tajawal)] leading-relaxed px-4">
+          <p className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-8 sm:mb-10 md:mb-12 text-emerald-50 font-[var(--font-tajawal)] leading-relaxed max-w-3xl mx-auto px-2 sm:px-4">
             {t('heroDescription')}
           </p>
           
           {/* Features */}
-          <div className="flex flex-wrap justify-center gap-3 md:gap-4 mt-6 md:mt-8">
-            <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 md:px-6 py-2 md:py-3 text-xs md:text-sm">
-              <Church className="w-4 h-4 md:w-5 md:h-5" />
-              <span className="font-medium">{t('accurateTimes')}</span>
+          <div className="flex flex-col xs:flex-row flex-wrap justify-center items-center gap-3 sm:gap-4 mt-8 sm:mt-10 md:mt-12">
+            <div className="flex items-center gap-2 sm:gap-3 bg-white/10 backdrop-blur-sm rounded-full px-5 sm:px-6 md:px-7 py-2.5 sm:py-3 md:py-3.5 text-xs sm:text-sm md:text-base shadow-lg hover:bg-white/20 transition-all duration-300 hover:scale-105 w-auto min-w-[140px] sm:min-w-[160px] justify-center">
+              <Church className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 flex-shrink-0" />
+              <span className="font-medium whitespace-nowrap">{t('accurateTimes')}</span>
             </div>
-            <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 md:px-6 py-2 md:py-3 text-xs md:text-sm">
-              <Calendar className="w-4 h-4 md:w-5 md:h-5" />
-              <span className="font-medium">{t('hijriCalendar')}</span>
+            <div className="flex items-center gap-2 sm:gap-3 bg-white/10 backdrop-blur-sm rounded-full px-5 sm:px-6 md:px-7 py-2.5 sm:py-3 md:py-3.5 text-xs sm:text-sm md:text-base shadow-lg hover:bg-white/20 transition-all duration-300 hover:scale-105 w-auto min-w-[140px] sm:min-w-[160px] justify-center">
+              <Calendar className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 flex-shrink-0" />
+              <span className="font-medium whitespace-nowrap">{t('hijriCalendar')}</span>
             </div>
-            <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 md:px-6 py-2 md:py-3 text-xs md:text-sm">
-              <Globe className="w-4 h-4 md:w-5 md:h-5" />
-              <span className="font-medium">{t('multipleCountries')}</span>
+            <div className="flex items-center gap-2 sm:gap-3 bg-white/10 backdrop-blur-sm rounded-full px-5 sm:px-6 md:px-7 py-2.5 sm:py-3 md:py-3.5 text-xs sm:text-sm md:text-base shadow-lg hover:bg-white/20 transition-all duration-300 hover:scale-105 w-auto min-w-[140px] sm:min-w-[160px] justify-center">
+              <Globe className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 flex-shrink-0" />
+              <span className="font-medium whitespace-nowrap">{t('multipleCountries')}</span>
             </div>
           </div>
         </div>

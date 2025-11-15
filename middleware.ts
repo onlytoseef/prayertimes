@@ -1,27 +1,39 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
+import countriesData from '@/data/countries.json'
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
   
-  // Redirect root to /ar (default language)
-  if (pathname === '/') {
-    return NextResponse.redirect(new URL('/ar', request.url))
+  // Don't process special routes
+  const specialRoutes = ['api', '_next', 'favicon.ico', 'robots.txt', 'sitemap.xml', 'manifest.json', 'about', 'contact', 'privacy', 'prayer-times']
+  const firstSegment = pathname.split('/')[1]
+  if (specialRoutes.includes(firstSegment) || firstSegment?.startsWith('_')) {
+    return NextResponse.next()
   }
   
-  // Redirect old non-language URLs to Arabic version
-  // e.g., /pakistan/faisalabad-prayertime -> /ar/pakistan/faisalabad-prayertime
+  // Language prefixes
   const languagePrefixes = ['ar', 'en', 'ur']
-  const firstSegment = pathname.split('/')[1]
+  const countrySlugs = Object.keys(countriesData)
   
-  if (firstSegment && !languagePrefixes.includes(firstSegment)) {
-    // Check if it's a valid country or special route
-    const specialRoutes = ['prayer-times', 'about', 'contact', 'privacy', 'api', '_next', 'favicon.ico', 'robots.txt', 'sitemap.xml']
-    
-    if (!specialRoutes.includes(firstSegment)) {
-      // Redirect to Arabic version
-      return NextResponse.redirect(new URL(`/ar${pathname}`, request.url))
-    }
+  // If path starts with /ar, redirect to root (Arabic is default)
+  if (pathname.startsWith('/ar/') || pathname === '/ar') {
+    const newPath = pathname.replace(/^\/ar/, '') || '/'
+    return NextResponse.redirect(new URL(newPath, request.url))
+  }
+  
+  // If path starts with a country slug (not a language), rewrite to /ar/country
+  if (firstSegment && countrySlugs.includes(firstSegment) && !languagePrefixes.includes(firstSegment)) {
+    const url = request.nextUrl.clone()
+    url.pathname = `/ar${pathname}`
+    return NextResponse.rewrite(url)
+  }
+  
+  // If root path, rewrite to /ar
+  if (pathname === '/') {
+    const url = request.nextUrl.clone()
+    url.pathname = '/ar'
+    return NextResponse.rewrite(url)
   }
   
   return NextResponse.next()

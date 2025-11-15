@@ -26,6 +26,7 @@ const translations = {
     accurateTimes: 'مواقيت دقيقة',
     hijriCalendar: 'التقويم الهجري',
     allCountries: 'جميع الدول',
+    multipleCountries: 'جميع الدول',
     
     // Holy Cities Section
     holyCitiesTitle: 'مواقيت الصلاة في الحرمين الشريفين',
@@ -62,6 +63,20 @@ const translations = {
     thursday: 'الخميس',
     friday: 'الجمعة',
     saturday: 'السبت',
+    
+    // Months
+    january: 'يناير',
+    february: 'فبراير',
+    march: 'مارس',
+    april: 'أبريل',
+    may: 'مايو',
+    june: 'يونيو',
+    july: 'يوليو',
+    august: 'أغسطس',
+    september: 'سبتمبر',
+    october: 'أكتوبر',
+    november: 'نوفمبر',
+    december: 'ديسمبر',
   },
   en: {
     // Header
@@ -78,6 +93,7 @@ const translations = {
     accurateTimes: 'Accurate Times',
     hijriCalendar: 'Hijri Calendar',
     allCountries: 'All Countries',
+    multipleCountries: 'Multiple Countries',
     
     // Holy Cities Section
     holyCitiesTitle: 'Prayer Times in Holy Cities',
@@ -114,6 +130,20 @@ const translations = {
     thursday: 'Thursday',
     friday: 'Friday',
     saturday: 'Saturday',
+    
+    // Months
+    january: 'January',
+    february: 'February',
+    march: 'March',
+    april: 'April',
+    may: 'May',
+    june: 'June',
+    july: 'July',
+    august: 'August',
+    september: 'September',
+    october: 'October',
+    november: 'November',
+    december: 'December',
   },
   ur: {
     // Header
@@ -130,6 +160,7 @@ const translations = {
     accurateTimes: 'درست اوقات',
     hijriCalendar: 'ہجری کیلنڈر',
     allCountries: 'تمام ممالک',
+    multipleCountries: 'متعدد ممالک',
     
     // Holy Cities Section
     holyCitiesTitle: 'حرمین شریفین میں نماز کے اوقات',
@@ -166,6 +197,20 @@ const translations = {
     thursday: 'جمعرات',
     friday: 'جمعہ',
     saturday: 'ہفتہ',
+    
+    // Months
+    january: 'جنوری',
+    february: 'فروری',
+    march: 'مارچ',
+    april: 'اپریل',
+    may: 'مئی',
+    june: 'جون',
+    july: 'جولائی',
+    august: 'اگست',
+    september: 'ستمبر',
+    october: 'اکتوبر',
+    november: 'نومبر',
+    december: 'دسمبر',
   }
 };
 

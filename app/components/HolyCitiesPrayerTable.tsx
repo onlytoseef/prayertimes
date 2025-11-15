@@ -95,119 +95,131 @@ export default function HolyCitiesPrayerTable() {
 
   if (loading) {
     return (
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {[1, 2].map((item) => (
-          <div key={item} className="bg-white rounded-xl shadow-lg p-6">
-            <div className="animate-pulse">
-              <div className="h-6 bg-gray-200 rounded w-3/4 mx-auto mb-4"></div>
-              <div className="h-4 bg-gray-200 rounded w-1/2 mx-auto mb-6"></div>
-              <div className="space-y-3">
-                {[...Array(5)].map((_, i) => (
-                  <div key={i} className="h-12 bg-gray-200 rounded"></div>
-                ))}
+      <div>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-center mb-8 sm:mb-10 md:mb-12 text-gray-800 font-[var(--font-tajawal)]">
+          {t('holyCitiesTitle')}
+        </h2>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
+          {[1, 2].map((item) => (
+            <div key={item} className="bg-white rounded-2xl shadow-xl p-4 sm:p-6 md:p-8">
+              <div className="animate-pulse">
+                <div className="h-6 sm:h-7 md:h-8 bg-gray-200 rounded w-3/4 mx-auto mb-4"></div>
+                <div className="h-4 bg-gray-200 rounded w-1/2 mx-auto mb-6"></div>
+                <div className="space-y-3">
+                  {[...Array(5)].map((_, i) => (
+                    <div key={i} className="h-12 sm:h-14 md:h-16 bg-gray-200 rounded"></div>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-      {/* Makkah Table */}
-      <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-        {/* Header */}
-        <div className="bg-gradient-to-r from-emerald-600 to-emerald-500 text-white p-4 text-center">
-          <h3 className="text-2xl font-bold mb-1 font-[var(--font-tajawal)]">
-            {t('makkah')}
-          </h3>
-          {hijriDate && (
-            <div className="flex items-center justify-center gap-2 text-emerald-50 mt-2 text-sm">
-              <Calendar className="w-4 h-4" />
-              <p className="font-semibold font-[var(--font-tajawal)]">{hijriDate}</p>
-            </div>
-          )}
-        </div>
+    <div>
+      {/* Section Title */}
+      <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-center mb-8 sm:mb-10 md:mb-12 text-gray-800 font-[var(--font-tajawal)]">
+        {t('holyCitiesTitle')}
+      </h2>
 
-        {/* Table */}
-        <div className="overflow-x-auto">
-          <table className="w-full">
-            <tbody>
-              {prayerTimes.map((prayer, index) => (
-                <tr 
-                  key={index}
-                  className={`border-b ${index === prayerTimes.length - 1 ? 'border-0' : 'border-gray-200'} hover:bg-emerald-50 transition-colors`}
-                >
-                  <td className="px-4 py-3">
-                    <div className="flex items-center gap-3">
-                      <div className="bg-gray-50 p-2 rounded-lg">
-                        {prayer.icon}
-                      </div>
-                      <div>
-                        <div className="text-base font-bold text-gray-800 font-[var(--font-tajawal)]">
-                          {t(prayer.nameKey)}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
+        {/* Makkah Table */}
+        <div className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+          {/* Header */}
+          <div className="bg-gradient-to-r from-emerald-600 to-emerald-500 text-white p-4 sm:p-5 md:p-6 text-center">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold mb-2 font-[var(--font-tajawal)]">
+              {t('makkah')}
+            </h3>
+            {hijriDate && (
+              <div className="flex items-center justify-center gap-2 text-emerald-50 mt-2 sm:mt-3 text-xs sm:text-sm">
+                <Calendar className="w-3 h-3 sm:w-4 sm:h-4" />
+                <p className="font-semibold font-[var(--font-tajawal)]">{hijriDate}</p>
+              </div>
+            )}
+          </div>
+
+          {/* Table */}
+          <div className="overflow-x-auto">
+            <table className="w-full">
+              <tbody>
+                {prayerTimes.map((prayer, index) => (
+                  <tr 
+                    key={index}
+                    className={`border-b ${index === prayerTimes.length - 1 ? 'border-0' : 'border-gray-200'} hover:bg-emerald-50 transition-colors duration-200`}
+                  >
+                    <td className="px-3 sm:px-4 md:px-6 py-3 sm:py-4">
+                      <div className="flex items-center gap-2 sm:gap-3">
+                        <div className="bg-gray-50 p-1.5 sm:p-2 md:p-2.5 rounded-lg">
+                          {prayer.icon}
+                        </div>
+                        <div>
+                          <div className="text-sm sm:text-base md:text-lg font-bold text-gray-800 font-[var(--font-tajawal)]">
+                            {t(prayer.nameKey)}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </td>
-                  <td className="px-4 py-3 text-right">
-                    <div className="text-xl font-bold text-emerald-700 font-mono">
-                      {prayer.makkahTime}
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      {/* Madinah Table */}
-      <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-        {/* Header */}
-        <div className="bg-gradient-to-r from-emerald-600 to-emerald-500 text-white p-4 text-center">
-          <h3 className="text-2xl font-bold mb-1 font-[var(--font-tajawal)]">
-            {t('madinah')}
-          </h3>
-          {hijriDate && (
-            <div className="flex items-center justify-center gap-2 text-emerald-50 mt-2 text-sm">
-              <Calendar className="w-4 h-4" />
-              <p className="font-semibold font-[var(--font-tajawal)]">{hijriDate}</p>
-            </div>
-          )}
-        </div>
-
-        {/* Table */}
-        <div className="overflow-x-auto">
-          <table className="w-full">
-            <tbody>
-              {prayerTimes.map((prayer, index) => (
-                <tr 
-                  key={index}
-                  className={`border-b ${index === prayerTimes.length - 1 ? 'border-0' : 'border-gray-200'} hover:bg-emerald-50 transition-colors`}
-                >
-                  <td className="px-4 py-3">
-                    <div className="flex items-center gap-3">
-                      <div className="bg-gray-50 p-2 rounded-lg">
-                        {prayer.icon}
+                    </td>
+                    <td className="px-3 sm:px-4 md:px-6 py-3 sm:py-4 text-right">
+                      <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-emerald-700 font-mono">
+                        {prayer.makkahTime}
                       </div>
-                      <div>
-                        <div className="text-base font-bold text-gray-800 font-[var(--font-tajawal)]">
-                          {t(prayer.nameKey)}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* Madinah Table */}
+        <div className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+          {/* Header */}
+          <div className="bg-gradient-to-r from-emerald-600 to-emerald-500 text-white p-4 sm:p-5 md:p-6 text-center">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold mb-2 font-[var(--font-tajawal)]">
+              {t('madinah')}
+            </h3>
+            {hijriDate && (
+              <div className="flex items-center justify-center gap-2 text-emerald-50 mt-2 sm:mt-3 text-xs sm:text-sm">
+                <Calendar className="w-3 h-3 sm:w-4 sm:h-4\" />
+                <p className="font-semibold font-[var(--font-tajawal)]">{hijriDate}</p>
+              </div>
+            )}
+          </div>
+
+          {/* Table */}
+          <div className="overflow-x-auto">
+            <table className="w-full">
+              <tbody>
+                {prayerTimes.map((prayer, index) => (
+                  <tr 
+                    key={index}
+                    className={`border-b ${index === prayerTimes.length - 1 ? 'border-0' : 'border-gray-200'} hover:bg-emerald-50 transition-colors duration-200`}
+                  >
+                    <td className="px-3 sm:px-4 md:px-6 py-3 sm:py-4">
+                      <div className="flex items-center gap-2 sm:gap-3">
+                        <div className="bg-gray-50 p-1.5 sm:p-2 md:p-2.5 rounded-lg">
+                          {prayer.icon}
+                        </div>
+                        <div>
+                          <div className="text-sm sm:text-base md:text-lg font-bold text-gray-800 font-[var(--font-tajawal)]">
+                            {t(prayer.nameKey)}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </td>
-                  <td className="px-4 py-3 text-right">
-                    <div className="text-xl font-bold text-emerald-700 font-mono">
-                      {prayer.madinahTime}
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+                    </td>
+                    <td className="px-3 sm:px-4 md:px-6 py-3 sm:py-4 text-right">
+                      <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-emerald-700 font-mono">
+                        {prayer.madinahTime}
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>

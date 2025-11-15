@@ -31,6 +31,26 @@ export default function HijriCalendar() {
     fetchCalendarData();
   }, []);
 
+  const getMonthTranslation = (monthName: string): string => {
+    const monthMap: { [key: string]: string } = {
+      'January': 'january',
+      'February': 'february',
+      'March': 'march',
+      'April': 'april',
+      'May': 'may',
+      'June': 'june',
+      'July': 'july',
+      'August': 'august',
+      'September': 'september',
+      'October': 'october',
+      'November': 'november',
+      'December': 'december',
+    };
+    
+    const key = monthMap[monthName];
+    return key ? t(key) : monthName;
+  };
+
   const fetchCalendarData = async () => {
     try {
       setLoading(true);
@@ -86,21 +106,21 @@ export default function HijriCalendar() {
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+    <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
       {/* Header */}
-      <div className="bg-gradient-to-r from-amber-600 to-amber-500 text-white p-4 text-center">
-        <div className="flex items-center justify-center gap-2 mb-2">
-          <CalendarIcon className="w-6 h-6" />
-          <h2 className="text-2xl font-bold font-[var(--font-tajawal)]">
+      <div className="bg-gradient-to-r from-amber-600 to-amber-500 text-white p-4 sm:p-5 md:p-6 text-center">
+        <div className="flex items-center justify-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+          <CalendarIcon className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7" />
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold font-[var(--font-tajawal)]">
             {t('hijriCalendarTitle')}
           </h2>
         </div>
         {currentMonth && (
-          <div className="flex flex-wrap items-center justify-center gap-2 text-sm">
-            <div className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-lg">
-              <span className="font-semibold">{currentMonth} {currentYear}</span>
+          <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm md:text-base">
+            <div className="bg-white/20 backdrop-blur-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg">
+              <span className="font-semibold font-[var(--font-tajawal)]">{getMonthTranslation(currentMonth)} {currentYear}</span>
             </div>
-            <div className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-lg">
+            <div className="bg-white/20 backdrop-blur-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg">
               <span className="font-semibold font-[var(--font-tajawal)]">{currentHijriMonth} {currentHijriYear}</span>
             </div>
           </div>
@@ -108,9 +128,9 @@ export default function HijriCalendar() {
       </div>
 
       {loading ? (
-        <div className="text-center py-8">
-          <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-amber-600"></div>
-          <p className="mt-3 text-sm text-gray-600 font-[var(--font-tajawal)]">جاري التحميل...</p>
+        <div className="text-center py-12 sm:py-16">
+          <div className="inline-block animate-spin rounded-full h-10 w-10 sm:h-12 sm:w-12 border-b-2 border-amber-600"></div>
+          <p className="mt-4 text-sm sm:text-base text-gray-600 font-[var(--font-tajawal)]">جاري التحميل...</p>
         </div>
       ) : (
         <>
@@ -119,13 +139,13 @@ export default function HijriCalendar() {
             <table className="w-full">
               <thead>
                 <tr className="bg-gray-50 border-b-2 border-amber-500">
-                  <th className="px-3 py-2 text-center text-sm font-bold text-gray-800 font-[var(--font-tajawal)]">
+                  <th className="px-2 sm:px-3 md:px-4 py-2 sm:py-3 text-center text-xs sm:text-sm md:text-base font-bold text-gray-800 font-[var(--font-tajawal)]">
                     {t('day')}
                   </th>
-                  <th className="px-3 py-2 text-center text-sm font-bold text-gray-800 font-[var(--font-tajawal)]">
+                  <th className="px-2 sm:px-3 md:px-4 py-2 sm:py-3 text-center text-xs sm:text-sm md:text-base font-bold text-gray-800 font-[var(--font-tajawal)]">
                     {t('gregorian')}
                   </th>
-                  <th className="px-3 py-2 text-center text-sm font-bold text-gray-800 font-[var(--font-tajawal)]">
+                  <th className="px-2 sm:px-3 md:px-4 py-2 sm:py-3 text-center text-xs sm:text-sm md:text-base font-bold text-gray-800 font-[var(--font-tajawal)]">
                     {t('hijri')}
                   </th>
                 </tr>
@@ -135,7 +155,7 @@ export default function HijriCalendar() {
                   <tr 
                     key={index}
                     className={`
-                      border-b border-gray-100 transition-colors
+                      border-b border-gray-100 transition-colors duration-200
                       ${day.isToday 
                         ? 'bg-amber-50' 
                         : 'hover:bg-gray-50'
@@ -143,9 +163,9 @@ export default function HijriCalendar() {
                     `}
                   >
                     {/* Week Day */}
-                    <td className="px-3 py-2">
+                    <td className="px-2 sm:px-3 md:px-4 py-2 sm:py-3">
                       <div className="text-center">
-                        <div className={`text-sm font-semibold font-[var(--font-tajawal)] ${day.isToday ? 'text-amber-700' : 'text-gray-800'}`}>
+                        <div className={`text-xs sm:text-sm md:text-base font-semibold font-[var(--font-tajawal)] ${day.isToday ? 'text-amber-700' : 'text-gray-800'}`}>
                           {language === 'ar' || language === 'ur' ? day.weekDayAr : day.weekDay}
                         </div>
                       </div>

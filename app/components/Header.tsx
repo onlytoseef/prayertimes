@@ -22,13 +22,17 @@ export default function Header() {
     // Extract the current path without language prefix
     const pathParts = pathname.split('/').filter(Boolean);
     
-    // Remove current language if it exists
-    if (['ar', 'en', 'ur'].includes(pathParts[0])) {
+    // Remove current language if it exists (en or ur)
+    if (['en', 'ur'].includes(pathParts[0])) {
       pathParts.shift();
     }
     
     // Create new path with new language
-    const newPath = `/${newLanguage}${pathParts.length > 0 ? '/' + pathParts.join('/') : ''}`;
+    // If Arabic, use root; otherwise use language prefix
+    const newPath = newLanguage === 'ar' 
+      ? `/${pathParts.join('/')}` || '/'
+      : `/${newLanguage}${pathParts.length > 0 ? '/' + pathParts.join('/') : ''}`;
+    
     router.push(newPath);
   };
 
@@ -37,7 +41,7 @@ export default function Header() {
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href={`/${language}`} className="flex items-center space-x-2 rtl:space-x-reverse">
+          <Link href={language === 'ar' ? '/' : `/${language}`} className="flex items-center space-x-2 rtl:space-x-reverse">
             <Church className="w-8 h-8 text-white" />
             <span className="text-xl md:text-2xl font-bold text-white font-[var(--font-tajawal)]">
               {t('prayerTimes')}
@@ -46,19 +50,19 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8 rtl:space-x-reverse">
-            <Link href={`/${language}`} className="text-white hover:text-emerald-100 transition-colors font-medium">
+            <Link href={language === 'ar' ? '/' : `/${language}`} className="text-white hover:text-emerald-100 transition-colors font-medium">
               {t('home')}
             </Link>
-            <Link href={`/${language}/prayer-times`} className="text-white hover:text-emerald-100 transition-colors font-medium">
+            <Link href={language === 'ar' ? '/prayer-times' : `/${language}/prayer-times`} className="text-white hover:text-emerald-100 transition-colors font-medium">
               {t('prayerTimesPage')}
             </Link>
-            <Link href={`/${language}/about`} className="text-white hover:text-emerald-100 transition-colors font-medium">
+            <Link href={language === 'ar' ? '/about' : `/${language}/about`} className="text-white hover:text-emerald-100 transition-colors font-medium">
               {t('aboutUs')}
             </Link>
-            <Link href={`/${language}/contact`} className="text-white hover:text-emerald-100 transition-colors font-medium">
+            <Link href={language === 'ar' ? '/contact' : `/${language}/contact`} className="text-white hover:text-emerald-100 transition-colors font-medium">
               {t('contactUs')}
             </Link>
-            <Link href={`/${language}/privacy`} className="text-white hover:text-emerald-100 transition-colors font-medium">
+            <Link href={language === 'ar' ? '/privacy' : `/${language}/privacy`} className="text-white hover:text-emerald-100 transition-colors font-medium">
               {t('privacyPolicy')}
             </Link>
           </div>

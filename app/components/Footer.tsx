@@ -1,8 +1,12 @@
+'use client';
+
 import Link from 'next/link';
 import { Church, Mail, Globe, Clock, Facebook, Twitter, Instagram, Smartphone } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const { t, language } = useLanguage();
 
   return (
     <footer className="bg-gradient-to-r from-gray-900 to-gray-800 text-white mt-16">
@@ -12,43 +16,47 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <Church className="w-8 h-8 text-white" />
-              <h3 className="text-xl font-bold font-[var(--font-tajawal)]">أوقات الصلاة</h3>
+              <h3 className="text-xl font-bold font-[var(--font-tajawal)]">{t('prayerTimes')}</h3>
             </div>
             <p className="text-gray-300 text-sm leading-relaxed font-[var(--font-tajawal)]">
-              موقع إسلامي يوفر مواقيت الصلاة الدقيقة لجميع مدن العالم مع التقويم الهجري
-            </p>
-            <p className="text-gray-400 text-xs mt-2">
-              Accurate Islamic prayer times for cities worldwide with Hijri calendar
+              {language === 'ar' 
+                ? 'موقع إسلامي يوفر مواقيت الصلاة الدقيقة لجميع مدن العالم مع التقويم الهجري'
+                : language === 'ur'
+                ? 'اسلامی ویب سائٹ جو دنیا بھر کے تمام شہروں کے لیے ہجری کیلنڈر کے ساتھ درست نماز کے اوقات فراہم کرتی ہے'
+                : 'Islamic website providing accurate prayer times for all cities worldwide with Hijri calendar'
+              }
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4 font-[var(--font-tajawal)]">روابط سريعة</h4>
+            <h4 className="text-lg font-semibold mb-4 font-[var(--font-tajawal)]">
+              {language === 'ar' ? 'روابط سريعة' : language === 'ur' ? 'فوری لنکس' : 'Quick Links'}
+            </h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/" className="text-gray-300 hover:text-emerald-400 transition-colors text-sm">
-                  الرئيسية (Home)
+                <Link href={language === 'ar' ? '/' : `/${language}`} className="text-gray-300 hover:text-emerald-400 transition-colors text-sm font-[var(--font-tajawal)]">
+                  {t('home')}
                 </Link>
               </li>
               <li>
-                <Link href="/prayer-times" className="text-gray-300 hover:text-emerald-400 transition-colors text-sm">
-                  مواقيت الصلاة (Prayer Times)
+                <Link href={language === 'ar' ? '/prayer-times' : `/${language}/prayer-times`} className="text-gray-300 hover:text-emerald-400 transition-colors text-sm font-[var(--font-tajawal)]">
+                  {t('prayerTimesPage')}
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-gray-300 hover:text-emerald-400 transition-colors text-sm">
-                  من نحن (About Us)
+                <Link href={language === 'ar' ? '/about' : `/${language}/about`} className="text-gray-300 hover:text-emerald-400 transition-colors text-sm font-[var(--font-tajawal)]">
+                  {t('aboutUs')}
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-gray-300 hover:text-emerald-400 transition-colors text-sm">
-                  اتصل بنا (Contact)
+                <Link href={language === 'ar' ? '/contact' : `/${language}/contact`} className="text-gray-300 hover:text-emerald-400 transition-colors text-sm font-[var(--font-tajawal)]">
+                  {t('contactUs')}
                 </Link>
               </li>
               <li>
-                <Link href="/privacy" className="text-gray-300 hover:text-emerald-400 transition-colors text-sm">
-                  سياسة الخصوصية (Privacy)
+                <Link href={language === 'ar' ? '/privacy' : `/${language}/privacy`} className="text-gray-300 hover:text-emerald-400 transition-colors text-sm font-[var(--font-tajawal)]">
+                  {t('privacyPolicy')}
                 </Link>
               </li>
             </ul>
@@ -56,7 +64,9 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-lg font-semibold mb-4 font-[var(--font-tajawal)]">تواصل معنا</h4>
+            <h4 className="text-lg font-semibold mb-4 font-[var(--font-tajawal)]">
+              {language === 'ar' ? 'تواصل معنا' : language === 'ur' ? 'رابطہ کریں' : 'Contact Us'}
+            </h4>
             <div className="space-y-3 text-sm text-gray-300">
               <p className="flex items-center gap-2">
                 <Mail className="w-5 h-5" />
@@ -83,12 +93,14 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-gray-700 pt-6 mt-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
+          <div className="flex flex-col md:flex-row justify-center items-center gap-4 text-sm text-gray-400">
             <p className="font-[var(--font-tajawal)]">
-              © {currentYear} أوقات الصلاة - جميع الحقوق محفوظة
-            </p>
-            <p>
-              © {currentYear} Prayer Times - All Rights Reserved
+              {language === 'ar' 
+                ? `© ${currentYear} أوقات الصلاة - جميع الحقوق محفوظة`
+                : language === 'ur'
+                ? `© ${currentYear} نماز کے اوقات - تمام حقوق محفوظ ہیں`
+                : `© ${currentYear} Prayer Times - All Rights Reserved`
+              }
             </p>
           </div>
         </div>

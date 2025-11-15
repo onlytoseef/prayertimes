@@ -2,7 +2,9 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import Breadcrumb from '../../components/Breadcrumb';
 import LanguageInitializer from '../../components/LanguageInitializer';
+import CapitalPrayerTimes from '../../components/CapitalPrayerTimes';
 import { MapPin, ArrowRight } from 'lucide-react';
 import countriesData from '@/data/countries.json';
 import type { Language } from '../../context/LanguageContext';
@@ -49,22 +51,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // Language-specific metadata
   const metadataByLanguage = {
     ar: {
-      title: `أوقات الصلاة في ${country.nameAr} - جميع المدن ${new Date().getFullYear()}`,
-      description: `أوقات الصلاة الكاملة لجميع المدن الـ ${country.cities.length} في ${country.nameAr}. مواقيت الفجر والظهر والعصر والمغرب والعشاء الدقيقة مع التقويم الهجري لكل مدينة.`,
-      ogTitle: `أوقات الصلاة في ${country.nameAr}`,
-      ogDescription: `مواقيت الصلاة الدقيقة لجميع المدن في ${country.nameAr}. ${country.cities.length} مدينة مغطاة.`,
+      title: `مواقيت الصلاة والأذان في ${country.nameAr} - جميع المدن ${new Date().getFullYear()}`,
+      description: `مواقيت الصلاة والأذان الكاملة لجميع المدن الـ ${country.cities.length} في ${country.nameAr}. أوقات الفجر والظهر والعصر والمغرب والعشاء الدقيقة مع التقويم الهجري واتجاه القبلة لكل مدينة.`,
+      ogTitle: `مواقيت الصلاة والأذان في ${country.nameAr}`,
+      ogDescription: `مواقيت الصلاة والأذان الدقيقة لجميع المدن في ${country.nameAr}. ${country.cities.length} مدينة مغطاة.`,
     },
     en: {
-      title: `Prayer Times in ${country.name} - All Cities ${new Date().getFullYear()}`,
-      description: `Complete prayer times for all ${country.cities.length} cities in ${country.name}. Accurate Fajr, Dhuhr, Asr, Maghrib, and Isha timings with Hijri calendar for every city.`,
-      ogTitle: `Prayer Times in ${country.name}`,
-      ogDescription: `Accurate prayer times for all cities in ${country.name}. ${country.cities.length} cities covered.`,
+      title: `Prayer Times and Adhan in ${country.name} - All Cities ${new Date().getFullYear()}`,
+      description: `Complete prayer times and Adhan schedules for all ${country.cities.length} cities in ${country.name}. Accurate Fajr, Dhuhr, Asr, Maghrib, and Isha timings with Hijri calendar and Qibla direction for every city.`,
+      ogTitle: `Prayer Times and Adhan in ${country.name}`,
+      ogDescription: `Accurate prayer times and Adhan for all cities in ${country.name}. ${country.cities.length} cities covered.`,
     },
     ur: {
-      title: `${country.name} میں نماز کے اوقات - تمام شہر ${new Date().getFullYear()}`,
-      description: `${country.name} کے تمام ${country.cities.length} شہروں کے لیے مکمل نماز کے اوقات۔ ہر شہر کے لیے ہجری کیلنڈر کے ساتھ فجر، ظہر، عصر، مغرب اور عشاء کے درست اوقات۔`,
-      ogTitle: `${country.name} میں نماز کے اوقات`,
-      ogDescription: `${country.name} کے تمام شہروں کے لیے درست نماز کے اوقات۔ ${country.cities.length} شہر شامل ہیں۔`,
+      title: `${country.name} میں نماز اور اذان کے اوقات - تمام شہر ${new Date().getFullYear()}`,
+      description: `${country.name} کے تمام ${country.cities.length} شہروں کے لیے مکمل نماز اور اذان کے اوقات۔ ہر شہر کے لیے ہجری کیلنڈر اور قبلہ کی سمت کے ساتھ فجر، ظہر، عصر، مغرب اور عشاء کے درست اوقات۔`,
+      ogTitle: `${country.name} میں نماز اور اذان کے اوقات`,
+      ogDescription: `${country.name} کے تمام شہروں کے لیے درست نماز اور اذان کے اوقات۔ ${country.cities.length} شہر شامل ہیں۔`,
     },
   };
 
@@ -97,8 +99,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: {
       canonical: baseUrl,
       languages: {
-        'x-default': `https://prayertimes.com/ar/${countrySlug}`,
-        'ar': `https://prayertimes.com/ar/${countrySlug}`,
+        'x-default': `https://prayertimes.com/${countrySlug}`,
+        'ar': `https://prayertimes.com/${countrySlug}`,
         'en': `https://prayertimes.com/en/${countrySlug}`,
         'ur': `https://prayertimes.com/ur/${countrySlug}`,
       },
@@ -142,31 +144,71 @@ export default async function CountryPage({ params }: Props) {
       <Header />
       
       <main className="flex-grow bg-gray-50">
+        <Breadcrumb 
+          language={language}
+          items={[
+            { label: 'Home', href: `/${language}` },
+            { label: country.name, labelAr: country.nameAr }
+          ]}
+        />
+
         {/* Hero Section */}
-        <section className="bg-gradient-to-r from-emerald-700 to-emerald-600 text-white py-16">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <div className="text-6xl mb-4">{country.flag}</div>
-              <h1 className="text-4xl md:text-5xl font-bold mb-4 font-[var(--font-tajawal)]">
-                {country.nameAr}
+        <section className="bg-gradient-to-br from-emerald-700 via-emerald-600 to-teal-600 text-white py-12 sm:py-16 md:py-20 relative overflow-hidden">
+          {/* Decorative Background */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full -translate-y-1/2 translate-x-1/2"></div>
+            <div className="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full translate-y-1/2 -translate-x-1/2"></div>
+          </div>
+          
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="max-w-5xl mx-auto text-center">
+              {/* Flag with animation */}
+              <div className="text-6xl sm:text-7xl md:text-8xl mb-4 sm:mb-6 animate-bounce-slow">{country.flag}</div>
+              
+              {/* Main Title - SEO Optimized */}
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 font-[var(--font-tajawal)] leading-tight">
+                {language === 'ar' 
+                  ? `مواقيت الصلاة والأذان في ${country.nameAr}`
+                  : language === 'ur'
+                  ? `${country.name} میں نماز اور اذان کے اوقات`
+                  : `Prayer Times and Adhan in ${country.name}`}
               </h1>
-              <h2 className="text-2xl md:text-3xl mb-4">{country.name}</h2>
-              <p className="text-emerald-100 text-lg font-[var(--font-tajawal)]">
-                اختر مدينة لعرض مواقيت الصلاة
-              </p>
-              <p className="text-emerald-100">
-                Select a city to view prayer times
+              
+              {/* Subtitle with city count */}
+              <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 sm:px-6 py-2 sm:py-3 rounded-full mb-4 sm:mb-6">
+                <span className="text-base sm:text-lg md:text-xl font-semibold">
+                  {country.cities.length} {language === 'ar' ? 'مدينة' : language === 'ur' ? 'شہر' : 'Cities'}
+                </span>
+              </div>
+              
+              {/* Description */}
+              <p className="text-emerald-50 text-base sm:text-lg md:text-xl font-[var(--font-tajawal)] max-w-3xl mx-auto leading-relaxed">
+                {language === 'ar' 
+                  ? `اختر مدينة من ${country.nameAr} لعرض مواقيت الصلاة والأذان الدقيقة مع التقويم الهجري واتجاه القبلة`
+                  : language === 'ur'
+                  ? `${country.name} سے شہر منتخب کریں تاکہ نماز اور اذان کے درست اوقات، ہجری کیلنڈر اور قبلہ کی سمت دیکھیں`
+                  : `Select a city from ${country.name} to view accurate prayer times, Adhan schedule, Hijri calendar, and Qibla direction`}
               </p>
             </div>
           </div>
         </section>
 
+        {/* Capital City Prayer Times */}
+        <CapitalPrayerTimes
+          cityName={country.cities[0].name}
+          cityNameAr={country.cities[0].nameAr}
+          latitude={country.cities[0].latitude}
+          longitude={country.cities[0].longitude}
+          countryName={country.name}
+          countryNameAr={country.nameAr}
+        />
+
         {/* Cities Grid */}
         <section className="py-16">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
-              <h3 className="text-2xl font-bold text-gray-800 mb-8 text-center">
-                Cities in {country.name}
+              <h3 className="text-2xl font-bold text-gray-800 mb-8 text-center font-[var(--font-tajawal)]">
+                {language === 'ar' ? `المدن في ${country.nameAr}` : language === 'ur' ? `${country.name} میں شہر` : `Cities in ${country.name}`}
               </h3>
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -178,15 +220,12 @@ export default async function CountryPage({ params }: Props) {
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex-1">
-                        <div className="flex items-center gap-3 mb-2">
+                        <div className="flex items-center gap-3">
                           <MapPin className="w-5 h-5 text-emerald-600" />
-                          <h4 className="text-lg font-semibold text-gray-800 group-hover:text-emerald-600 transition-colors">
-                            {city.name}
+                          <h4 className="text-lg font-semibold text-gray-800 group-hover:text-emerald-600 transition-colors font-[var(--font-tajawal)]">
+                            {language === 'ar' || language === 'ur' ? city.nameAr : city.name}
                           </h4>
                         </div>
-                        <p className="text-gray-600 font-[var(--font-tajawal)] text-right">
-                          {city.nameAr}
-                        </p>
                       </div>
                       <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-emerald-600 group-hover:translate-x-1 transition-all" />
                     </div>

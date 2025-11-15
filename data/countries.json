@@ -204,9 +204,10 @@
     "code": "MA",
     "flag": "🇲🇦",
     "slug": "morocco",
+    "capital": "rabat",
     "cities": [
-      {"name": "Casablanca", "nameAr": "الدار البيضاء", "slug": "casablanca", "latitude": 33.5731, "longitude": -7.5898},
       {"name": "Rabat", "nameAr": "الرباط", "slug": "rabat", "latitude": 34.0209, "longitude": -6.8416},
+      {"name": "Casablanca", "nameAr": "الدار البيضاء", "slug": "casablanca", "latitude": 33.5731, "longitude": -7.5898},
       {"name": "Fes", "nameAr": "فاس", "slug": "fes", "latitude": 34.0181, "longitude": -5.0078},
       {"name": "Marrakech", "nameAr": "مراكش", "slug": "marrakech", "latitude": 31.6295, "longitude": -7.9811},
       {"name": "Tangier", "nameAr": "طنجة", "slug": "tangier", "latitude": 35.7595, "longitude": -5.8340}
@@ -241,10 +242,11 @@
     "code": "PK",
     "flag": "🇵🇰",
     "slug": "pakistan",
+    "capital": "islamabad",
     "cities": [
+      {"name": "Islamabad", "nameAr": "إسلام آباد", "slug": "islamabad", "latitude": 33.6844, "longitude": 73.0479},
       {"name": "Karachi", "nameAr": "كراتشي", "slug": "karachi", "latitude": 24.8607, "longitude": 67.0011},
       {"name": "Lahore", "nameAr": "لاهور", "slug": "lahore", "latitude": 31.5204, "longitude": 74.3587},
-      {"name": "Islamabad", "nameAr": "إسلام آباد", "slug": "islamabad", "latitude": 33.6844, "longitude": 73.0479},
       {"name": "Faisalabad", "nameAr": "فيصل آباد", "slug": "faisalabad", "latitude": 31.4504, "longitude": 73.1350},
       {"name": "Rawalpindi", "nameAr": "راولبندي", "slug": "rawalpindi", "latitude": 33.5651, "longitude": 73.0169},
       {"name": "Multan", "nameAr": "ملتان", "slug": "multan", "latitude": 30.1575, "longitude": 71.5249},
@@ -360,9 +362,10 @@
     "code": "TR",
     "flag": "🇹🇷",
     "slug": "turkey",
+    "capital": "ankara",
     "cities": [
-      {"name": "Istanbul", "nameAr": "إسطنبول", "slug": "istanbul", "latitude": 41.0082, "longitude": 28.9784},
       {"name": "Ankara", "nameAr": "أنقرة", "slug": "ankara", "latitude": 39.9334, "longitude": 32.8597},
+      {"name": "Istanbul", "nameAr": "إسطنبول", "slug": "istanbul", "latitude": 41.0082, "longitude": 28.9784},
       {"name": "Izmir", "nameAr": "إزمير", "slug": "izmir", "latitude": 38.4192, "longitude": 27.1287},
       {"name": "Bursa", "nameAr": "بورصة", "slug": "bursa", "latitude": 40.1826, "longitude": 29.0665},
       {"name": "Antalya", "nameAr": "أنطاليا", "slug": "antalya", "latitude": 36.8969, "longitude": 30.7133}
@@ -374,9 +377,10 @@
     "code": "AE",
     "flag": "🇦🇪",
     "slug": "united-arab-emirates",
+    "capital": "abu-dhabi",
     "cities": [
-      {"name": "Dubai", "nameAr": "دبي", "slug": "dubai", "latitude": 25.2048, "longitude": 55.2708},
       {"name": "Abu Dhabi", "nameAr": "أبو ظبي", "slug": "abu-dhabi", "latitude": 24.4539, "longitude": 54.3773},
+      {"name": "Dubai", "nameAr": "دبي", "slug": "dubai", "latitude": 25.2048, "longitude": 55.2708},
       {"name": "Sharjah", "nameAr": "الشارقة", "slug": "sharjah", "latitude": 25.3463, "longitude": 55.4209},
       {"name": "Ajman", "nameAr": "عجمان", "slug": "ajman", "latitude": 25.4052, "longitude": 55.5136}
     ]

@@ -4,22 +4,52 @@ import Link from 'next/link';
 import { useLanguage } from '../context/LanguageContext';
 import type { Language } from '../context/LanguageContext';
 
-interface OtherCitiesProps {
+interface City {
+  slug: string;
+  name: string;
+  nameAr: string;
+}
+
+interface Country {
+  name: string;
+  nameAr: string;
+  cities: City[];
+}
+
+interface OtherCitiesPropsOld {
   currentCitySlug: string;
   countrySlug: string;
   countryName: string;
   countryNameAr: string;
-  cities: Array<{
-    slug: string;
-    name: string;
-    nameAr: string;
-  }>;
+  cities: City[];
   language?: Language;
+  currentCity?: never;
+  country?: never;
 }
 
-export default function OtherCities({ currentCitySlug, countrySlug, countryName, countryNameAr, cities, language: propLanguage }: OtherCitiesProps) {
+interface OtherCitiesPropsNew {
+  currentCity: City;
+  country: Country;
+  countrySlug: string;
+  language?: Language;
+  currentCitySlug?: never;
+  countryName?: never;
+  countryNameAr?: never;
+  cities?: never;
+}
+
+type OtherCitiesProps = OtherCitiesPropsOld | OtherCitiesPropsNew;
+
+export default function OtherCities(props: OtherCitiesProps) {
   const { language: contextLanguage, t } = useLanguage();
-  const language = propLanguage || contextLanguage;
+  const language = props.language || contextLanguage;
+  
+  // Handle both prop formats
+  const currentCitySlug = 'currentCity' in props ? props.currentCity.slug : props.currentCitySlug;
+  const countrySlug = props.countrySlug;
+  const countryName = 'country' in props ? props.country.name : props.countryName;
+  const countryNameAr = 'country' in props ? props.country.nameAr : props.countryNameAr;
+  const cities = 'country' in props ? props.country.cities : props.cities;
   
   const otherCities = cities.filter(city => city.slug !== currentCitySlug);
   
@@ -39,7 +69,7 @@ export default function OtherCities({ currentCitySlug, countrySlug, countryName,
             {otherCities.map((city) => (
               <Link
                 key={city.slug}
-                href={`/${language}/${countrySlug}/${city.slug}-prayertime`}
+                href={language === 'ar' ? `/${countrySlug}/${city.slug}-prayertime` : `/${language}/${countrySlug}/${city.slug}-prayertime`}
                 className="bg-white rounded-lg shadow-md hover:shadow-lg transition-all p-4 text-center group hover:scale-105 transform duration-200"
               >
                 <p className="text-lg font-bold text-gray-800 mb-1 font-[var(--font-tajawal)] group-hover:text-emerald-600 transition-colors">
