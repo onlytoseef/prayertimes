@@ -311,13 +311,7 @@ export default function CityPrayerTimes({ cityName, cityNameAr, latitude, longit
 
       {/* Footer Info */}
       <div className="pt-4 border-t border-gray-200 text-center text-xs sm:text-sm text-gray-500 space-y-1 font-[var(--font-tajawal)]">
-        <p>
-          {language === 'ar' 
-            ? `تضمين من موقع الويب الخاص بك`
-            : language === 'ur' 
-            ? 'اپنی ویب سائٹ میں شامل کریں'
-            : 'Embed on your website'}
-        </p>
+       
         <p className="text-emerald-600">
           {language === 'ar'
             ? `الفجر ${formatTime24(prayerTimes[0]?.time24 || '')} درجة حتى 18.0 درجة حتى 18.0`
