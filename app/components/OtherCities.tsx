@@ -44,12 +44,20 @@ export default function OtherCities(props: OtherCitiesProps) {
   const { language: contextLanguage, t } = useLanguage();
   const language = props.language || contextLanguage;
   
-  // Handle both prop formats
-  const currentCitySlug = 'currentCity' in props && props.currentCity ? props.currentCity.slug : props.currentCitySlug;
+  // Handle both prop formats with proper type guards
+  const currentCitySlug = 'currentCity' in props && props.currentCity !== undefined 
+    ? props.currentCity.slug 
+    : props.currentCitySlug!;
   const countrySlug = props.countrySlug;
-  const countryName = 'country' in props && props.country ? props.country.name : props.countryName;
-  const countryNameAr = 'country' in props && props.country ? props.country.nameAr : props.countryNameAr;
-  const cities = 'country' in props && props.country ? props.country.cities : props.cities;
+  const countryName = 'country' in props && props.country !== undefined 
+    ? props.country.name 
+    : props.countryName!;
+  const countryNameAr = 'country' in props && props.country !== undefined 
+    ? props.country.nameAr 
+    : props.countryNameAr!;
+  const cities = 'country' in props && props.country !== undefined 
+    ? props.country.cities 
+    : props.cities!;
   
   const otherCities = cities.filter(city => city.slug !== currentCitySlug);
   
