@@ -18,16 +18,27 @@ interface CityPrayerTimesProps {
   cityNameAr: string;
   latitude: number;
   longitude: number;
+  initialPrayerTimes?: any;
+  initialHijriDate?: string;
+  initialGregorianDate?: string;
 }
 
-export default function CityPrayerTimes({ cityName, cityNameAr, latitude, longitude }: CityPrayerTimesProps) {
+export default function CityPrayerTimes({ 
+  cityName, 
+  cityNameAr, 
+  latitude, 
+  longitude,
+  initialPrayerTimes,
+  initialHijriDate,
+  initialGregorianDate
+}: CityPrayerTimesProps) {
   const { language } = useLanguage();
   const [prayerTimes, setPrayerTimes] = useState<PrayerTime[]>([]);
   const [nextPrayer, setNextPrayer] = useState<PrayerTime | null>(null);
   const [countdown, setCountdown] = useState({ hours: 0, minutes: 0, seconds: 0 });
-  const [hijriDate, setHijriDate] = useState('');
-  const [gregorianDate, setGregorianDate] = useState('');
-  const [loading, setLoading] = useState(true);
+  const [hijriDate, setHijriDate] = useState(initialHijriDate || '');
+  const [gregorianDate, setGregorianDate] = useState(initialGregorianDate || '');
+  const [loading, setLoading] = useState(!initialPrayerTimes);
 
   // Convert 24-hour to 12-hour format with AM/PM
   const formatTime = (time24: string) => {
@@ -44,6 +55,65 @@ export default function CityPrayerTimes({ cityName, cityNameAr, latitude, longit
   };
 
   useEffect(() => {
+    // If we have initial data from server, use it
+    if (initialPrayerTimes) {
+      const prayers: PrayerTime[] = [
+        {
+          name: 'Fajr',
+          nameAr: 'الفجر',
+          nameUr: 'فجر',
+          time: formatTime(initialPrayerTimes.Fajr),
+          time24: initialPrayerTimes.Fajr,
+          icon: <Sunrise className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />,
+        },
+        {
+          name: 'Sunrise',
+          nameAr: 'الشروق',
+          nameUr: 'طلوع',
+          time: formatTime(initialPrayerTimes.Sunrise),
+          time24: initialPrayerTimes.Sunrise,
+          icon: <Sun className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-500" />,
+        },
+        {
+          name: 'Dhuhr',
+          nameAr: 'الظهر',
+          nameUr: 'ظہر',
+          time: formatTime(initialPrayerTimes.Dhuhr),
+          time24: initialPrayerTimes.Dhuhr,
+          icon: <Sun className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-600" />,
+        },
+        {
+          name: 'Asr',
+          nameAr: 'العصر',
+          nameUr: 'عصر',
+          time: formatTime(initialPrayerTimes.Asr),
+          time24: initialPrayerTimes.Asr,
+          icon: <CloudSun className="w-6 h-6 sm:w-8 sm:h-8 text-orange-500" />,
+        },
+        {
+          name: 'Maghrib',
+          nameAr: 'المغرب',
+          nameUr: 'مغرب',
+          time: formatTime(initialPrayerTimes.Maghrib),
+          time24: initialPrayerTimes.Maghrib,
+          icon: <Sunset className="w-6 h-6 sm:w-8 sm:h-8 text-orange-700" />,
+        },
+        {
+          name: 'Isha',
+          nameAr: 'العشاء',
+          nameUr: 'عشاء',
+          time: formatTime(initialPrayerTimes.Isha),
+          time24: initialPrayerTimes.Isha,
+          icon: <Moon className="w-6 h-6 sm:w-8 sm:h-8 text-indigo-700" />,
+        },
+      ];
+
+      setPrayerTimes(prayers);
+      setLoading(false);
+      return;
+    }
+
+    // Fallback: Fetch from API if no initial data
     const fetchPrayerTimes = async () => {
       try {
         const response = await fetch(
@@ -118,7 +188,7 @@ export default function CityPrayerTimes({ cityName, cityNameAr, latitude, longit
     };
 
     fetchPrayerTimes();
-  }, [latitude, longitude]);
+  }, [latitude, longitude, initialPrayerTimes]);
 
   // Find next prayer and calculate countdown
   useEffect(() => {
@@ -174,14 +244,65 @@ export default function CityPrayerTimes({ cityName, cityNameAr, latitude, longit
 
   if (loading) {
     return (
-      <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 md:p-8">
-        <div className="animate-pulse space-y-6">
-          <div className="h-32 bg-gray-200 rounded-xl"></div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-            {[...Array(5)].map((_, i) => (
-              <div key={i} className="h-28 bg-gray-200 rounded-xl"></div>
-            ))}
+      <div className="bg-gradient-to-br from-gray-50 to-white rounded-xl sm:rounded-2xl shadow-xl p-4 sm:p-6 md:p-8 space-y-6">
+        {/* Skeleton - Header with Dates */}
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-4 border-b-2 border-gray-200">
+          <div className="flex-1 w-full sm:w-auto">
+            <div className="h-8 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 rounded-lg mb-2 animate-pulse w-3/4"></div>
+            <div className="h-4 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 rounded-lg animate-pulse w-1/2"></div>
           </div>
+          <div className="flex flex-col items-start sm:items-end gap-2">
+            <div className="h-5 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 rounded-lg animate-pulse w-32"></div>
+            <div className="h-4 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 rounded-lg animate-pulse w-24"></div>
+          </div>
+        </div>
+
+        {/* Skeleton - Next Prayer Card */}
+        <div className="bg-gradient-to-br from-gray-200 to-gray-300 rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 animate-pulse">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="text-center sm:text-right flex-1">
+              <div className="h-4 bg-white/40 rounded mb-2 w-24 mx-auto sm:mx-0"></div>
+              <div className="h-10 bg-white/40 rounded mb-2 w-32 mx-auto sm:mx-0"></div>
+              <div className="h-6 bg-white/40 rounded w-28 mx-auto sm:mx-0"></div>
+            </div>
+            <div className="bg-white/20 rounded-xl p-4 sm:p-6 min-w-[200px]">
+              <div className="h-4 bg-white/40 rounded mb-2 w-20 mx-auto"></div>
+              <div className="h-12 bg-white/40 rounded mb-2 w-40 mx-auto"></div>
+              <div className="h-3 bg-white/40 rounded w-16 mx-auto"></div>
+            </div>
+          </div>
+        </div>
+
+        {/* Skeleton - Prayer Times Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
+          {[1, 2, 3, 4, 5].map((i) => (
+            <div key={i} className="bg-gray-100 rounded-xl p-4 sm:p-5 animate-pulse">
+              <div className="h-6 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 rounded mb-3 w-20 mx-auto"></div>
+              <div className="h-8 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 rounded mb-2 w-16 mx-auto"></div>
+              <div className="h-3 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 rounded w-12 mx-auto"></div>
+            </div>
+          ))}
+        </div>
+
+        {/* Skeleton - Sunrise Badge */}
+        <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3 sm:p-4 animate-pulse">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3 flex-1">
+              <div className="w-6 h-6 bg-yellow-200 rounded-full"></div>
+              <div>
+                <div className="h-4 bg-yellow-200 rounded w-20 mb-2"></div>
+                <div className="h-3 bg-yellow-200 rounded w-24"></div>
+              </div>
+            </div>
+            <div className="h-6 bg-yellow-200 rounded w-20"></div>
+          </div>
+        </div>
+
+        {/* Loading Text */}
+        <div className="text-center">
+          <p className="text-sm text-gray-500 animate-pulse">
+            {language === 'ar' ? 'جاري تحميل مواقيت الصلاة...' : language === 'ur' ? 'نماز کے اوقات لوڈ ہو رہے ہیں...' : 'Loading prayer times...'}
+          </p>
         </div>
       </div>
     );

@@ -66,26 +66,33 @@ export default function OtherCities(props: OtherCitiesProps) {
   }
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16 bg-gradient-to-br from-gray-50 to-white">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
-          <h3 className="text-2xl font-bold text-center mb-8 text-gray-800 font-[var(--font-tajawal)]">
-            {t('otherCitiesIn')} {language === 'en' ? countryName : countryNameAr}
+          <h3 className="text-2xl sm:text-3xl font-bold text-center mb-10 text-gray-800 font-[var(--font-tajawal)]">
+            {language === 'ar' 
+              ? `مواقيت الصلاة في مدن ${countryNameAr} الأخرى`
+              : language === 'ur'
+              ? `${countryName} کے دیگر شہروں میں نماز کے اوقات`
+              : `Prayer times in other cities of ${countryName}`}
           </h3>
           
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5">
             {otherCities.map((city) => (
               <Link
                 key={city.slug}
                 href={language === 'ar' ? `/${countrySlug}/${city.slug}-prayertime` : `/${language}/${countrySlug}/${city.slug}-prayertime`}
-                className="bg-white rounded-lg shadow-md hover:shadow-lg transition-all p-4 text-center group hover:scale-105 transform duration-200"
+                className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-5 border-2 border-transparent hover:border-emerald-500 group"
               >
-                <p className="text-lg font-bold text-gray-800 mb-1 font-[var(--font-tajawal)] group-hover:text-emerald-600 transition-colors">
-                  {language === 'en' ? city.name : city.nameAr}
-                </p>
-                <p className="text-sm text-gray-600">
-                  {language === 'en' ? city.nameAr : city.name}
-                </p>
+                <div className="text-center">
+                  <p className="text-base sm:text-lg font-bold text-gray-800 font-[var(--font-tajawal)] group-hover:text-emerald-600 transition-colors leading-tight">
+                    {language === 'ar'
+                      ? `مواقيت الصلاة في ${city.nameAr}`
+                      : language === 'ur'
+                      ? `${city.nameAr} میں نماز کے اوقات`
+                      : `Prayer time in ${city.name}`}
+                  </p>
+                </div>
               </Link>
             ))}
           </div>

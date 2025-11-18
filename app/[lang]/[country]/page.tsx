@@ -10,8 +10,8 @@ import { MapPin, ArrowRight } from 'lucide-react';
 import countriesData from '@/data/countries.json';
 import type { Language } from '../../context/LanguageContext';
 
-// Enable ISR - Revalidate every 24 hours
-export const revalidate = 86400;
+// Enable ISR - Revalidate every 6 hours (21600 seconds)
+export const revalidate = 21600;
 
 // Valid language codes
 const LANGUAGES: Language[] = ['ar', 'en', 'ur'];

@@ -4,17 +4,16 @@ import Header from '../../../components/Header';
 import Footer from '../../../components/Footer';
 import Breadcrumb from '../../../components/Breadcrumb';
 import CityPrayerTimes from '../../../components/CityPrayerTimes';
-import CityDescription from '../../../components/CityDescription';
-import CitySEOContent from '../../../components/CitySEOContent';
 import OtherCities from '../../../components/OtherCities';
 import QiblaDirection from '../../../components/QiblaDirection';
+import PrayerTimesFAQ from '../../../components/PrayerTimesFAQ';
 import LanguageInitializer from '../../../components/LanguageInitializer';
 import { ArrowLeft } from 'lucide-react';
 import countriesData from '@/data/countries.json';
 import type { Language } from '../../../context/LanguageContext';
 
-// Enable ISR - Revalidate every 24 hours (86400 seconds)
-export const revalidate = 86400;
+// Enable ISR - Revalidate every 6 hours (21600 seconds)
+export const revalidate = 21600;
 
 // Valid language codes
 const LANGUAGES: Language[] = ['ar', 'en', 'ur'];
@@ -174,7 +173,7 @@ export default async function CityPrayerTimePage({ params }: Props) {
     const response = await fetch(
       `https://api.aladhan.com/v1/timings?latitude=${city.latitude}&longitude=${city.longitude}&method=4`,
       {
-        next: { revalidate: 3600 } // Cache for 1 hour
+        next: { revalidate: 21600 } // Cache for 6 hours
       }
     );
     const data = await response.json();
@@ -378,15 +377,10 @@ export default async function CityPrayerTimePage({ params }: Props) {
           </div>
           
           <div className="container mx-auto px-4 sm:px-6 relative z-10">
-            <div className="max-w-5xl mx-auto">
-              <div className="text-center space-y-3 sm:space-y-4 md:space-y-5">
-                {/* City Flag Emoji - Responsive Size */}
-                <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-2 sm:mb-3 animate-bounce-slow">
-                  {country.flag}
-                </div>
-                
-                {/* Main Heading - Progressive Text Scaling */}
-                <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-2 sm:mb-3 md:mb-4 font-[var(--font-tajawal)] leading-tight px-2">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center space-y-3 sm:space-y-4 md:space-y-5">
+              {/* Main Heading - Progressive Text Scaling */}
+              <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-2 sm:mb-3 md:mb-4 font-[var(--font-tajawal)] leading-tight px-2">
                   {language === 'ar' ? `مواقيت الصلاة في ${city.nameAr}` : language === 'ur' ? `${city.name} میں نماز کے اوقات` : `Prayer Times in ${city.name}`}
                 </h1>
                 
@@ -408,41 +402,22 @@ export default async function CityPrayerTimePage({ params }: Props) {
           </div>
         </section>
 
-        {/* Prayer Times Section - Optimized Spacing */}
-        <section className="py-8 sm:py-10 md:py-12 lg:py-16">
+        {/* Prayer Times Section - Directly after Hero */}
+        <section className="py-8 sm:py-10 md:py-12 lg:py-16 bg-gray-50">
           <div className="container mx-auto px-4 sm:px-6">
-            <div className="max-w-6xl mx-auto space-y-8 sm:space-y-10 md:space-y-12 lg:space-y-16">
-              {/* City Description - Full Width on Mobile */}
-              <div className="w-full">
-                <CityDescription 
-                  countrySlug={countrySlug}
-                  citySlug={citySlug}
-                  cityName={city.name}
-                  cityNameAr={city.nameAr}
-                  countryName={country.name}
-                />
-              </div>
-              
-              {/* Prayer Times Table - Responsive Container */}
-              <div className="w-full">
-                <CityPrayerTimes
-                  cityName={city.name}
-                  cityNameAr={city.nameAr}
-                  latitude={city.latitude}
-                  longitude={city.longitude}
-                />
-              </div>
+            <div className="max-w-6xl mx-auto">
+              <CityPrayerTimes
+                cityName={city.name}
+                cityNameAr={city.nameAr}
+                latitude={city.latitude}
+                longitude={city.longitude}
+                initialPrayerTimes={prayerTimesData}
+                initialHijriDate={hijriDate}
+                initialGregorianDate={gregorianDate}
+              />
             </div>
           </div>
         </section>
-
-        {/* SEO Content - Language-aware */}
-        <CitySEOContent 
-          cityName={city.name}
-          cityNameAr={city.nameAr}
-          latitude={city.latitude}
-          longitude={city.longitude}
-        />
 
         {/* Qibla Direction */}
         <QiblaDirection 
@@ -452,7 +427,16 @@ export default async function CityPrayerTimePage({ params }: Props) {
           longitude={city.longitude}
         />
 
-        {/* Other Cities - Multilingual */}
+        {/* FAQs Section */}
+        <PrayerTimesFAQ 
+          language={language}
+          cityName={city.name}
+          cityNameAr={city.nameAr}
+          countryName={country.name}
+          countryNameAr={country.nameAr}
+        />
+
+        {/* Other Cities - With Proper Format */}
         <OtherCities 
           currentCitySlug={city.slug}
           countrySlug={countrySlug}
