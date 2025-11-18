@@ -22,8 +22,8 @@ export default function RelatedCountries({ currentCountrySlug, language: propLan
   const relatedCountries = relatedSlugs
     .slice(0, 6)
     .map(slug => ({
-      slug,
-      ...countriesData[slug as keyof typeof countriesData]
+      ...countriesData[slug as keyof typeof countriesData],
+      slug
     }))
     .filter(Boolean);
 
