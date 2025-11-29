@@ -70,28 +70,28 @@ export default function About() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="bg-emerald-50 p-6 rounded-lg">
                     <Church className="w-12 h-12 text-emerald-600 mb-3" />
-                    <h4 className="font-bold text-lg mb-2 font-[var(--font-tajawal)]">مواقيت دقيقة</h4>
+                    <h3 className="font-bold text-lg mb-2 font-[var(--font-tajawal)]">مواقيت دقيقة</h3>
                     <p className="text-gray-600 text-sm">
                       حسابات فلكية دقيقة باستخدام واجهة Aladhan API
                     </p>
                   </div>
                   <div className="bg-emerald-50 p-6 rounded-lg">
                     <Calendar className="w-12 h-12 text-emerald-600 mb-3" />
-                    <h4 className="font-bold text-lg mb-2 font-[var(--font-tajawal)]">التقويم الهجري</h4>
+                    <h3 className="font-bold text-lg mb-2 font-[var(--font-tajawal)]">التقويم الهجري</h3>
                     <p className="text-gray-600 text-sm">
                       تقويم هجري وميلادي شامل لمدة 30 يوماً
                     </p>
                   </div>
                   <div className="bg-emerald-50 p-6 rounded-lg">
                     <Globe className="w-12 h-12 text-emerald-600 mb-3" />
-                    <h4 className="font-bold text-lg mb-2 font-[var(--font-tajawal)]">تغطية عالمية</h4>
+                    <h3 className="font-bold text-lg mb-2 font-[var(--font-tajawal)]">تغطية عالمية</h3>
                     <p className="text-gray-600 text-sm">
                       مواقيت لجميع دول الخليج وآسيا والعالم
                     </p>
                   </div>
                   <div className="bg-emerald-50 p-6 rounded-lg">
                     <Languages className="w-12 h-12 text-emerald-600 mb-3" />
-                    <h4 className="font-bold text-lg mb-2 font-[var(--font-tajawal)]">لغات متعددة</h4>
+                    <h3 className="font-bold text-lg mb-2 font-[var(--font-tajawal)]">لغات متعددة</h3>
                     <p className="text-gray-600 text-sm">
                       دعم اللغة العربية والإنجليزية والأردية
                     </p>

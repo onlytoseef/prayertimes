@@ -11,11 +11,19 @@ interface PrayerTime {
   icon: React.ReactNode;
 }
 
-export default function HolyCitiesPrayerTable() {
+interface HolyCitiesPrayerTableProps {
+  initialData?: {
+    makkah: any;
+    madinah: any;
+    hijriDate: string;
+  } | null;
+}
+
+export default function HolyCitiesPrayerTable({ initialData }: HolyCitiesPrayerTableProps) {
   const { t, language } = useLanguage();
   const [prayerTimes, setPrayerTimes] = useState<PrayerTime[]>([]);
-  const [hijriDate, setHijriDate] = useState('');
-  const [loading, setLoading] = useState(true);
+  const [hijriDate, setHijriDate] = useState(initialData?.hijriDate || '');
+  const [loading, setLoading] = useState(!initialData);
 
   // Convert 24-hour to 12-hour format with AM/PM
   const formatTime = (time24: string) => {
@@ -27,6 +35,56 @@ export default function HolyCitiesPrayerTable() {
   };
 
   useEffect(() => {
+    // If we have initial data from server, use it
+    if (initialData) {
+      const makkahTimings = initialData.makkah;
+      const madinahTimings = initialData.madinah;
+      
+      const prayers: PrayerTime[] = [
+        {
+          nameKey: 'fajr',
+          makkahTime: formatTime(makkahTimings.Fajr),
+          madinahTime: formatTime(madinahTimings.Fajr),
+          icon: <Sunrise className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" />,
+        },
+        {
+          nameKey: 'sunrise',
+          makkahTime: formatTime(makkahTimings.Sunrise),
+          madinahTime: formatTime(madinahTimings.Sunrise),
+          icon: <Sun className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-500" />,
+        },
+        {
+          nameKey: 'dhuhr',
+          makkahTime: formatTime(makkahTimings.Dhuhr),
+          madinahTime: formatTime(madinahTimings.Dhuhr),
+          icon: <Sun className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-600" />,
+        },
+        {
+          nameKey: 'asr',
+          makkahTime: formatTime(makkahTimings.Asr),
+          madinahTime: formatTime(madinahTimings.Asr),
+          icon: <CloudSun className="w-5 h-5 sm:w-6 sm:h-6 text-orange-500" />,
+        },
+        {
+          nameKey: 'maghrib',
+          makkahTime: formatTime(makkahTimings.Maghrib),
+          madinahTime: formatTime(madinahTimings.Maghrib),
+          icon: <Sunset className="w-5 h-5 sm:w-6 sm:h-6 text-orange-700" />,
+        },
+        {
+          nameKey: 'isha',
+          makkahTime: formatTime(makkahTimings.Isha),
+          madinahTime: formatTime(madinahTimings.Isha),
+          icon: <Moon className="w-5 h-5 sm:w-6 sm:h-6 text-indigo-600" />,
+        },
+      ];
+
+      setPrayerTimes(prayers);
+      setLoading(false);
+      return;
+    }
+
+    // Fallback: Fetch from API if no initial data
     const fetchPrayerTimes = async () => {
       try {
         setLoading(true);

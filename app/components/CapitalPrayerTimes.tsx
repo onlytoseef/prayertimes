@@ -36,6 +36,26 @@ export default function CapitalPrayerTimes({
   const [gregorianDate, setGregorianDate] = useState<string>('');
   const [loading, setLoading] = useState(true);
 
+  const getMonthTranslation = (monthName: string): string => {
+    const monthMap: { [key: string]: string } = {
+      'January': 'january',
+      'February': 'february',
+      'March': 'march',
+      'April': 'april',
+      'May': 'may',
+      'June': 'june',
+      'July': 'july',
+      'August': 'august',
+      'September': 'september',
+      'October': 'october',
+      'November': 'november',
+      'December': 'december',
+    };
+    
+    const key = monthMap[monthName];
+    return key ? t(key) : monthName;
+  };
+
   useEffect(() => {
     const fetchPrayerTimes = async () => {
       try {
@@ -58,11 +78,8 @@ export default function CapitalPrayerTimes({
 
           // Format Gregorian date
           const greg = data.data.date.gregorian;
-          const gregFormatted = language === 'ar'
-            ? `${greg.day} ${greg.month.ar} ${greg.year}`
-            : language === 'ur'
-            ? `${greg.day} ${greg.month.en} ${greg.year}`
-            : `${greg.day} ${greg.month.en} ${greg.year}`;
+          const monthName = getMonthTranslation(greg.month.en);
+          const gregFormatted = `${greg.day} ${monthName} ${greg.year}`;
           setGregorianDate(gregFormatted);
         }
       } catch (error) {

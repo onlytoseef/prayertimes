@@ -30,9 +30,9 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4 font-[var(--font-tajawal)]">
+            <h3 className="text-lg font-semibold mb-4 font-[var(--font-tajawal)]">
               {language === 'ar' ? 'روابط سريعة' : language === 'ur' ? 'فوری لنکس' : 'Quick Links'}
-            </h4>
+            </h3>
             <ul className="space-y-2">
               <li>
                 <Link href={language === 'ar' ? '/' : `/${language}`} className="text-gray-300 hover:text-emerald-400 transition-colors text-sm font-[var(--font-tajawal)]">
@@ -64,9 +64,9 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-lg font-semibold mb-4 font-[var(--font-tajawal)]">
+            <h3 className="text-lg font-semibold mb-4 font-[var(--font-tajawal)]">
               {language === 'ar' ? 'تواصل معنا' : language === 'ur' ? 'رابطہ کریں' : 'Contact Us'}
-            </h4>
+            </h3>
             <div className="space-y-3 text-sm text-gray-300">
               <p className="flex items-center gap-2">
                 <Mail className="w-5 h-5" />

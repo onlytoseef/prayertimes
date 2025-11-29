@@ -21,7 +21,7 @@ const translations = {
     privacyPolicy: 'سياسة الخصوصية',
     
     // Home Page - Hero
-    heroTitle: 'أوقات الصلاة',
+    heroTitle: 'أوقات الصلاة والأذان في جميع أنحاء العالم',
     heroDescription: 'مواقيت الصلاة الدقيقة لجميع مدن العالم مع التقويم الهجري والميلادي',
     accurateTimes: 'مواقيت دقيقة',
     hijriCalendar: 'التقويم الهجري',
@@ -88,7 +88,7 @@ const translations = {
     privacyPolicy: 'Privacy Policy',
     
     // Home Page - Hero
-    heroTitle: 'Prayer Times',
+    heroTitle: 'Prayer and Azan Time Worldwide',
     heroDescription: 'Accurate Islamic Prayer Times Worldwide with Hijri and Gregorian Calendar',
     accurateTimes: 'Accurate Times',
     hijriCalendar: 'Hijri Calendar',
@@ -155,7 +155,7 @@ const translations = {
     privacyPolicy: 'پرائیویسی پالیسی',
     
     // Home Page - Hero
-    heroTitle: 'نماز کے اوقات',
+    heroTitle: 'دنیا بھر میں نماز اور اذان کے اوقات',
     heroDescription: 'دنیا بھر کے تمام شہروں کے لیے درست نماز کے اوقات اور ہجری و عیسوی کیلنڈر',
     accurateTimes: 'درست اوقات',
     hijriCalendar: 'ہجری کیلنڈر',

@@ -221,9 +221,9 @@ export default function CitySEOContent({ cityName, cityNameAr, latitude, longitu
           <div className="space-y-6 text-gray-700">
             {currentContent.fivePrayers.prayers.map((prayer, index) => (
               <div key={index} className="border-l-4 border-emerald-500 pl-4 py-2">
-                <h4 className="font-bold text-lg text-emerald-700 mb-2 font-[var(--font-tajawal)]">
+                <h3 className="font-bold text-lg text-emerald-700 mb-2 font-[var(--font-tajawal)]">
                   {prayer.name} ({prayer.nameEn})
-                </h4>
+                </h3>
                 <p className="font-[var(--font-tajawal)]">{prayer.description}</p>
               </div>
             ))}
@@ -236,9 +236,9 @@ export default function CitySEOContent({ cityName, cityNameAr, latitude, longitu
           <div className="space-y-6">
             {currentContent.faq.questions.map((item, index) => (
               <div key={index} className="bg-emerald-50 rounded-lg p-6 border border-emerald-100">
-                <h4 className="font-bold text-lg text-gray-800 mb-3 font-[var(--font-tajawal)]">
+                <h3 className="font-bold text-lg text-gray-800 mb-3 font-[var(--font-tajawal)]">
                   {item.question}
-                </h4>
+                </h3>
                 <p className="text-gray-700 leading-relaxed font-[var(--font-tajawal)]">
                   {item.answer}
                 </p>

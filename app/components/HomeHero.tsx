@@ -25,22 +25,6 @@ export default function HomeHero() {
           <p className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-8 sm:mb-10 md:mb-12 text-emerald-50 font-[var(--font-tajawal)] leading-relaxed max-w-3xl mx-auto px-2 sm:px-4">
             {t('heroDescription')}
           </p>
-          
-          {/* Features */}
-          <div className="flex flex-col xs:flex-row flex-wrap justify-center items-center gap-3 sm:gap-4 mt-8 sm:mt-10 md:mt-12">
-            <div className="flex items-center gap-2 sm:gap-3 bg-white/10 backdrop-blur-sm rounded-full px-5 sm:px-6 md:px-7 py-2.5 sm:py-3 md:py-3.5 text-xs sm:text-sm md:text-base shadow-lg hover:bg-white/20 transition-all duration-300 hover:scale-105 w-auto min-w-[140px] sm:min-w-[160px] justify-center">
-              <Church className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 flex-shrink-0" />
-              <span className="font-medium whitespace-nowrap">{t('accurateTimes')}</span>
-            </div>
-            <div className="flex items-center gap-2 sm:gap-3 bg-white/10 backdrop-blur-sm rounded-full px-5 sm:px-6 md:px-7 py-2.5 sm:py-3 md:py-3.5 text-xs sm:text-sm md:text-base shadow-lg hover:bg-white/20 transition-all duration-300 hover:scale-105 w-auto min-w-[140px] sm:min-w-[160px] justify-center">
-              <Calendar className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 flex-shrink-0" />
-              <span className="font-medium whitespace-nowrap">{t('hijriCalendar')}</span>
-            </div>
-            <div className="flex items-center gap-2 sm:gap-3 bg-white/10 backdrop-blur-sm rounded-full px-5 sm:px-6 md:px-7 py-2.5 sm:py-3 md:py-3.5 text-xs sm:text-sm md:text-base shadow-lg hover:bg-white/20 transition-all duration-300 hover:scale-105 w-auto min-w-[140px] sm:min-w-[160px] justify-center">
-              <Globe className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 flex-shrink-0" />
-              <span className="font-medium whitespace-nowrap">{t('multipleCountries')}</span>
-            </div>
-          </div>
         </div>
       </div>
     </section>

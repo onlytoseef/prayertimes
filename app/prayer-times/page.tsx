@@ -89,7 +89,7 @@ export default function PrayerTimesPage() {
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-lg">
-                    <h4 className="text-xl font-bold mb-2 text-blue-900 font-[var(--font-tajawal)]">صلاة الفجر</h4>
+                    <h3 className="text-xl font-bold mb-2 text-blue-900 font-[var(--font-tajawal)]">صلاة الفجر</h3>
                     <p className="text-sm text-blue-800 mb-2">Fajr Prayer</p>
                     <p className="text-gray-700 text-sm font-[var(--font-tajawal)]">
                       صلاة الفجر تبدأ من طلوع الفجر الصادق حتى شروق الشمس
@@ -100,7 +100,7 @@ export default function PrayerTimesPage() {
                   </div>
 
                   <div className="bg-gradient-to-br from-yellow-50 to-yellow-100 p-6 rounded-lg">
-                    <h4 className="text-xl font-bold mb-2 text-yellow-900 font-[var(--font-tajawal)]">صلاة الظهر</h4>
+                    <h3 className="text-xl font-bold mb-2 text-yellow-900 font-[var(--font-tajawal)]">صلاة الظهر</h3>
                     <p className="text-sm text-yellow-800 mb-2">Dhuhr Prayer</p>
                     <p className="text-gray-700 text-sm font-[var(--font-tajawal)]">
                       صلاة الظهر تبدأ من زوال الشمس حتى وقت العصر
@@ -111,7 +111,7 @@ export default function PrayerTimesPage() {
                   </div>
 
                   <div className="bg-gradient-to-br from-orange-50 to-orange-100 p-6 rounded-lg">
-                    <h4 className="text-xl font-bold mb-2 text-orange-900 font-[var(--font-tajawal)]">صلاة العصر</h4>
+                    <h3 className="text-xl font-bold mb-2 text-orange-900 font-[var(--font-tajawal)]">صلاة العصر</h3>
                     <p className="text-sm text-orange-800 mb-2">Asr Prayer</p>
                     <p className="text-gray-700 text-sm font-[var(--font-tajawal)]">
                       صلاة العصر تبدأ عندما يصبح ظل الشيء مثله
@@ -122,7 +122,7 @@ export default function PrayerTimesPage() {
                   </div>
 
                   <div className="bg-gradient-to-br from-red-50 to-red-100 p-6 rounded-lg">
-                    <h4 className="text-xl font-bold mb-2 text-red-900 font-[var(--font-tajawal)]">صلاة المغرب</h4>
+                    <h3 className="text-xl font-bold mb-2 text-red-900 font-[var(--font-tajawal)]">صلاة المغرب</h3>
                     <p className="text-sm text-red-800 mb-2">Maghrib Prayer</p>
                     <p className="text-gray-700 text-sm font-[var(--font-tajawal)]">
                       صلاة المغرب تبدأ من غروب الشمس حتى مغيب الشفق الأحمر
@@ -133,7 +133,7 @@ export default function PrayerTimesPage() {
                   </div>
 
                   <div className="bg-gradient-to-br from-indigo-50 to-indigo-100 p-6 rounded-lg md:col-span-2">
-                    <h4 className="text-xl font-bold mb-2 text-indigo-900 font-[var(--font-tajawal)]">صلاة العشاء</h4>
+                    <h3 className="text-xl font-bold mb-2 text-indigo-900 font-[var(--font-tajawal)]">صلاة العشاء</h3>
                     <p className="text-sm text-indigo-800 mb-2">Isha Prayer</p>
                     <p className="text-gray-700 text-sm font-[var(--font-tajawal)]">
                       صلاة العشاء تبدأ من مغيب الشفق الأحمر حتى منتصف الليل

@@ -317,12 +317,9 @@ export default function CityPrayerTimes({
       {/* Header with Dates */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-4 border-b-2 border-gray-200">
         <div>
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 mb-1 font-[var(--font-tajawal)]">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 font-[var(--font-tajawal)]">
             {language === 'ar' ? `أوقات الصلاة في ${cityNameAr}` : language === 'ur' ? `${cityName} میں نماز کے اوقات` : `Prayer Times in ${cityName}`}
           </h2>
-          <p className="text-sm sm:text-base text-gray-600 font-[var(--font-tajawal)]">
-            {language === 'ar' ? 'هل تبحث عن جدولك؟' : language === 'ur' ? 'کیا آپ اپنا شیڈول تلاش کر رہے ہیں؟' : 'Are you looking for your schedule?'}
-          </p>
         </div>
         <div className="flex flex-col items-start sm:items-end text-right">
           <div className="flex items-center gap-2 text-gray-700">
@@ -386,11 +383,11 @@ export default function CityPrayerTimes({
 
             <div className="relative z-10">
               {/* Prayer Name */}
-              <h4 className={`text-base sm:text-lg font-bold mb-2 font-[var(--font-tajawal)] ${
+              <h3 className={`text-base sm:text-lg font-bold mb-2 font-[var(--font-tajawal)] ${
                 nextPrayer?.name === prayer.name ? 'text-white' : 'text-gray-800'
               }`}>
                 {getPrayerName(prayer)}
-              </h4>
+              </h3>
               
               {/* Prayer Time */}
               <p className={`text-xl sm:text-2xl font-bold font-mono ${
@@ -440,6 +437,88 @@ export default function CityPrayerTimes({
             ? `الفجر ${formatTime24(prayerTimes[0]?.time24 || '')} تک 18.0 ڈگری تک 18.0 ڈگری`
             : `Fajr ${formatTime24(prayerTimes[0]?.time24 || '')} up to 18.0 degrees up to 18.0 degrees`}
         </p>
+      </div>
+
+      {/* Azan Time Card - Matching Prayer Time Card Style */}
+      <div className="bg-gradient-to-br from-gray-50 to-white rounded-xl sm:rounded-2xl shadow-xl p-4 sm:p-6 md:p-8 space-y-6 mt-8">
+        {/* Header with Dates */}
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-4 border-b-2 border-gray-200">
+          <div>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 font-[var(--font-tajawal)]">
+              {language === 'ar' ? `أوقات الأذان في ${cityNameAr}` : language === 'ur' ? `${cityName} میں اذان کے اوقات` : `Azan Time in ${cityName}`}
+            </h2>
+          </div>
+          <div className="flex flex-col items-start sm:items-end text-right">
+            <div className="flex items-center gap-2 text-gray-700">
+              <Calendar className="w-4 h-4" />
+              <span className="text-sm font-semibold font-[var(--font-tajawal)]">{hijriDate}</span>
+            </div>
+            <p className="text-xs sm:text-sm text-gray-500 mt-1">{gregorianDate}</p>
+          </div>
+        </div>
+
+        {/* Azan Times Grid - Matching Prayer Times Style */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-4">
+          {prayerTimes.filter(p => p.name !== 'Sunrise').map((prayer) => {
+            const isNext = nextPrayer?.name === prayer.name;
+            return (
+              <div
+                key={prayer.name}
+                className={`relative rounded-lg shadow-md p-4 sm:p-5 md:p-6 text-center transition-all duration-300 hover:scale-105 overflow-hidden ${
+                  isNext
+                    ? 'bg-gradient-to-br from-emerald-600 to-emerald-700 text-white shadow-emerald-300'
+                    : 'bg-white hover:shadow-xl'
+                }`}
+              >
+                {/* Icon */}
+                <div className="flex justify-center mb-3">
+                  {prayer.icon}
+                </div>
+
+                {/* Decorative Background */}
+                {!isNext && (
+                  <div className="absolute inset-0 opacity-10">
+                    <div className="absolute -top-10 -right-10 w-32 h-32 bg-white rounded-full"></div>
+                  </div>
+                )}
+
+                <div className="relative z-10">
+                  {/* Prayer Name */}
+                  <h3 className={`text-base sm:text-lg font-bold mb-2 font-[var(--font-tajawal)] ${
+                    isNext ? 'text-white' : 'text-gray-800'
+                  }`}>
+                    {getPrayerName(prayer)}
+                  </h3>
+                  
+                  {/* Prayer Time */}
+                  <p className={`text-xl sm:text-2xl font-bold font-mono ${
+                    isNext ? 'text-white' : 'text-gray-700'
+                  }`}>
+                    {formatTime24(prayer.time24)}
+                  </p>
+                  
+                  {/* AM/PM */}
+                  <p className={`text-xs mt-1 ${
+                    isNext ? 'text-emerald-100' : 'text-gray-500'
+                  }`}>
+                    {prayer.time.split(' ')[1]}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Azan Info Note */}
+        <div className="pt-4 border-t border-gray-200 text-center">
+          <p className="text-xs sm:text-sm text-gray-600 font-[var(--font-tajawal)] leading-relaxed">
+            {language === 'ar'
+              ? `أوقات الأذان في ${cityNameAr} هي نفسها أوقات الصلاة. يتم رفع الأذان عند دخول وقت كل صلاة من الصلوات الخمس.`
+              : language === 'ur'
+              ? `${cityName} میں اذان کے اوقات نماز کے اوقات کے برابر ہیں۔ ہر نماز کے وقت داخل ہونے پر اذان دی جاتی ہے۔`
+              : `Azan times in ${cityName} are the same as prayer times. The call to prayer (Azan) is made at the beginning of each of the five daily prayers.`}
+          </p>
+        </div>
       </div>
     </div>
   );

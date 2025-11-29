@@ -40,7 +40,7 @@ export default function Contact() {
                   <div className="flex items-start gap-4">
                     <Mail className="w-8 h-8 text-emerald-600 flex-shrink-0 mt-1" />
                     <div>
-                      <h4 className="font-semibold text-gray-800 mb-1">البريد الإلكتروني</h4>
+                      <h3 className="font-semibold text-gray-800 mb-1">البريد الإلكتروني</h3>
                       <p className="text-gray-600">info@prayertimes.com</p>
                       <p className="text-gray-600">support@prayertimes.com</p>
                     </div>
@@ -49,7 +49,7 @@ export default function Contact() {
                   <div className="flex items-start gap-4">
                     <Globe className="w-8 h-8 text-emerald-600 flex-shrink-0 mt-1" />
                     <div>
-                      <h4 className="font-semibold text-gray-800 mb-1 font-[var(--font-tajawal)]">الموقع الإلكتروني</h4>
+                      <h3 className="font-semibold text-gray-800 mb-1 font-[var(--font-tajawal)]">الموقع الإلكتروني</h3>
                       <p className="text-gray-600">www.prayertimes.com</p>
                     </div>
                   </div>
@@ -57,7 +57,7 @@ export default function Contact() {
                   <div className="flex items-start gap-4">
                     <Clock className="w-8 h-8 text-emerald-600 flex-shrink-0 mt-1" />
                     <div>
-                      <h4 className="font-semibold text-gray-800 mb-1 font-[var(--font-tajawal)]">ساعات العمل</h4>
+                      <h3 className="font-semibold text-gray-800 mb-1 font-[var(--font-tajawal)]">ساعات العمل</h3>
                       <p className="text-gray-600">24/7 - خدمة متاحة على مدار الساعة</p>
                     </div>
                   </div>
@@ -65,7 +65,7 @@ export default function Contact() {
                   <div className="flex items-start gap-4">
                     <MessageSquare className="w-8 h-8 text-emerald-600 flex-shrink-0 mt-1" />
                     <div>
-                      <h4 className="font-semibold text-gray-800 mb-1 font-[var(--font-tajawal)]">وسائل التواصل الاجتماعي</h4>
+                      <h3 className="font-semibold text-gray-800 mb-1 font-[var(--font-tajawal)]">وسائل التواصل الاجتماعي</h3>
                       <div className="flex gap-3 mt-2">
                         <a href="#" className="text-emerald-600 hover:scale-110 transition-transform">
                           <Facebook className="w-6 h-6" />

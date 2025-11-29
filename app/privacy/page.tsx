@@ -38,26 +38,26 @@ export default function Privacy() {
                     نحن في موقع أوقات الصلاة نلتزم بحماية خصوصيتك. هذه السياسة توضح كيفية جمع واستخدام المعلومات عند زيارة موقعنا.
                   </p>
 
-                  <h4 className="text-xl font-semibold text-gray-800 mt-6 mb-3">المعلومات التي نجمعها</h4>
+                  <h3 className="text-xl font-semibold text-gray-800 mt-6 mb-3">المعلومات التي نجمعها</h3>
                   <ul className="list-disc list-inside space-y-2">
                     <li>معلومات الموقع الجغرافي (اختيارية) لعرض مواقيت الصلاة الدقيقة</li>
                     <li>معلومات الاستخدام العامة مثل نوع المتصفح والجهاز</li>
                     <li>تفضيلات اللغة التي تختارها</li>
                   </ul>
 
-                  <h4 className="text-xl font-semibold text-gray-800 mt-6 mb-3">كيف نستخدم معلوماتك</h4>
+                  <h3 className="text-xl font-semibold text-gray-800 mt-6 mb-3">كيف نستخدم معلوماتك</h3>
                   <ul className="list-disc list-inside space-y-2">
                     <li>توفير مواقيت الصلاة الدقيقة بناءً على موقعك</li>
                     <li>تحسين تجربة المستخدم وخدماتنا</li>
                     <li>إرسال الإشعارات والتحديثات (إن طلبت ذلك)</li>
                   </ul>
 
-                  <h4 className="text-xl font-semibold text-gray-800 mt-6 mb-3">حماية البيانات</h4>
+                  <h3 className="text-xl font-semibold text-gray-800 mt-6 mb-3">حماية البيانات</h3>
                   <p>
                     نحن لا نبيع أو نشارك معلوماتك الشخصية مع أطراف ثالثة. جميع البيانات محمية ومؤمنة.
                   </p>
 
-                  <h4 className="text-xl font-semibold text-gray-800 mt-6 mb-3">ملفات تعريف الارتباط (Cookies)</h4>
+                  <h3 className="text-xl font-semibold text-gray-800 mt-6 mb-3">ملفات تعريف الارتباط (Cookies)</h3>
                   <p>
                     نستخدم ملفات تعريف الارتباط لحفظ تفضيلاتك اللغوية وتحسين تجربتك. يمكنك تعطيلها من إعدادات المتصفح.
                   </p>
@@ -72,36 +72,36 @@ export default function Privacy() {
                     At Prayer Times, we are committed to protecting your privacy. This policy explains how we collect and use information when you visit our website.
                   </p>
 
-                  <h4 className="text-xl font-semibold text-gray-800 mt-6 mb-3">Information We Collect</h4>
+                  <h3 className="text-xl font-semibold text-gray-800 mt-6 mb-3">Information We Collect</h3>
                   <ul className="list-disc list-inside space-y-2">
                     <li>Geographic location information (optional) to display accurate prayer times</li>
                     <li>General usage information such as browser type and device</li>
                     <li>Language preferences you select</li>
                   </ul>
 
-                  <h4 className="text-xl font-semibold text-gray-800 mt-6 mb-3">How We Use Your Information</h4>
+                  <h3 className="text-xl font-semibold text-gray-800 mt-6 mb-3">How We Use Your Information</h3>
                   <ul className="list-disc list-inside space-y-2">
                     <li>Provide accurate prayer times based on your location</li>
                     <li>Improve user experience and our services</li>
                     <li>Send notifications and updates (if requested)</li>
                   </ul>
 
-                  <h4 className="text-xl font-semibold text-gray-800 mt-6 mb-3">Data Protection</h4>
+                  <h3 className="text-xl font-semibold text-gray-800 mt-6 mb-3">Data Protection</h3>
                   <p>
                     We do not sell or share your personal information with third parties. All data is protected and secured.
                   </p>
 
-                  <h4 className="text-xl font-semibold text-gray-800 mt-6 mb-3">Cookies</h4>
+                  <h3 className="text-xl font-semibold text-gray-800 mt-6 mb-3">Cookies</h3>
                   <p>
                     We use cookies to save your language preferences and improve your experience. You can disable them in your browser settings.
                   </p>
 
-                  <h4 className="text-xl font-semibold text-gray-800 mt-6 mb-3">Third-Party Services</h4>
+                  <h3 className="text-xl font-semibold text-gray-800 mt-6 mb-3">Third-Party Services</h3>
                   <p>
                     We use the Aladhan API to fetch prayer times. Please refer to their privacy policy for information about how they handle data.
                   </p>
 
-                  <h4 className="text-xl font-semibold text-gray-800 mt-6 mb-3">Your Rights</h4>
+                  <h3 className="text-xl font-semibold text-gray-800 mt-6 mb-3">Your Rights</h3>
                   <ul className="list-disc list-inside space-y-2">
                     <li>Access and review your data</li>
                     <li>Request deletion of your data</li>
@@ -109,7 +109,7 @@ export default function Privacy() {
                     <li>Update your preferences at any time</li>
                   </ul>
 
-                  <h4 className="text-xl font-semibold text-gray-800 mt-6 mb-3">Contact Us</h4>
+                  <h3 className="text-xl font-semibold text-gray-800 mt-6 mb-3">Contact Us</h3>
                   <p>
                     If you have any questions about this Privacy Policy, please contact us at:
                     <br />
@@ -118,7 +118,7 @@ export default function Privacy() {
                     </a>
                   </p>
 
-                  <h4 className="text-xl font-semibold text-gray-800 mt-6 mb-3">Changes to This Policy</h4>
+                  <h3 className="text-xl font-semibold text-gray-800 mt-6 mb-3">Changes to This Policy</h3>
                   <p>
                     We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page with an updated "Last Updated" date.
                   </p>
@@ -127,7 +127,7 @@ export default function Privacy() {
 
               {/* Consent */}
               <div className="bg-emerald-50 p-6 rounded-lg border-l-4 border-emerald-600">
-                <h4 className="font-bold text-gray-800 mb-2 font-[var(--font-tajawal)]">الموافقة / Consent</h4>
+                <h3 className="font-bold text-gray-800 mb-2 font-[var(--font-tajawal)]">الموافقة / Consent</h3>
                 <p className="text-gray-700 font-[var(--font-tajawal)] mb-2">
                   باستخدامك لموقعنا، فإنك توافق على سياسة الخصوصية هذه.
                 </p>

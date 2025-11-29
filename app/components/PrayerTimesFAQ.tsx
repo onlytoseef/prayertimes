@@ -4,10 +4,11 @@ import { useState } from 'react';
 import { ChevronDown, HelpCircle } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import type { Language } from '../context/LanguageContext';
+import type { ReactElement } from 'react';
 
 interface FAQItem {
   question: { ar: string; en: string; ur: string };
-  answer: { ar: string; en: string; ur: string };
+  answer: { ar: string; en: string; ur: string } | { ar: ReactElement; en: ReactElement; ur: ReactElement };
 }
 
 interface PrayerTimesFAQProps {
@@ -16,6 +17,14 @@ interface PrayerTimesFAQProps {
   cityNameAr?: string;
   countryName?: string;
   countryNameAr?: string;
+  prayerTimes?: {
+    Fajr: string;
+    Sunrise: string;
+    Dhuhr: string;
+    Asr: string;
+    Maghrib: string;
+    Isha: string;
+  };
 }
 
 export default function PrayerTimesFAQ({ 
@@ -23,15 +32,114 @@ export default function PrayerTimesFAQ({
   cityName = '',
   cityNameAr = '',
   countryName = '',
-  countryNameAr = ''
+  countryNameAr = '',
+  prayerTimes
 }: PrayerTimesFAQProps) {
   const { language: contextLanguage } = useLanguage();
   const language = propLanguage || contextLanguage;
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
+  // Helper function to format 24-hour time to 12-hour with AM/PM
+  const formatTime12Hour = (time24: string): string => {
+    const [hours, minutes] = time24.split(':');
+    const hour = parseInt(hours, 10);
+    const ampm = hour >= 12 ? 'PM' : 'AM';
+    const hour12 = hour % 12 || 12;
+    return `${hour12}:${minutes} ${ampm}`;
+  };
+
   // Get display names based on language
   const displayCityName = language === 'ar' || language === 'ur' ? cityNameAr : cityName;
   const displayCountryName = language === 'ar' || language === 'ur' ? countryNameAr : countryName;
+
+  // Create dynamic first answer with prayer times list
+  const firstAnswerWithTimes = prayerTimes ? {
+    ar: (
+      <div>
+        <p className="mb-3">مواقيت الصلاة في {cityNameAr} في {countryNameAr} اليوم هي كالتالي. تشمل أوقات الصلاة الخمس اليومية والتي تحسب بين المصادر المختلفة ٪:</p>
+        <ul className="list-none space-y-2 bg-emerald-50 p-4 rounded-lg">
+          <li className="flex items-center justify-between">
+            <span className="font-semibold text-gray-800">• الفجر:</span>
+            <span className="text-emerald-700 font-mono font-bold">{prayerTimes.Fajr}</span>
+          </li>
+          <li className="flex items-center justify-between">
+            <span className="font-semibold text-gray-800">• الظهر:</span>
+            <span className="text-emerald-700 font-mono font-bold">{prayerTimes.Dhuhr}</span>
+          </li>
+          <li className="flex items-center justify-between">
+            <span className="font-semibold text-gray-800">• العصر:</span>
+            <span className="text-emerald-700 font-mono font-bold">{prayerTimes.Asr}</span>
+          </li>
+          <li className="flex items-center justify-between">
+            <span className="font-semibold text-gray-800">• المغرب:</span>
+            <span className="text-emerald-700 font-mono font-bold">{prayerTimes.Maghrib}</span>
+          </li>
+          <li className="flex items-center justify-between">
+            <span className="font-semibold text-gray-800">• العشاء:</span>
+            <span className="text-emerald-700 font-mono font-bold">{prayerTimes.Isha}</span>
+          </li>
+        </ul>
+      </div>
+    ),
+    en: (
+      <div>
+        <p className="mb-3">Prayer times in {cityName}, {countryName} today are as follows. These include the five daily prayers calculated with precision:</p>
+        <ul className="list-none space-y-2 bg-emerald-50 p-4 rounded-lg">
+          <li className="flex items-center justify-between">
+            <span className="font-semibold text-gray-800">• Fajr:</span>
+            <span className="text-emerald-700 font-mono font-bold">{formatTime12Hour(prayerTimes.Fajr)}</span>
+          </li>
+          <li className="flex items-center justify-between">
+            <span className="font-semibold text-gray-800">• Dhuhr:</span>
+            <span className="text-emerald-700 font-mono font-bold">{formatTime12Hour(prayerTimes.Dhuhr)}</span>
+          </li>
+          <li className="flex items-center justify-between">
+            <span className="font-semibold text-gray-800">• Asr:</span>
+            <span className="text-emerald-700 font-mono font-bold">{formatTime12Hour(prayerTimes.Asr)}</span>
+          </li>
+          <li className="flex items-center justify-between">
+            <span className="font-semibold text-gray-800">• Maghrib:</span>
+            <span className="text-emerald-700 font-mono font-bold">{formatTime12Hour(prayerTimes.Maghrib)}</span>
+          </li>
+          <li className="flex items-center justify-between">
+            <span className="font-semibold text-gray-800">• Isha:</span>
+            <span className="text-emerald-700 font-mono font-bold">{formatTime12Hour(prayerTimes.Isha)}</span>
+          </li>
+        </ul>
+      </div>
+    ),
+    ur: (
+      <div>
+        <p className="mb-3">{cityNameAr}، {countryNameAr} میں آج نماز کے اوقات درج ذیل ہیں۔ ان میں درستگی کے ساتھ شمار کی گئی پانچ روزانہ نمازیں شامل ہیں:</p>
+        <ul className="list-none space-y-2 bg-emerald-50 p-4 rounded-lg">
+          <li className="flex items-center justify-between">
+            <span className="font-semibold text-gray-800">• فجر:</span>
+            <span className="text-emerald-700 font-mono font-bold">{prayerTimes.Fajr}</span>
+          </li>
+          <li className="flex items-center justify-between">
+            <span className="font-semibold text-gray-800">• ظہر:</span>
+            <span className="text-emerald-700 font-mono font-bold">{prayerTimes.Dhuhr}</span>
+          </li>
+          <li className="flex items-center justify-between">
+            <span className="font-semibold text-gray-800">• عصر:</span>
+            <span className="text-emerald-700 font-mono font-bold">{prayerTimes.Asr}</span>
+          </li>
+          <li className="flex items-center justify-between">
+            <span className="font-semibold text-gray-800">• مغرب:</span>
+            <span className="text-emerald-700 font-mono font-bold">{prayerTimes.Maghrib}</span>
+          </li>
+          <li className="flex items-center justify-between">
+            <span className="font-semibold text-gray-800">• عشاء:</span>
+            <span className="text-emerald-700 font-mono font-bold">{prayerTimes.Isha}</span>
+          </li>
+        </ul>
+      </div>
+    )
+  } : {
+    ar: `مواقيت الصلاة في ${cityNameAr}, ${countryNameAr} تشمل خمس صلوات يومية: الفجر (قبل شروق الشمس)، الظهر (بعد الزوال)، العصر (بعد الظهر)، المغرب (عند غروب الشمس)، والعشاء (بعد غياب الشفق). يتم تحديث هذه الأوقات يومياً بناءً على الموقع الجغرافي الدقيق لـ ${cityNameAr}.`,
+    en: `Prayer times in ${cityName}, ${countryName} include five daily prayers: Fajr (before sunrise), Dhuhr (after midday), Asr (afternoon), Maghrib (at sunset), and Isha (after twilight). These times are updated daily based on the precise geographical location of ${cityName}.`,
+    ur: `${cityNameAr}, ${countryNameAr} میں نماز کے اوقات میں پانچ روزانہ نمازیں شامل ہیں: فجر (طلوع آفتاب سے پہلے)، ظہر (دوپہر کے بعد)، عصر (سہ پہر)، مغرب (غروب آفتاب کے وقت)، اور عشاء (شام کے بعد)۔ یہ اوقات ${cityNameAr} کے درست جغرافیائی محل وقوع کی بنیاد پر روزانہ اپ ڈیٹ کیے جاتے ہیں۔`
+  };
 
   const faqs: FAQItem[] = [
     {
@@ -40,11 +148,7 @@ export default function PrayerTimesFAQ({
         en: `What are the prayer times in ${cityName}?`,
         ur: `${cityNameAr} میں نماز کے اوقات کیا ہیں؟`
       },
-      answer: {
-        ar: `مواقيت الصلاة في ${cityNameAr}, ${countryNameAr} تشمل خمس صلوات يومية: الفجر (قبل شروق الشمس)، الظهر (بعد الزوال)، العصر (بعد الظهر)، المغرب (عند غروب الشمس)، والعشاء (بعد غياب الشفق). يتم تحديث هذه الأوقات يومياً بناءً على الموقع الجغرافي الدقيق لـ ${cityNameAr}.`,
-        en: `Prayer times in ${cityName}, ${countryName} include five daily prayers: Fajr (before sunrise), Dhuhr (after midday), Asr (afternoon), Maghrib (at sunset), and Isha (after twilight). These times are updated daily based on the precise geographical location of ${cityName}.`,
-        ur: `${cityNameAr}, ${countryNameAr} میں نماز کے اوقات میں پانچ روزانہ نمازیں شامل ہیں: فجر (طلوع آفتاب سے پہلے)، ظہر (دوپہر کے بعد)، عصر (سہ پہر)، مغرب (غروب آفتاب کے وقت)، اور عشاء (شام کے بعد)۔ یہ اوقات ${cityNameAr} کے درست جغرافیائی محل وقوع کی بنیاد پر روزانہ اپ ڈیٹ کیے جاتے ہیں۔`
-      }
+      answer: firstAnswerWithTimes
     },
     {
       question: {
@@ -163,13 +267,15 @@ export default function PrayerTimesFAQ({
                 {/* Answer Panel */}
                 <div
                   className={`overflow-hidden transition-all duration-300 ${
-                    openIndex === index ? 'max-h-96' : 'max-h-0'
+                    openIndex === index ? 'max-h-[600px]' : 'max-h-0'
                   }`}
                 >
                   <div className="p-5 sm:p-6 pt-0 border-t border-gray-200">
-                    <p className="text-gray-700 text-sm sm:text-base leading-relaxed font-[var(--font-tajawal)]">
-                      {language === 'ar' ? faq.answer.ar : language === 'ur' ? faq.answer.ur : faq.answer.en}
-                    </p>
+                    <div className="text-gray-700 text-sm sm:text-base leading-relaxed font-[var(--font-tajawal)]">
+                      {typeof faq.answer === 'object' && 'ar' in faq.answer && typeof faq.answer.ar !== 'string'
+                        ? (language === 'ar' ? faq.answer.ar : language === 'ur' ? faq.answer.ur : faq.answer.en)
+                        : (language === 'ar' ? faq.answer.ar : language === 'ur' ? faq.answer.ur : faq.answer.en)}
+                    </div>
                   </div>
                 </div>
               </div>

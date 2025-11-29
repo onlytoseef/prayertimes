@@ -173,20 +173,13 @@ export default async function CountryPage({ params }: Props) {
               </h1>
               
               {/* SEO-Rich Description Paragraph */}
-              <div className="text-emerald-50 text-base sm:text-lg font-[var(--font-tajawal)] max-w-4xl mx-auto leading-relaxed space-y-3">
+              <div className="text-emerald-50 text-base sm:text-lg font-[var(--font-tajawal)] max-w-4xl mx-auto leading-relaxed">
                 <p>
                   {language === 'ar'
                     ? `احصل على مواقيت الصلاة الدقيقة لجميع مدن ${country.nameAr} بما في ذلك ${country.cities.slice(0, 4).map(c => c.nameAr).join('، ')}${country.cities.length > 4 ? '، وغيرها' : ''}. نوفر أوقات الفجر والظهر والعصر والمغرب والعشاء مع التقويم الهجري واتجاه القبلة لكل مدينة في ${country.nameAr}.`
                     : language === 'ur'
                     ? `${country.name} کے تمام شہروں بشمول ${country.cities.slice(0, 4).map(c => c.nameAr).join('، ')}${country.cities.length > 4 ? ' اور دیگر' : ''} کے لیے درست نماز کے اوقات حاصل کریں۔ ہم ${country.name} کے ہر شہر کے لیے فجر، ظہر، عصر، مغرب اور عشاء کے اوقات ہجری کیلنڈر اور قبلہ کی سمت کے ساتھ فراہم کرتے ہیں۔`
                     : `Get accurate prayer times for all cities in ${country.name} including ${country.cities.slice(0, 4).map(c => c.name).join(', ')}${country.cities.length > 4 ? ', and more' : ''}. We provide Fajr, Dhuhr, Asr, Maghrib, and Isha timings with Hijri calendar and Qibla direction for every city in ${country.name}.`}
-                </p>
-                <p className="text-sm sm:text-base text-emerald-100">
-                  {language === 'ar'
-                    ? `مواقيت الصلاة محدثة يومياً وتعتمد على الإحداثيات الجغرافية الدقيقة لـ ${country.cities.length} مدينة في ${country.nameAr}.`
-                    : language === 'ur'
-                    ? `نماز کے اوقات روزانہ اپ ڈیٹ ہوتے ہیں اور ${country.name} کے ${country.cities.length} شہروں کے درست جغرافیائی محل وقوع پر مبنی ہیں۔`
-                    : `Prayer times are updated daily and based on precise geographical coordinates for ${country.cities.length} cities in ${country.name}.`}
                 </p>
               </div>
             </div>
@@ -226,13 +219,13 @@ export default async function CountryPage({ params }: Props) {
                       <div className="flex-1">
                         <div className="flex items-center gap-3">
                           <MapPin className="w-5 h-5 text-emerald-600" />
-                          <h4 className="text-base sm:text-lg font-semibold text-gray-800 group-hover:text-emerald-600 transition-colors font-[var(--font-tajawal)] leading-tight">
+                          <h3 className="text-base sm:text-lg font-semibold text-gray-800 group-hover:text-emerald-600 transition-colors font-[var(--font-tajawal)] leading-tight">
                             {language === 'ar'
                               ? `مواقيت الصلاة في ${city.nameAr}`
                               : language === 'ur'
                               ? `${city.nameAr} میں نماز کے اوقات`
                               : `Prayer time in ${city.name}`}
-                          </h4>
+                          </h3>
                         </div>
                       </div>
                       <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-emerald-600 group-hover:translate-x-1 transition-all" />

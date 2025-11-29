@@ -187,9 +187,9 @@ export default function QiblaDirection({ cityName, cityNameAr, latitude, longitu
 
                 {/* Instructions */}
                 <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                  <h4 className="sr-only">
+                  <h3 className="sr-only">
                     {language === 'ar' ? 'تعليمات الاستخدام' : language === 'ur' ? 'استعمال کی ہدایات' : 'Usage Instructions'}
-                  </h4>
+                  </h3>
                   <p className="text-xs sm:text-sm text-gray-700 leading-relaxed font-[var(--font-tajawal)]">
                     {language === 'ar'
                       ? `لمعرفة اتجاه القبلة من ${cityNameAr}، استخدم البوصلة أو تطبيق الهاتف. اتجه نحو ${getDirectionName(qiblaAngle)} بزاوية ${qiblaAngle.toFixed(1)} درجة للصلاة في اتجاه الكعبة المشرفة.`

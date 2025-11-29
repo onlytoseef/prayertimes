@@ -4,6 +4,7 @@ import Header from '../../../components/Header';
 import Footer from '../../../components/Footer';
 import Breadcrumb from '../../../components/Breadcrumb';
 import CityPrayerTimes from '../../../components/CityPrayerTimes';
+import MonthlyPrayerTimesServer from '../../../components/MonthlyPrayerTimesServer';
 import OtherCities from '../../../components/OtherCities';
 import QiblaDirection from '../../../components/QiblaDirection';
 import PrayerTimesFAQ from '../../../components/PrayerTimesFAQ';
@@ -60,21 +61,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // Language-specific metadata
   const metadataByLanguage = {
     ar: {
-      title: `أوقات الصلاة في ${city.nameAr} - ${country.nameAr} ${new Date().getFullYear()}`,
+      title: `مواقيت الصلاة والأذان في ${city.nameAr} ${country.nameAr} اليوم`,
       description: `احصل على أوقات الصلاة الدقيقة في ${city.nameAr}, ${country.nameAr}. مواقيت الفجر والظهر والعصر والمغرب والعشاء محدثة يومياً مع التقويم الهجري.`,
-      ogTitle: `أوقات الصلاة في ${city.nameAr} - ${country.nameAr}`,
+      ogTitle: `مواقيت الصلاة والأذان في ${city.nameAr} ${country.nameAr} اليوم`,
       ogDescription: `مواقيت الصلاة اليومية الدقيقة في ${city.nameAr}. الفجر، الظهر، العصر، المغرب، العشاء مع التقويم الهجري.`,
     },
     en: {
-      title: `Prayer Times in ${city.name} - ${country.name} ${new Date().getFullYear()}`,
+      title: `Prayer and Azan Times in ${city.name} ${country.name} Today`,
       description: `Get accurate prayer times for ${city.name}, ${country.name}. Daily Fajr, Dhuhr, Asr, Maghrib, and Isha timings based on verified Islamic calculations. Updated daily with Hijri calendar.`,
-      ogTitle: `Prayer Times in ${city.name} - ${country.name}`,
+      ogTitle: `Prayer and Azan Times in ${city.name} ${country.name} Today`,
       ogDescription: `Accurate daily prayer times for ${city.name}. Fajr, Dhuhr, Asr, Maghrib, Isha with Hijri calendar.`,
     },
     ur: {
-      title: `${city.name} میں نماز کے اوقات - ${country.name} ${new Date().getFullYear()}`,
+      title: `${city.name} ${country.name} میں آج نماز اور اذان کے اوقات`,
       description: `${city.name}, ${country.name} کے لیے درست نماز کے اوقات حاصل کریں۔ روزانہ فجر، ظہر، عصر، مغرب اور عشاء کے اوقات اسلامی حسابات کی بنیاد پر۔ ہجری کیلنڈر کے ساتھ روزانہ اپ ڈیٹ۔`,
-      ogTitle: `${city.name} میں نماز کے اوقات - ${country.name}`,
+      ogTitle: `${city.name} ${country.name} میں آج نماز اور اذان کے اوقات`,
       ogDescription: `${city.name} کے لیے روزانہ نماز کے اوقات۔ فجر، ظہر، عصر، مغرب، عشاء کے ساتھ ہجری کیلنڈر۔`,
     },
   };
@@ -164,10 +165,11 @@ export default async function CityPrayerTimePage({ params }: Props) {
     );
   }
 
-  // Fetch prayer times server-side for SEO
+  // Fetch prayer times server-side for SEO and components
   let prayerTimesData = null;
   let hijriDate = '';
   let gregorianDate = '';
+  let monthlyPrayerTimes: Array<{ date: Date; timings: any }> = [];
   
   try {
     const response = await fetch(
@@ -183,6 +185,61 @@ export default async function CityPrayerTimePage({ params }: Props) {
       hijriDate = `${data.data.date.hijri.day} ${data.data.date.hijri.month.ar} ${data.data.date.hijri.year}`;
       gregorianDate = data.data.date.readable;
     }
+
+    // Fetch 30 days prayer times for monthly table (in batches to avoid timeout)
+    // Skip during build to avoid API overload, will fetch on client-side
+    const isBuildTime = process.env.NODE_ENV === 'production' && !process.env.VERCEL;
+    
+    if (!isBuildTime) {
+      const today = new Date();
+      const batchSize = 3; // Reduced to 3 for better reliability
+      
+      for (let batch = 0; batch < 10; batch++) { // 10 batches of 3 days = 30 days
+        const batchPromises = [];
+        
+        for (let i = 0; i < batchSize; i++) {
+          const dayIndex = batch * batchSize + i;
+          if (dayIndex >= 30) break;
+          
+          const date = new Date(today);
+          date.setDate(today.getDate() + dayIndex);
+          const timestamp = Math.floor(date.getTime() / 1000);
+          
+          batchPromises.push(
+            fetch(
+              `https://api.aladhan.com/v1/timings/${timestamp}?latitude=${city.latitude}&longitude=${city.longitude}&method=4`,
+              { 
+                next: { revalidate: 21600 },
+                signal: AbortSignal.timeout(30000) // 30 second timeout
+              }
+            )
+            .then(res => res.json())
+            .then(data => ({ data, date }))
+            .catch(err => {
+              console.error(`Error fetching prayer times for day ${dayIndex}:`, err);
+              return null;
+            })
+          );
+        }
+
+        const batchResults = await Promise.all(batchPromises);
+        
+        batchResults.forEach(result => {
+          if (result && result.data && result.data.code === 200) {
+            monthlyPrayerTimes.push({
+              date: result.date,
+              timings: result.data.data.timings
+            });
+          }
+        });
+        
+        // Delay between batches to avoid rate limiting
+        if (batch < 9) {
+          await new Promise(resolve => setTimeout(resolve, 500)); // 500ms delay
+        }
+      }
+    }
+
   } catch (error) {
     console.error('Error fetching prayer times for SEO:', error);
   }
@@ -397,6 +454,19 @@ export default async function CityPrayerTimePage({ params }: Props) {
                     {language === 'ar' ? country.nameAr : country.name}
                   </span>
                 </div>
+
+                {/* Dynamic Prayer Times Summary Paragraph - Server-Side Rendered */}
+                {prayerTimesData && hijriDate && (
+                  <div className="mt-4 sm:mt-6 max-w-4xl mx-auto">
+                    <p className="text-sm sm:text-base md:text-lg text-emerald-50 leading-relaxed font-[var(--font-tajawal)] px-4">
+                      {language === 'ar' 
+                        ? `اليوم ${gregorianDate} مواقيت الصلاة في ${city.nameAr} هي وقت الفجر ${prayerTimesData.Fajr}، وقت الظهر ${prayerTimesData.Dhuhr}، وقت العصر ${prayerTimesData.Asr}، وقت المغرب ${prayerTimesData.Maghrib} ووقت العشاء ${prayerTimesData.Isha}.`
+                        : language === 'ur'
+                        ? `آج ${gregorianDate} ${city.name} میں نماز کے اوقات فجر ${prayerTimesData.Fajr}، ظہر ${prayerTimesData.Dhuhr}، عصر ${prayerTimesData.Asr}، مغرب ${prayerTimesData.Maghrib} اور عشاء ${prayerTimesData.Isha} ہیں۔`
+                        : `Today ${gregorianDate} prayer times ${city.name} are Fajr Time ${prayerTimesData.Fajr}, Dhuhr Time ${prayerTimesData.Dhuhr}, Asr Time ${prayerTimesData.Asr}, Maghrib Time ${city.name} ${prayerTimesData.Maghrib} & Isha Time ${prayerTimesData.Isha}.`}
+                    </p>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -419,6 +489,32 @@ export default async function CityPrayerTimePage({ params }: Props) {
           </div>
         </section>
 
+        {/* Monthly Prayer Times Table */}
+        <section className="py-8 sm:py-10 md:py-12 lg:py-16 bg-white">
+          <div className="container mx-auto px-4 sm:px-6">
+            <div className="max-w-7xl mx-auto">
+              {monthlyPrayerTimes.length > 0 ? (
+                <MonthlyPrayerTimesServer
+                  cityName={city.name}
+                  cityNameAr={city.nameAr}
+                  monthlyData={monthlyPrayerTimes}
+                  language={language}
+                />
+              ) : (
+                <div className="bg-white rounded-xl shadow-xl p-8 text-center">
+                  <p className="text-gray-600 font-[var(--font-tajawal)]">
+                    {language === 'ar' 
+                      ? 'جدول الشهر متاح عند زيارة الصفحة' 
+                      : language === 'ur' 
+                      ? 'ماہانہ ٹائم ٹیبل صفحہ دیکھنے پر دستیاب ہے'
+                      : 'Monthly timetable available when visiting page'}
+                  </p>
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+
         {/* Qibla Direction */}
         <QiblaDirection 
           cityName={city.name}
@@ -434,6 +530,7 @@ export default async function CityPrayerTimePage({ params }: Props) {
           cityNameAr={city.nameAr}
           countryName={country.name}
           countryNameAr={country.nameAr}
+          prayerTimes={prayerTimesData || undefined}
         />
 
         {/* Other Cities - With Proper Format */}

@@ -70,9 +70,9 @@ export default function RelatedCountries({ currentCountrySlug, language: propLan
                 </div>
                 
                 {/* Country Name */}
-                <h4 className="text-sm sm:text-base font-bold text-gray-800 group-hover:text-emerald-600 transition-colors mb-2 font-[var(--font-tajawal)] leading-tight">
+                <h3 className="text-sm sm:text-base font-bold text-gray-800 group-hover:text-emerald-600 transition-colors mb-2 font-[var(--font-tajawal)] leading-tight">
                   {language === 'ar' || language === 'ur' ? country.nameAr : country.name}
-                </h4>
+                </h3>
 
                 {/* Prayer Times Text */}
                 <p className="text-xs text-gray-600 font-[var(--font-tajawal)]">
