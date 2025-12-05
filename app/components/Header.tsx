@@ -16,14 +16,20 @@ export default function Header() {
     { code: 'ar' as Language, name: 'العربية', flag: '🇸🇦' },
     { code: 'en' as Language, name: 'English', flag: '🇬🇧' },
     { code: 'ur' as Language, name: 'اردو', flag: '🇵🇰' },
+    { code: 'de' as Language, name: 'Deutsch', flag: '🇩🇪' },
+    { code: 'fr' as Language, name: 'Français', flag: '🇫🇷' },
+    { code: 'es' as Language, name: 'Español', flag: '🇪🇸' },
+    { code: 'fa' as Language, name: 'فارسی', flag: '🇮🇷' },
+    { code: 'id' as Language, name: 'Bahasa Indonesia', flag: '🇮🇩' },
+    { code: 'tr' as Language, name: 'Türkçe', flag: '🇹🇷' },
   ];
 
   const handleLanguageChange = (newLanguage: Language) => {
     // Extract the current path without language prefix
     const pathParts = pathname.split('/').filter(Boolean);
     
-    // Remove current language if it exists (en or ur)
-    if (['en', 'ur'].includes(pathParts[0])) {
+    // Remove current language if it exists (en, ur, de, fr, es, fa, id, or tr)
+    if (['en', 'ur', 'de', 'fr', 'es', 'fa', 'id', 'tr'].includes(pathParts[0])) {
       pathParts.shift();
     }
     

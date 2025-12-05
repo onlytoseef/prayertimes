@@ -17,7 +17,7 @@ import type { Language } from '../../../context/LanguageContext';
 export const revalidate = 21600;
 
 // Valid language codes
-const LANGUAGES: Language[] = ['ar', 'en', 'ur'];
+const LANGUAGES: Language[] = ['ar', 'en', 'ur', 'de', 'fr', 'es', 'fa', 'id', 'tr'];
 
 type Props = {
   params: Promise<{ lang: string; country: string; city: string }>
@@ -78,6 +78,42 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       ogTitle: `${city.name} ${country.name} میں آج نماز اور اذان کے اوقات`,
       ogDescription: `${city.name} کے لیے روزانہ نماز کے اوقات۔ فجر، ظہر، عصر، مغرب، عشاء کے ساتھ ہجری کیلنڈر۔`,
     },
+    de: {
+      title: `Gebetszeiten und Adhan in ${city.name} ${country.name} Heute`,
+      description: `Erhalten Sie genaue Gebetszeiten für ${city.name}, ${country.name}. Tägliche Fadschr, Dhuhr, Asr, Maghrib und Ischaa Zeiten basierend auf verifizierten islamischen Berechnungen. Täglich aktualisiert mit islamischem Kalender.`,
+      ogTitle: `Gebetszeiten und Adhan in ${city.name} ${country.name} Heute`,
+      ogDescription: `Genaue tägliche Gebetszeiten für ${city.name}. Fadschr, Dhuhr, Asr, Maghrib, Ischaa mit islamischem Kalender.`,
+    },
+    fr: {
+      title: `Horaires de prière et Adhan à ${city.name} ${country.name} Aujourd'hui`,
+      description: `Obtenez des horaires de prière précis pour ${city.name}, ${country.name}. Horaires quotidiens de Fajr, Dhuhr, Asr, Maghrib et Isha basés sur des calculs islamiques vérifiés. Mis à jour quotidiennement avec le calendrier hégirien.`,
+      ogTitle: `Horaires de prière et Adhan à ${city.name} ${country.name} Aujourd'hui`,
+      ogDescription: `Horaires de prière quotidiens précis pour ${city.name}. Fajr, Dhuhr, Asr, Maghrib, Isha avec calendrier hégirien.`,
+    },
+    es: {
+      title: `Horarios de oración y Adhan en ${city.name} ${country.name} Hoy`,
+      description: `Obtenga horarios de oración precisos para ${city.name}, ${country.name}. Horarios diarios de Fajr, Dhuhr, Asr, Maghrib e Isha basados en cálculos islámicos verificados. Actualizado diariamente con calendario hegírico.`,
+      ogTitle: `Horarios de oración y Adhan en ${city.name} ${country.name} Hoy`,
+      ogDescription: `Horarios de oración diarios precisos para ${city.name}. Fajr, Dhuhr, Asr, Maghrib, Isha con calendario hegírico.`,
+    },
+    fa: {
+      title: `اوقات نماز و اذان در ${city.name} ${country.name} امروز`,
+      description: `اوقات دقیق نماز برای ${city.name}، ${country.name} را دریافت کنید. اوقات روزانه صبح، ظهر، عصر، مغرب و عشا بر اساس محاسبات اسلامی. روزانه با تقویم هجری به‌روزرسانی می‌شود.`,
+      ogTitle: `اوقات نماز و اذان در ${city.name} ${country.name} امروز`,
+      ogDescription: `اوقات دقیق روزانه نماز برای ${city.name}. صبح، ظهر، عصر، مغرب، عشا با تقویم هجری.`,
+    },
+    id: {
+      title: `Waktu Sholat dan Adzan di ${city.name} ${country.name} Hari Ini`,
+      description: `Dapatkan waktu sholat yang akurat untuk ${city.name}, ${country.name}. Waktu harian Subuh, Dzuhur, Ashar, Maghrib, dan Isya berdasarkan perhitungan Islam yang terverifikasi. Diperbarui setiap hari dengan kalender Hijriah.`,
+      ogTitle: `Waktu Sholat dan Adzan di ${city.name} ${country.name} Hari Ini`,
+      ogDescription: `Waktu sholat harian yang akurat untuk ${city.name}. Subuh, Dzuhur, Ashar, Maghrib, Isya dengan kalender Hijriah.`,
+    },
+    tr: {
+      title: `${city.name} ${country.name} Bugün Namaz ve Ezan Vakitleri`,
+      description: `${city.name}, ${country.name} için doğru namaz vakitlerini edinin. Doğrulanmış İslami hesaplamalara dayalı günlük İmsak, Öğle, İkindi, Akşam ve Yatsı vakitleri. Hicri takvimle her gün güncellenir.`,
+      ogTitle: `${city.name} ${country.name} Bugün Namaz ve Ezan Vakitleri`,
+      ogDescription: `${city.name} için doğru günlük namaz vakitleri. İmsak, Öğle, İkindi, Akşam, Yatsı Hicri takvimle.`,
+    },
   };
 
   const meta = metadataByLanguage[language];
@@ -110,7 +146,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: meta.ogTitle,
       description: meta.ogDescription,
       type: 'website',
-      locale: language === 'ar' ? 'ar_SA' : language === 'ur' ? 'ur_PK' : 'en_US',
+      locale: language === 'ar' ? 'ar_SA' : language === 'ur' ? 'ur_PK' : language === 'de' ? 'de_DE' : language === 'fr' ? 'fr_FR' : language === 'es' ? 'es_ES' : language === 'fa' ? 'fa_IR' : language === 'id' ? 'id_ID' : 'en_US',
       url: baseUrl,
       siteName: 'Prayer Times',
     },
@@ -251,7 +287,7 @@ export default async function CityPrayerTimePage({ params }: Props) {
     "name": `Prayer Times in ${city.name}`,
     "description": `Accurate Islamic prayer times for ${city.name}, ${country.name}. Today's prayer schedule including Fajr, Dhuhr, Asr, Maghrib, and Isha times.`,
     "url": `https://prayertimes.com/${language}/${countrySlug}/${cityParam}`,
-    "inLanguage": language === 'ar' ? 'ar-SA' : language === 'ur' ? 'ur-PK' : 'en-US',
+    "inLanguage": language === 'ar' ? 'ar-SA' : language === 'ur' ? 'ur-PK' : language === 'de' ? 'de-DE' : language === 'fr' ? 'fr-FR' : language === 'es' ? 'es-ES' : language === 'fa' ? 'fa-IR' : language === 'id' ? 'id-ID' : language === 'tr' ? 'tr-TR' : 'en-US',
     "about": {
       "@type": "Place",
       "name": city.name,
@@ -438,7 +474,7 @@ export default async function CityPrayerTimePage({ params }: Props) {
             <div className="text-center space-y-3 sm:space-y-4 md:space-y-5">
               {/* Main Heading - Progressive Text Scaling */}
               <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-2 sm:mb-3 md:mb-4 font-[var(--font-tajawal)] leading-tight px-2">
-                  {language === 'ar' ? `مواقيت الصلاة في ${city.nameAr}` : language === 'ur' ? `${city.name} میں نماز کے اوقات` : `Prayer Times in ${city.name}`}
+                  {language === 'ar' ? `مواقيت الصلاة في ${city.nameAr}` : language === 'ur' ? `${city.nameAr} میں نماز کے اوقات` : language === 'de' ? `Gebetszeiten in ${city.name}` : language === 'fr' ? `Horaires de prière à ${city.name}` : language === 'es' ? `Horarios de oración en ${city.name}` : language === 'fa' ? `اوقات نماز در ${city.nameAr}` : language === 'id' ? `Waktu Sholat di ${city.name}` : language === 'tr' ? `${city.name} Namaz Vakitleri` : `Prayer Times in ${city.name}`}
                 </h1>
                 
                 {/* Secondary City Name - Conditional Display */}
@@ -462,7 +498,19 @@ export default async function CityPrayerTimePage({ params }: Props) {
                       {language === 'ar' 
                         ? `اليوم ${gregorianDate} مواقيت الصلاة في ${city.nameAr} هي وقت الفجر ${prayerTimesData.Fajr}، وقت الظهر ${prayerTimesData.Dhuhr}، وقت العصر ${prayerTimesData.Asr}، وقت المغرب ${prayerTimesData.Maghrib} ووقت العشاء ${prayerTimesData.Isha}.`
                         : language === 'ur'
-                        ? `آج ${gregorianDate} ${city.name} میں نماز کے اوقات فجر ${prayerTimesData.Fajr}، ظہر ${prayerTimesData.Dhuhr}، عصر ${prayerTimesData.Asr}، مغرب ${prayerTimesData.Maghrib} اور عشاء ${prayerTimesData.Isha} ہیں۔`
+                        ? `آج ${gregorianDate} ${city.nameAr} میں نماز کے اوقات فجر ${prayerTimesData.Fajr}، ظہر ${prayerTimesData.Dhuhr}، عصر ${prayerTimesData.Asr}، مغرب ${prayerTimesData.Maghrib} اور عشاء ${prayerTimesData.Isha} ہیں۔`
+                        : language === 'de'
+                        ? `Heute ${gregorianDate} sind die Gebetszeiten in ${city.name} Fajr ${prayerTimesData.Fajr}, Dhuhr ${prayerTimesData.Dhuhr}, Asr ${prayerTimesData.Asr}, Maghrib ${prayerTimesData.Maghrib} und Ischaa ${prayerTimesData.Isha}.`
+                        : language === 'fr'
+                        ? `Aujourd'hui ${gregorianDate}, les horaires de prière à ${city.name} sont Fajr ${prayerTimesData.Fajr}, Dhuhr ${prayerTimesData.Dhuhr}, Asr ${prayerTimesData.Asr}, Maghrib ${prayerTimesData.Maghrib} et Isha ${prayerTimesData.Isha}.`
+                        : language === 'es'
+                        ? `Hoy ${gregorianDate}, los horarios de oración en ${city.name} son Fajr ${prayerTimesData.Fajr}, Dhuhr ${prayerTimesData.Dhuhr}, Asr ${prayerTimesData.Asr}, Maghrib ${prayerTimesData.Maghrib} e Isha ${prayerTimesData.Isha}.`
+                        : language === 'fa'
+                        ? `امروز ${gregorianDate} اوقات نماز در ${city.nameAr} صبح ${prayerTimesData.Fajr}، ظهر ${prayerTimesData.Dhuhr}، عصر ${prayerTimesData.Asr}، مغرب ${prayerTimesData.Maghrib} و عشا ${prayerTimesData.Isha} می‌باشد.`
+                        : language === 'id'
+                        ? `Hari ini ${gregorianDate} waktu sholat di ${city.name} adalah Subuh ${prayerTimesData.Fajr}, Dzuhur ${prayerTimesData.Dhuhr}, Ashar ${prayerTimesData.Asr}, Maghrib ${prayerTimesData.Maghrib} dan Isya ${prayerTimesData.Isha}.`
+                        : language === 'tr'
+                        ? `Bugün ${gregorianDate} ${city.name} namaz vakitleri İmsak ${prayerTimesData.Fajr}, Öğle ${prayerTimesData.Dhuhr}, İkindi ${prayerTimesData.Asr}, Akşam ${prayerTimesData.Maghrib} ve Yatsı ${prayerTimesData.Isha}'dır.`
                         : `Today ${gregorianDate} prayer times ${city.name} are Fajr Time ${prayerTimesData.Fajr}, Dhuhr Time ${prayerTimesData.Dhuhr}, Asr Time ${prayerTimesData.Asr}, Maghrib Time ${city.name} ${prayerTimesData.Maghrib} & Isha Time ${prayerTimesData.Isha}.`}
                     </p>
                   </div>

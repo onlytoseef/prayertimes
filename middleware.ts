@@ -13,7 +13,7 @@ export function middleware(request: NextRequest) {
   }
   
   // Language prefixes
-  const languagePrefixes = ['ar', 'en', 'ur']
+  const languagePrefixes = ['ar', 'en', 'ur', 'de', 'fr', 'es', 'fa', 'id', 'tr'];
   const countrySlugs = Object.keys(countriesData)
   
   // If path starts with /ar, redirect to root (Arabic is default)

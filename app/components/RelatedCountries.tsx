@@ -39,11 +39,23 @@ export default function RelatedCountries({ currentCountrySlug, language: propLan
           <div className="text-center mb-10">
             <div className="flex items-center justify-center gap-3 mb-4">
               <Globe className="w-8 h-8 text-emerald-600" />
-              <h3 className="text-2xl sm:text-3xl font-bold text-gray-800 font-[var(--font-tajawal)]">
-                {language === 'ar' 
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 font-[var(--font-tajawal)]">
+                {language === 'ar'
                   ? 'الدول ذات الصلة'
                   : language === 'ur'
                   ? 'متعلقہ ممالک'
+                  : language === 'de'
+                  ? 'Verwandte Länder'
+                  : language === 'fr'
+                  ? 'Pays connexes'
+                  : language === 'es'
+                  ? 'Países relacionados'
+                  : language === 'fa'
+                  ? 'کشورهای مرتبط'
+                  : language === 'id'
+                  ? 'Negara Terkait'
+                  : language === 'tr'
+                  ? 'İlgili Ülkeler'
                   : 'Related Countries'}
               </h3>
             </div>
@@ -52,6 +64,18 @@ export default function RelatedCountries({ currentCountrySlug, language: propLan
                 ? 'اكتشف مواقيت الصلاة في الدول المجاورة'
                 : language === 'ur'
                 ? 'قریبی ممالک میں نماز کے اوقات دریافت کریں'
+                : language === 'de'
+                ? 'Entdecken Sie Gebetszeiten in Nachbarländern'
+                : language === 'fr'
+                ? 'Découvrez les horaires de prière dans les pays voisins'
+                : language === 'es'
+                ? 'Descubra horarios de oración en países vecinos'
+                : language === 'fa'
+                ? 'اوقات نماز در کشورهای همسایه را کشف کنید'
+                : language === 'id'
+                ? 'Temukan waktu sholat di negara tetangga'
+                : language === 'tr'
+                ? 'Komşu ülkelerde namaz vakitlerini keşfedin'
                 : 'Discover prayer times in neighboring countries'}
             </p>
           </div>
@@ -71,7 +95,7 @@ export default function RelatedCountries({ currentCountrySlug, language: propLan
                 
                 {/* Country Name */}
                 <h3 className="text-sm sm:text-base font-bold text-gray-800 group-hover:text-emerald-600 transition-colors mb-2 font-[var(--font-tajawal)] leading-tight">
-                  {language === 'ar' || language === 'ur' ? country.nameAr : country.name}
+                  {language === 'ar' || language === 'ur' || language === 'fa' ? country.nameAr : country.name}
                 </h3>
 
                 {/* Prayer Times Text */}
@@ -80,6 +104,16 @@ export default function RelatedCountries({ currentCountrySlug, language: propLan
                     ? 'مواقيت الصلاة'
                     : language === 'ur'
                     ? 'نماز کے اوقات'
+                    : language === 'de'
+                    ? 'Gebetszeiten'
+                    : language === 'es'
+                    ? 'Horarios de oración'
+                    : language === 'fa'
+                    ? 'اوقات نماز'
+                    : language === 'id'
+                    ? 'Waktu Sholat'
+                    : language === 'tr'
+                    ? 'Namaz Vakitleri'
                     : 'Prayer Times'}
                 </p>
               </Link>

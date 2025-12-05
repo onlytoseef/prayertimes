@@ -73,6 +73,14 @@ export default function CapitalPrayerTimes({
             ? `${hijri.day} ${hijri.month.ar} ${hijri.year}`
             : language === 'ur'
             ? `${hijri.day} ${hijri.month.ar} ${hijri.year}`
+            : language === 'de'
+            ? `${hijri.day} ${hijri.month.en} ${hijri.year}`
+            : language === 'fr'
+            ? `${hijri.day} ${hijri.month.en} ${hijri.year}`
+            : language === 'es'
+            ? `${hijri.day} ${hijri.month.en} ${hijri.year}`
+            : language === 'fa'
+            ? `${hijri.day} ${hijri.month.ar} ${hijri.year}`
             : `${hijri.day} ${hijri.month.en} ${hijri.year}`;
           setHijriDate(hijriFormatted);
 
@@ -113,6 +121,48 @@ export default function CapitalPrayerTimes({
       Asr: 'عصر',
       Maghrib: 'مغرب',
       Isha: 'عشاء'
+    },
+    de: {
+      Fajr: 'Fadschr',
+      Dhuhr: 'Dhuhr',
+      Asr: 'Asr',
+      Maghrib: 'Maghrib',
+      Isha: 'Ischaa'
+    },
+    fr: {
+      Fajr: 'Fajr',
+      Dhuhr: 'Dhuhr',
+      Asr: 'Asr',
+      Maghrib: 'Maghrib',
+      Isha: 'Isha'
+    },
+    es: {
+      Fajr: 'Fajr',
+      Dhuhr: 'Dhuhr',
+      Asr: 'Asr',
+      Maghrib: 'Maghrib',
+      Isha: 'Isha'
+    },
+    fa: {
+      Fajr: 'صبح',
+      Dhuhr: 'ظهر',
+      Asr: 'عصر',
+      Maghrib: 'مغرب',
+      Isha: 'عشا'
+    },
+    id: {
+      Fajr: 'Subuh',
+      Dhuhr: 'Dzuhur',
+      Asr: 'Ashar',
+      Maghrib: 'Maghrib',
+      Isha: 'Isya'
+    },
+    tr: {
+      Fajr: 'İmsak',
+      Dhuhr: 'Öğle',
+      Asr: 'İkindi',
+      Maghrib: 'Akşam',
+      Isha: 'Yatsı'
     }
   };
 
@@ -153,6 +203,18 @@ export default function CapitalPrayerTimes({
                   ? `مواقيت الصلاة في ${cityNameAr}`
                   : language === 'ur'
                   ? `${cityName} میں نماز کے اوقات`
+                  : language === 'de'
+                  ? `Gebetszeiten in ${cityName}`
+                  : language === 'fr'
+                  ? `Horaires de pri\u00e8re \u00e0 ${cityName}`
+                  : language === 'es'
+                  ? `Horarios de oraci\u00f3n en ${cityName}`
+                  : language === 'fa'
+                  ? `اوقات نماز در ${cityName}`
+                  : language === 'id'
+                  ? `Waktu Sholat di ${cityName}`
+                  : language === 'tr'
+                  ? `${cityName} Namaz Vakitleri`
                   : `Prayer Times in ${cityName}`}
               </h2>
             </div>
@@ -162,6 +224,18 @@ export default function CapitalPrayerTimes({
                 ? `عاصمة ${countryNameAr}`
                 : language === 'ur'
                 ? `${countryName} کا دارالحکومت`
+                : language === 'de'
+                ? `Hauptstadt von ${countryName}`
+                : language === 'fr'
+                ? `Capitale de ${countryName}`
+                : language === 'es'
+                ? `Capital de ${countryName}`
+                : language === 'fa'
+                ? `پایتخت ${countryName}`
+                : language === 'id'
+                ? `Ibu kota ${countryName}`
+                : language === 'tr'
+                ? `${countryName} Ba\u015fkenti`
                 : `Capital of ${countryName}`}
             </p>
 
@@ -199,7 +273,7 @@ export default function CapitalPrayerTimes({
           <div className="mt-4 text-center">
             <div className="inline-flex items-center gap-2 bg-yellow-50 border-2 border-yellow-200 rounded-lg px-4 py-2">
               <span className="text-sm font-semibold text-gray-700">
-                {language === 'ar' ? 'الشروق' : language === 'ur' ? 'طلوع آفتاب' : 'Sunrise'}:
+                {language === 'ar' ? 'الشروق' : language === 'ur' ? 'طلوع آفتاب' : language === 'de' ? 'Sonnenaufgang' : language === 'fr' ? 'Lever du soleil' : language === 'es' ? 'Amanecer' : language === 'fa' ? 'طلوع آفتاب' : 'Sunrise'}:
               </span>
               <span className="text-lg font-bold text-yellow-600">
                 {prayerTimes.Sunrise}

@@ -48,16 +48,26 @@ export default function MonthlyPrayerTimes({
       const monthNames = {
         ar: ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'],
         en: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-        ur: ['جنوری', 'فروری', 'مارچ', 'اپریل', 'مئی', 'جون', 'جولائی', 'اگست', 'ستمبر', 'اکتوبر', 'نومبر', 'دسمبر']
+        ur: ['جنوری', 'فروری', 'مارچ', 'اپریل', 'مئی', 'جون', 'جولائی', 'اگست', 'ستمبر', 'اکتوبر', 'نومبر', 'دسمبر'],
+        de: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+        fr: ['Janv', 'Févr', 'Mars', 'Avr', 'Mai', 'Juin', 'Juil', 'Août', 'Sept', 'Oct', 'Nov', 'Déc'],
+        es: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+        fa: ['ژانویه', 'فوریه', 'مارس', 'آوریل', 'مه', 'ژوئن', 'ژوئیه', 'اوت', 'سپتامبر', 'اکتبر', 'نوامبر', 'دسامبر'],
+        id: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des']
       };
 
       const times = initialMonthlyData.map(item => {
         const date = new Date(item.date);
-        const month = language === 'ar' || language === 'ur' 
-          ? monthNames[language][date.getMonth()]
+        const month = language === 'ar' ? monthNames.ar[date.getMonth()]
+          : language === 'ur' ? monthNames.ur[date.getMonth()]
+          : language === 'de' ? monthNames.de[date.getMonth()]
+          : language === 'fr' ? monthNames.fr[date.getMonth()]
+          : language === 'es' ? monthNames.es[date.getMonth()]
+          : language === 'fa' ? monthNames.fa[date.getMonth()]
+          : language === 'id' ? monthNames.id[date.getMonth()]
           : monthNames.en[date.getMonth()];
         
-        const formattedDate = language === 'ar' || language === 'ur'
+        const formattedDate = language === 'ar' || language === 'ur' || language === 'fa'
           ? `${date.getDate()} ${month}`
           : `${month} ${date.getDate()}`;
 
@@ -91,7 +101,12 @@ export default function MonthlyPrayerTimes({
       const monthNames = {
         ar: ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'],
         en: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-        ur: ['جنوری', 'فروری', 'مارچ', 'اپریل', 'مئی', 'جون', 'جولائی', 'اگست', 'ستمبر', 'اکتوبر', 'نومبر', 'دسمبر']
+        ur: ['جنوری', 'فروری', 'مارچ', 'اپریل', 'مئی', 'جون', 'جولائی', 'اگست', 'ستمبر', 'اکتوبر', 'نومبر', 'دسمبر'],
+        de: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+        fr: ['Janv', 'Févr', 'Mars', 'Avr', 'Mai', 'Juin', 'Juil', 'Août', 'Sept', 'Oct', 'Nov', 'Déc'],
+        es: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+        fa: ['ژانویه', 'فوریه', 'مارس', 'آوریل', 'مه', 'ژوئن', 'ژوئیه', 'اوت', 'سپتامبر', 'اکتبر', 'نوامبر', 'دسامبر'],
+        id: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des']
       };
       
       // Fetch next 30 days
@@ -107,11 +122,16 @@ export default function MonthlyPrayerTimes({
         const data = await response.json();
         
         if (data.code === 200) {
-          const month = language === 'ar' || language === 'ur' 
-            ? monthNames[language][date.getMonth()]
+          const month = language === 'ar' ? monthNames.ar[date.getMonth()]
+            : language === 'ur' ? monthNames.ur[date.getMonth()]
+            : language === 'de' ? monthNames.de[date.getMonth()]
+            : language === 'fr' ? monthNames.fr[date.getMonth()]
+            : language === 'es' ? monthNames.es[date.getMonth()]
+            : language === 'fa' ? monthNames.fa[date.getMonth()]
+            : language === 'id' ? monthNames.id[date.getMonth()]
             : monthNames.en[date.getMonth()];
           
-          const formattedDate = language === 'ar' || language === 'ur'
+          const formattedDate = language === 'ar' || language === 'ur' || language === 'fa'
             ? `${date.getDate()} ${month}`
             : `${month} ${date.getDate()}`;
 
@@ -140,7 +160,7 @@ export default function MonthlyPrayerTimes({
       <div className="bg-white rounded-xl sm:rounded-2xl shadow-xl p-8 text-center">
         <Loader className="w-12 h-12 text-emerald-600 animate-spin mx-auto mb-4" />
         <p className="text-gray-600 font-[var(--font-tajawal)]">
-          {language === 'ar' ? 'جاري تحميل مواقيت الصلاة...' : language === 'ur' ? 'نماز کے اوقات لوڈ ہو رہے ہیں...' : 'Loading prayer times...'}
+          {language === 'ar' ? 'جاري تحميل مواقيت الصلاة...' : language === 'ur' ? 'نماز کے اوقات لوڈ ہو رہے ہیں...' : language === 'de' ? 'Lädt Gebetszeiten...' : language === 'fr' ? 'Chargement des horaires de prière...' : language === 'es' ? 'Cargando horarios de oración...' : language === 'fa' ? 'در حال بارگذاری اوقات نماز...' : language === 'id' ? 'Memuat waktu sholat...' : 'Loading prayer times...'}
         </p>
       </div>
     );
@@ -156,7 +176,19 @@ export default function MonthlyPrayerTimes({
             {language === 'ar' 
               ? `مواقيت الصلاة لـ 30 يوم القادمة في ${cityNameAr}`
               : language === 'ur'
-              ? `${cityName} میں اگلے 30 دنوں کے نماز کے اوقات`
+              ? `${cityNameAr} میں اگلے 30 دنوں کے نماز کے اوقات`
+              : language === 'de'
+              ? `Gebetszeiten f\u00fcr die n\u00e4chsten 30 Tage in ${cityName}`
+              : language === 'fr'
+              ? `Horaires de pri\u00e8re pour les 30 prochains jours \u00e0 ${cityName}`
+              : language === 'es'
+              ? `Horarios de oraci\u00f3n para los pr\u00f3ximos 30 d\u00edas en ${cityName}`
+              : language === 'fa'
+              ? `اوقات نماز 30 روز \u00c2ینده در ${cityNameAr}`
+              : language === 'id'
+              ? `Waktu Sholat 30 Hari Mendatang di ${cityName}`
+              : language === 'tr'
+              ? `Gelecek 30 G\u00fcn ${cityName} Namaz Vakitleri`
               : `Next 30 Days ${cityName} Prayer Times`}
           </h2>
         </div>
@@ -165,6 +197,18 @@ export default function MonthlyPrayerTimes({
             ? 'جدول كامل لمواقيت الصلاة اليومية للشهر القادم'
             : language === 'ur'
             ? 'اگلے مہینے کے روزانہ نماز کے اوقات کی مکمل جدول'
+            : language === 'de'
+            ? 'Vollst\u00e4ndiger Zeitplan der t\u00e4glichen Gebetszeiten f\u00fcr den n\u00e4chsten Monat'
+            : language === 'fr'
+            ? 'Programme complet des horaires de pri\u00e8re quotidiens pour le mois prochain'
+            : language === 'es'
+            ? 'Programa completo de horarios de oraci\u00f3n diarios para el pr\u00f3ximo mes'
+            : language === 'fa'
+            ? 'برنامه کامل اوقات نماز روزانه برای ماه \u00c2ینده'
+            : language === 'id'
+            ? 'Jadwal lengkap waktu sholat harian untuk bulan depan'
+            : language === 'tr'
+            ? 'Gelecek ay i\u00e7in g\u00fcnl\u00fck namaz vakitlerinin eksiksiz program\u0131'
             : 'Complete schedule of daily prayer times for the next month'}
         </p>
       </div>
@@ -175,25 +219,25 @@ export default function MonthlyPrayerTimes({
           <thead>
             <tr className="bg-gradient-to-r from-emerald-700 to-teal-700 text-white">
               <th className="px-3 py-3 sm:px-4 sm:py-4 text-left text-xs sm:text-sm font-bold font-[var(--font-tajawal)] border-r border-emerald-600">
-                {language === 'ar' ? 'التاريخ' : language === 'ur' ? 'تاریخ' : 'Date'}
+                {language === 'ar' ? 'التاريخ' : language === 'ur' ? 'تاریخ' : language === 'de' ? 'Datum' : language === 'es' ? 'Fecha' : language === 'fa' ? 'تاریخ' : language === 'id' ? 'Tanggal' : language === 'tr' ? 'Tarih' : 'Date'}
               </th>
               <th className="px-3 py-3 sm:px-4 sm:py-4 text-xs sm:text-sm font-bold font-[var(--font-tajawal)] border-r border-emerald-600">
-                {language === 'ar' ? 'الفجر' : language === 'ur' ? 'فجر' : 'Fajr'}
+                {language === 'ar' ? 'الفجر' : language === 'ur' ? 'فجر' : language === 'de' ? 'Fadschr' : language === 'es' ? 'Fajr' : language === 'fa' ? 'صبح' : language === 'id' ? 'Subuh' : language === 'tr' ? 'İmsak' : 'Fajr'}
               </th>
               <th className="px-3 py-3 sm:px-4 sm:py-4 text-xs sm:text-sm font-bold font-[var(--font-tajawal)] border-r border-emerald-600">
-                {language === 'ar' ? 'الشروق' : language === 'ur' ? 'طلوع' : 'Sunrise'}
+                {language === 'ar' ? 'الشروق' : language === 'ur' ? 'طلوع' : language === 'de' ? 'Sonnenaufgang' : language === 'es' ? 'Amanecer' : language === 'fa' ? 'طلوع آفتاب' : language === 'id' ? 'Terbit' : language === 'tr' ? 'Güneş' : 'Sunrise'}
               </th>
               <th className="px-3 py-3 sm:px-4 sm:py-4 text-xs sm:text-sm font-bold font-[var(--font-tajawal)] border-r border-emerald-600">
-                {language === 'ar' ? 'الظهر' : language === 'ur' ? 'ظہر' : 'Dhuhr'}
+                {language === 'ar' ? 'الظهر' : language === 'ur' ? 'ظہر' : language === 'de' ? 'Dhuhr' : language === 'es' ? 'Dhuhr' : language === 'fa' ? 'ظهر' : language === 'id' ? 'Dzuhur' : language === 'tr' ? 'Öğle' : 'Dhuhr'}
               </th>
               <th className="px-3 py-3 sm:px-4 sm:py-4 text-xs sm:text-sm font-bold font-[var(--font-tajawal)] border-r border-emerald-600">
-                {language === 'ar' ? 'العصر' : language === 'ur' ? 'عصر' : 'Asr'}
+                {language === 'ar' ? 'العصر' : language === 'ur' ? 'عصر' : language === 'de' ? 'Asr' : language === 'fa' ? 'عصر' : language === 'id' ? 'Ashar' : language === 'tr' ? 'İkindi' : 'Asr'}
               </th>
               <th className="px-3 py-3 sm:px-4 sm:py-4 text-xs sm:text-sm font-bold font-[var(--font-tajawal)] border-r border-emerald-600">
-                {language === 'ar' ? 'المغرب' : language === 'ur' ? 'مغرب' : 'Maghrib'}
+                {language === 'ar' ? 'المغرب' : language === 'ur' ? 'مغرب' : language === 'de' ? 'Maghrib' : language === 'fa' ? 'مغرب' : language === 'id' ? 'Maghrib' : language === 'tr' ? 'Akşam' : 'Maghrib'}
               </th>
               <th className="px-3 py-3 sm:px-4 sm:py-4 text-xs sm:text-sm font-bold font-[var(--font-tajawal)]">
-                {language === 'ar' ? 'العشاء' : language === 'ur' ? 'عشاء' : 'Isha'}
+                {language === 'ar' ? 'العشاء' : language === 'ur' ? 'عشاء' : language === 'de' ? 'Ischaa' : language === 'fa' ? 'عشا' : language === 'id' ? 'Isya' : language === 'tr' ? 'Yatsı' : 'Isha'}
               </th>
             </tr>
           </thead>
@@ -236,17 +280,6 @@ export default function MonthlyPrayerTimes({
             ))}
           </tbody>
         </table>
-      </div>
-
-      {/* Footer Note */}
-      <div className="mt-6 bg-emerald-50 rounded-lg p-4 border border-emerald-200">
-        <p className="text-xs sm:text-sm text-gray-600 text-center font-[var(--font-tajawal)] leading-relaxed">
-          {language === 'ar'
-            ? 'جميع الأوقات محلية ومحسوبة وفقًا للطريقة الإسلامية القياسية. قد تختلف الأوقات الفعلية قليلاً حسب المسجد المحلي.'
-            : language === 'ur'
-            ? 'تمام اوقات مقامی ہیں اور معیاری اسلامی طریقہ کار کے مطابق شمار کیے گئے ہیں۔ مقامی مسجد کے مطابق اصل اوقات قدرے مختلف ہو سکتے ہیں۔'
-            : 'All times are local and calculated according to standard Islamic method. Actual times may vary slightly depending on local mosque.'}
-        </p>
       </div>
     </div>
   );

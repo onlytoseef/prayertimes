@@ -301,7 +301,7 @@ export default function CityPrayerTimes({
         {/* Loading Text */}
         <div className="text-center">
           <p className="text-sm text-gray-500 animate-pulse">
-            {language === 'ar' ? 'جاري تحميل مواقيت الصلاة...' : language === 'ur' ? 'نماز کے اوقات لوڈ ہو رہے ہیں...' : 'Loading prayer times...'}
+            {language === 'ar' ? 'جاري تحميل مواقيت الصلاة...' : language === 'ur' ? 'نماز کے اوقات لوڈ ہو رہے ہیں...' : language === 'de' ? 'Lädt Gebetszeiten...' : language === 'fr' ? 'Chargement des horaires de prière...' : language === 'es' ? 'Cargando horarios de oración...' : language === 'fa' ? 'در حال بارگذاری اوقات نماز...' : language === 'id' ? 'Memuat waktu sholat...' : language === 'tr' ? 'Namaz vakitleri yükleniyor...' : 'Loading prayer times...'}
           </p>
         </div>
       </div>
@@ -309,7 +309,76 @@ export default function CityPrayerTimes({
   }
 
   const getPrayerName = (prayer: PrayerTime) => {
-    return language === 'ar' ? prayer.nameAr : language === 'ur' ? prayer.nameUr : prayer.name;
+    if (language === 'ar') return prayer.nameAr;
+    if (language === 'ur') return prayer.nameUr;
+    if (language === 'fa') return prayer.nameUr; // Persian uses same Arabic script names as Urdu
+    
+    // German translations
+    if (language === 'de') {
+      const germanNames: { [key: string]: string } = {
+        'Fajr': 'Fadschr',
+        'Sunrise': 'Sonnenaufgang',
+        'Dhuhr': 'Dhuhr',
+        'Asr': 'Asr',
+        'Maghrib': 'Maghrib',
+        'Isha': 'Ischaa'
+      };
+      return germanNames[prayer.name] || prayer.name;
+    }
+    
+    // Indonesian translations
+    if (language === 'id') {
+      const indonesianNames: { [key: string]: string } = {
+        'Fajr': 'Subuh',
+        'Sunrise': 'Terbit',
+        'Dhuhr': 'Dzuhur',
+        'Asr': 'Ashar',
+        'Maghrib': 'Maghrib',
+        'Isha': 'Isya'
+      };
+      return indonesianNames[prayer.name] || prayer.name;
+    }
+    
+    // Turkish translations
+    if (language === 'tr') {
+      const turkishNames: { [key: string]: string } = {
+        'Fajr': 'İmsak',
+        'Sunrise': 'Güneş',
+        'Dhuhr': 'Öğle',
+        'Asr': 'İkindi',
+        'Maghrib': 'Akşam',
+        'Isha': 'Yatsı'
+      };
+      return turkishNames[prayer.name] || prayer.name;
+    }
+    
+    // French translations
+    if (language === 'fr') {
+      const frenchNames: { [key: string]: string } = {
+        'Fajr': 'Fajr',
+        'Sunrise': 'Lever',
+        'Dhuhr': 'Dhuhr',
+        'Asr': 'Asr',
+        'Maghrib': 'Maghrib',
+        'Isha': 'Isha'
+      };
+      return frenchNames[prayer.name] || prayer.name;
+    }
+    
+    // Spanish translations
+    if (language === 'es') {
+      const spanishNames: { [key: string]: string } = {
+        'Fajr': 'Fajr',
+        'Sunrise': 'Amanecer',
+        'Dhuhr': 'Dhuhr',
+        'Asr': 'Asr',
+        'Maghrib': 'Maghrib',
+        'Isha': 'Isha'
+      };
+      return spanishNames[prayer.name] || prayer.name;
+    }
+    
+    return prayer.name; // English as default
   };
 
   return (
@@ -318,7 +387,7 @@ export default function CityPrayerTimes({
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-4 border-b-2 border-gray-200">
         <div>
           <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 font-[var(--font-tajawal)]">
-            {language === 'ar' ? `أوقات الصلاة في ${cityNameAr}` : language === 'ur' ? `${cityName} میں نماز کے اوقات` : `Prayer Times in ${cityName}`}
+            {language === 'ar' ? `أوقات الصلاة في ${cityNameAr}` : language === 'ur' ? `${cityNameAr} میں نماز کے اوقات` : language === 'de' ? `Gebetszeiten in ${cityName}` : language === 'fr' ? `Horaires de prière à ${cityName}` : language === 'es' ? `Horarios de oración en ${cityName}` : language === 'fa' ? `اوقات نماز در ${cityNameAr}` : language === 'id' ? `Waktu Sholat di ${cityName}` : language === 'tr' ? `${cityName} Namaz Vakitleri` : `Prayer Times in ${cityName}`}
           </h2>
         </div>
         <div className="flex flex-col items-start sm:items-end text-right">
@@ -337,7 +406,7 @@ export default function CityPrayerTimes({
             {/* Left: Next Prayer Info */}
             <div className="text-center sm:text-right flex-1">
               <p className="text-sm sm:text-base text-emerald-100 mb-1 font-[var(--font-tajawal)]">
-                {language === 'ar' ? 'الصلاة التالية' : language === 'ur' ? 'اگلی نماز' : 'Next Prayer'}
+                {language === 'ar' ? 'الصلاة التالية' : language === 'ur' ? 'اگلی نماز' : language === 'de' ? 'Nächstes Gebet' : language === 'fr' ? 'Prochaine prière' : language === 'es' ? 'Próxima oración' : language === 'fa' ? 'نماز بعدی' : language === 'id' ? 'Sholat Berikutnya' : language === 'tr' ? 'Sonraki Namaz' : 'Next Prayer'}
               </p>
               <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 font-[var(--font-tajawal)]">
                 {getPrayerName(nextPrayer)}
@@ -350,7 +419,7 @@ export default function CityPrayerTimes({
             {/* Right: Live Countdown Timer */}
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 sm:p-6 min-w-[200px]">
               <p className="text-xs sm:text-sm text-emerald-100 text-center mb-2 font-[var(--font-tajawal)]">
-                {language === 'ar' ? 'الوقت المتبقي' : language === 'ur' ? 'باقی وقت' : 'Time Remaining'}
+                {language === 'ar' ? 'الوقت المتبقي' : language === 'ur' ? 'باقی وقت' : language === 'de' ? 'Verbleibende Zeit' : language === 'fr' ? 'Temps restant' : language === 'es' ? 'Tiempo restante' : language === 'fa' ? 'زمان باقی‌مانده' : language === 'id' ? 'Waktu Tersisa' : language === 'tr' ? 'Kalan Süre' : 'Time Remaining'}
               </p>
               <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-center font-mono tracking-tight">
                 {String(countdown.hours).padStart(2, '0')}:
@@ -414,10 +483,10 @@ export default function CityPrayerTimes({
             <Sun className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-600" />
             <div>
               <p className="text-sm font-semibold text-gray-700 font-[var(--font-tajawal)]">
-                {language === 'ar' ? 'الشروق' : language === 'ur' ? 'طلوع آفتاب' : 'Sunrise'}
+                {language === 'ar' ? 'الشروق' : language === 'ur' ? 'طلوع آفتاب' : language === 'de' ? 'Sonnenaufgang' : language === 'fr' ? 'Lever du soleil' : language === 'es' ? 'Amanecer' : language === 'fa' ? 'طلوع آفتاب' : language === 'id' ? 'Terbit' : language === 'tr' ? 'Güneş' : 'Sunrise'}
               </p>
               <p className="text-xs text-gray-500">
-                {language === 'ar' ? 'وقت الشروق' : language === 'ur' ? 'سورج نکلنے کا وقت' : 'Sun Rise Time'}
+                {language === 'ar' ? 'وقت الشروق' : language === 'ur' ? 'سورج نکلنے کا وقت' : language === 'de' ? 'Sonnenaufgangszeit' : language === 'fr' ? 'Heure du lever du soleil' : language === 'es' ? 'Hora del amanecer' : language === 'fa' ? 'وقت طلوع آفتاب' : language === 'id' ? 'Waktu Matahari Terbit' : language === 'tr' ? 'Güneş Doğuşu Saati' : 'Sun Rise Time'}
               </p>
             </div>
           </div>
@@ -445,7 +514,7 @@ export default function CityPrayerTimes({
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-4 border-b-2 border-gray-200">
           <div>
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 font-[var(--font-tajawal)]">
-              {language === 'ar' ? `أوقات الأذان في ${cityNameAr}` : language === 'ur' ? `${cityName} میں اذان کے اوقات` : `Azan Time in ${cityName}`}
+              {language === 'ar' ? `أوقات الأذان في ${cityNameAr}` : language === 'ur' ? `${cityNameAr} میں اذان کے اوقات` : language === 'de' ? `Azan-Zeit in ${cityName}` : language === 'fr' ? `Horaires d'Adhan à ${cityName}` : language === 'es' ? `Horarios de Adhan en ${cityName}` : language === 'fa' ? `اوقات اذان در ${cityNameAr}` : language === 'id' ? `Waktu Adzan di ${cityName}` : language === 'tr' ? `${cityName} Ezan Vakitleri` : `Azan Time in ${cityName}`}
             </h2>
           </div>
           <div className="flex flex-col items-start sm:items-end text-right">
@@ -515,7 +584,19 @@ export default function CityPrayerTimes({
             {language === 'ar'
               ? `أوقات الأذان في ${cityNameAr} هي نفسها أوقات الصلاة. يتم رفع الأذان عند دخول وقت كل صلاة من الصلوات الخمس.`
               : language === 'ur'
-              ? `${cityName} میں اذان کے اوقات نماز کے اوقات کے برابر ہیں۔ ہر نماز کے وقت داخل ہونے پر اذان دی جاتی ہے۔`
+              ? `${cityNameAr} میں اذان کے اوقات نماز کے اوقات کے برابر ہیں۔ ہر نماز کے وقت داخل ہونے پر اذان دی جاتی ہے۔`
+              : language === 'de'
+              ? `Azan-Zeiten in ${cityName} sind identisch mit den Gebetszeiten. Der Gebetsruf (Azan) erfolgt zu Beginn jedes der fünf täglichen Gebete.`
+              : language === 'fr'
+              ? `Les horaires d'Adhan à ${cityName} sont les mêmes que les horaires de prière. L'appel à la prière (Adhan) est lancé au début de chacune des cinq prières quotidiennes.`
+              : language === 'es'
+              ? `Los horarios de Adhan en ${cityName} son los mismos que los horarios de oración. La llamada a la oración (Adhan) se realiza al comienzo de cada una de las cinco oraciones diarias.`
+              : language === 'fa'
+              ? `اوقات اذان در ${cityNameAr} همان اوقات نماز است. اذان در ابتدای هر یک از پنج نماز روزانه اقامه می‌شود.`
+              : language === 'id'
+              ? `Waktu adzan di ${cityName} sama dengan waktu sholat. Adzan dikumandangkan pada awal setiap waktu sholat dari lima sholat wajib harian.`
+              : language === 'tr'
+              ? `${cityName}'deki ezan vakitleri namaz vakitleri ile aynıdır. Ezan, beş vakit namazın her birinin başlangıcında okunur.`
               : `Azan times in ${cityName} are the same as prayer times. The call to prayer (Azan) is made at the beginning of each of the five daily prayers.`}
           </p>
         </div>

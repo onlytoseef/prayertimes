@@ -16,6 +16,12 @@ export function generateStaticParams() {
     { lang: 'ar' },
     { lang: 'en' },
     { lang: 'ur' },
+    { lang: 'de' },
+    { lang: 'fr' },
+    { lang: 'es' },
+    { lang: 'fa' },
+    { lang: 'id' },
+    { lang: 'tr' },
   ];
 }
 
@@ -25,7 +31,7 @@ type Props = {
 
 export default async function LangHome({ params }: Props) {
   const { lang } = await params;
-  const language = (['ar', 'en', 'ur'].includes(lang) ? lang : 'ar') as Language;
+  const language = (['ar', 'en', 'ur', 'de', 'fr', 'es', 'fa', 'id', 'tr'].includes(lang) ? lang : 'ar') as Language;
 
   // Fetch Holy Cities prayer times on server
   let holyCitiesData = null;

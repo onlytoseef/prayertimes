@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { Compass, Navigation, MapPin, Loader } from 'lucide-react';
+import countriesData from '@/data/countries.json';
 
 export default function AutoQiblaDirection() {
   const { language } = useLanguage();
@@ -34,6 +35,18 @@ export default function AutoQiblaDirection() {
         ? 'المتصفح لا يدعم تحديد الموقع الجغرافي' 
         : language === 'ur'
         ? 'براؤزر جغرافیائی محل وقوع کی حمایت نہیں کرتا'
+        : language === 'de'
+        ? 'Geolokalisierung wird von Ihrem Browser nicht unterstützt'
+        : language === 'fr'
+        ? 'La géolocalisation n\'est pas supportée par votre navigateur'
+        : language === 'es'
+        ? 'La geolocalización no es compatible con su navegador'
+        : language === 'fa'
+        ? 'مرورگر شما از مکان‌یابی پشتیبانی نمی‌کند'
+        : language === 'id'
+        ? 'Geolokasi tidak didukung oleh browser Anda'
+        : language === 'tr'
+        ? 'Konumlandırma tarayıcınız tarafından desteklenmiyor'
         : 'Geolocation is not supported by your browser');
       setLoading(false);
       return;
@@ -58,17 +71,36 @@ export default function AutoQiblaDirection() {
           );
           const data = await response.json();
           
+          // Find matching country in our data to get translated name
+          const countryNameEn = data.countryName || '';
+          let translatedCountryName = countryNameEn;
+          
+          // Search for country in our countries.json
+          if (countryNameEn) {
+            const countryEntry = Object.values(countriesData).find(
+              (country: any) => country.name.toLowerCase() === countryNameEn.toLowerCase()
+            );
+            
+            if (countryEntry) {
+              const country = countryEntry as { name: string; nameAr: string };
+              // Use nameAr for RTL languages, name for LTR languages
+              translatedCountryName = (language === 'ar' || language === 'ur' || language === 'fa') 
+                ? country.nameAr 
+                : country.name;
+            }
+          }
+          
           setLocationData({
             latitude: lat,
             longitude: lng,
-            city: data.city || data.locality || language === 'ar' ? 'موقعك' : language === 'ur' ? 'آپ کا مقام' : 'Your Location',
-            country: data.countryName || ''
+            city: data.city || data.locality || language === 'ar' ? 'موقعك' : language === 'ur' ? 'آپ کا مقام' : language === 'de' ? 'Ihr Standort' : language === 'fr' ? 'Votre emplacement' : language === 'es' ? 'Su ubicación' : language === 'fa' ? 'مکان شما' : language === 'id' ? 'Lokasi Anda' : language === 'tr' ? 'Konumunuz' : 'Your Location',
+            country: translatedCountryName
           });
         } catch (err) {
           setLocationData({
             latitude: lat,
             longitude: lng,
-            city: language === 'ar' ? 'موقعك' : language === 'ur' ? 'آپ کا مقام' : 'Your Location',
+            city: language === 'ar' ? 'موقعك' : language === 'ur' ? 'آپ کا مقام' : language === 'de' ? 'Ihr Standort' : language === 'fr' ? 'Votre emplacement' : language === 'es' ? 'Su ubicación' : language === 'fa' ? 'مکان شما' : language === 'id' ? 'Lokasi Anda' : language === 'tr' ? 'Konumunuz' : 'Your Location',
             country: ''
           });
         }
@@ -80,6 +112,18 @@ export default function AutoQiblaDirection() {
           ? 'الرجاء السماح بالوصول إلى موقعك' 
           : language === 'ur'
           ? 'براہ کرم اپنے مقام تک رسائی کی اجازت دیں'
+          : language === 'de'
+          ? 'Fehler beim Abrufen Ihres Standorts'
+          : language === 'fr'
+          ? 'Veuillez autoriser l\'accès à votre position'
+          : language === 'es'
+          ? 'Permita el acceso a su ubicación'
+          : language === 'fa'
+          ? 'لطفاً اجازه دسترسی به مکان خود را بدهید'
+          : language === 'id'
+          ? 'Harap izinkan akses ke lokasi Anda'
+          : language === 'tr'
+          ? 'Lütfen konumunuza erişime izin verin'
           : 'Please allow access to your location');
         setLoading(false);
       }
@@ -120,7 +164,13 @@ export default function AutoQiblaDirection() {
     const directions = {
       ar: ['شمال', 'شمال شرق', 'شرق', 'جنوب شرق', 'جنوب', 'جنوب غرب', 'غرب', 'شمال غرب'],
       en: ['North', 'North-East', 'East', 'South-East', 'South', 'South-West', 'West', 'North-West'],
-      ur: ['شمال', 'شمال مشرق', 'مشرق', 'جنوب مشرق', 'جنوب', 'جنوب مغرب', 'مغرب', 'شمال مغرب']
+      ur: ['شمال', 'شمال مشرق', 'مشرق', 'جنوب مشرق', 'جنوب', 'جنوب مغرب', 'مغرب', 'شمال مغرب'],
+      de: ['Norden', 'Nordosten', 'Osten', 'Südosten', 'Süden', 'Südwesten', 'Westen', 'Nordwesten'],
+      fr: ['Nord', 'Nord-Est', 'Est', 'Sud-Est', 'Sud', 'Sud-Ouest', 'Ouest', 'Nord-Ouest'],
+      es: ['Norte', 'Noreste', 'Este', 'Sureste', 'Sur', 'Suroeste', 'Oeste', 'Noroeste'],
+      fa: ['شمال', 'شمال شرقی', 'شرق', 'جنوب شرقی', 'جنوب', 'جنوب غربی', 'غرب', 'شمال غربی'],
+      id: ['Utara', 'Timur Laut', 'Timur', 'Tenggara', 'Selatan', 'Barat Daya', 'Barat', 'Barat Laut'],
+      tr: ['Kuzey', 'Kuzeydoğu', 'Doğu', 'Güneydoğu', 'Güney', 'Güneybatı', 'Batı', 'Kuzeybatı']
     };
 
     const index = Math.round(angle / 45) % 8;
@@ -138,6 +188,14 @@ export default function AutoQiblaDirection() {
                 ? 'جاري تحديد موقعك...' 
                 : language === 'ur'
                 ? 'آپ کے مقام کا پتہ لگایا جا رہا ہے...'
+                : language === 'de'
+                ? 'Ihr Standort wird ermittelt...'
+                : language === 'fr'
+                ? 'Détection de votre position...'
+                : language === 'es'
+                ? 'Detectando su ubicación...'
+                : language === 'id'
+                ? 'Mendeteksi lokasi Anda...'
                 : 'Detecting your location...'}
             </p>
           </div>
@@ -157,7 +215,7 @@ export default function AutoQiblaDirection() {
               onClick={detectLocation}
               className="px-6 py-3 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors font-[var(--font-tajawal)]"
             >
-              {language === 'ar' ? 'حاول مرة أخرى' : language === 'ur' ? 'دوبارہ کوشش کریں' : 'Try Again'}
+              {language === 'ar' ? 'حاول مرة أخرى' : language === 'ur' ? 'دوبارہ کوشش کریں' : language === 'de' ? 'Versuchen Sie es erneut' : language === 'fr' ? 'Réessayer' : language === 'es' ? 'Intentar de nuevo' : language === 'fa' ? 'تلاش مجدد' : language === 'id' ? 'Coba Lagi' : 'Try Again'}
             </button>
           </div>
         </div>
@@ -179,7 +237,19 @@ export default function AutoQiblaDirection() {
                 {language === 'ar' 
                   ? 'اتجاه القبلة من موقعك' 
                   : language === 'ur'
-                  ? 'آپ کے مقام سے قبلہ کی سمت'
+                  ? 'Âp کے مقام سے قبلہ کی سمت'
+                  : language === 'de'
+                  ? 'Qibla-Richtung von Ihrem Standort'
+                  : language === 'fr'
+                  ? 'Direction de la Qibla depuis votre position'
+                  : language === 'es'
+                  ? 'Dirección de la Qibla desde su ubicación'
+                  : language === 'fa'
+                  ? 'جهت قبله از موقعیت شما'
+                  : language === 'id'
+                  ? 'Arah Kiblat dari Lokasi Anda'
+                  : language === 'tr'
+                  ? 'Konumunuzdan Kıble Yönü'
                   : 'Qibla Direction from Your Location'}
               </h2>
             </div>
@@ -238,7 +308,7 @@ export default function AutoQiblaDirection() {
                 {/* Qibla Angle */}
                 <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-xl p-5 text-center border-2 border-emerald-100">
                   <p className="text-sm sm:text-base text-gray-600 mb-2 font-[var(--font-tajawal)]">
-                    {language === 'ar' ? 'زاوية القبلة' : language === 'ur' ? 'قبلہ کا زاویہ' : 'Qibla Angle'}
+                    {language === 'ar' ? 'زاوية القبلة' : language === 'ur' ? 'قبلہ کا زاویہ' : language === 'de' ? 'Qibla-Winkel' : language === 'fr' ? 'Angle de la Qibla' : language === 'es' ? 'Ángulo de la Qibla' : language === 'fa' ? 'زاویه قبله' : language === 'id' ? 'Sudut Kiblat' : language === 'tr' ? 'Kıble Açısı' : 'Qibla Angle'}
                   </p>
                   <p className="text-3xl sm:text-4xl font-bold text-emerald-600 mb-1">
                     {qiblaAngle.toFixed(1)}°
@@ -251,20 +321,20 @@ export default function AutoQiblaDirection() {
                 {/* Distance to Kaaba */}
                 <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-xl p-5 text-center border-2 border-emerald-100">
                   <p className="text-sm sm:text-base text-gray-600 mb-2 font-[var(--font-tajawal)]">
-                    {language === 'ar' ? 'المسافة إلى الكعبة' : language === 'ur' ? 'کعبہ تک فاصلہ' : 'Distance to Kaaba'}
+                    {language === 'ar' ? 'المسافة إلى الكعبة' : language === 'ur' ? 'کعبہ تک فاصلہ' : language === 'de' ? 'Entfernung zur Kaaba' : language === 'fr' ? 'Distance jusqu\'\u00e0 la Kaaba' : language === 'es' ? 'Distancia a la Kaaba' : language === 'fa' ? 'فاصله تا کعبه' : language === 'id' ? 'Jarak ke Ka\'bah' : language === 'tr' ? 'Kabe\'ye Uzaklık' : 'Distance to Kaaba'}
                   </p>
                   <p className="text-3xl sm:text-4xl font-bold text-emerald-600 mb-1">
                     {distance.toLocaleString()}
                   </p>
                   <p className="text-xs sm:text-sm text-gray-500 font-[var(--font-tajawal)]">
-                    {language === 'ar' ? 'كيلومتر' : language === 'ur' ? 'کلومیٹر' : 'kilometers'}
+                    {language === 'ar' ? 'كيلومتر' : language === 'ur' ? 'کلومیٹر' : language === 'de' ? 'Kilometer' : language === 'fr' ? 'kilom\u00e8tres' : language === 'es' ? 'kil\u00f3metros' : language === 'fa' ? 'کیلومتر' : language === 'id' ? 'kilometer' : language === 'tr' ? 'kilometre' : 'kilometers'}
                   </p>
                 </div>
 
                 {/* Coordinates */}
                 <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-xl p-5 text-center border-2 border-emerald-100">
                   <p className="text-sm sm:text-base text-gray-600 mb-2 font-[var(--font-tajawal)]">
-                    {language === 'ar' ? 'الإحداثيات' : language === 'ur' ? 'متناسقات' : 'Coordinates'}
+                    {language === 'ar' ? 'الإحداثيات' : language === 'ur' ? 'متناسقات' : language === 'de' ? 'Koordinaten' : language === 'fr' ? 'Coordonn\u00e9es' : language === 'es' ? 'Coordenadas' : language === 'fa' ? 'مختصات' : language === 'id' ? 'Koordinat' : language === 'tr' ? 'Koordinatlar' : 'Coordinates'}
                   </p>
                   <p className="text-base sm:text-lg font-bold text-emerald-600">
                     {locationData.latitude.toFixed(4)}°
@@ -282,6 +352,18 @@ export default function AutoQiblaDirection() {
                     ? 'استخدم هذا السهم للعثور على اتجاه القبلة الدقيق من موقعك الحالي نحو الكعبة المشرفة في مكة المكرمة. قم بمحاذاة جهازك مع الاتجاه المشار إليه للصلاة.'
                     : language === 'ur'
                     ? 'اپنے موجودہ مقام سے مکہ مکرمہ میں خانہ کعبہ کی طرف قبلہ کی درست سمت تلاش کرنے کے لیے اس تیر کا استعمال کریں۔ نماز کے لیے اپنے آلے کو اشارہ شدہ سمت کے ساتھ سیدھ میں لائیں۔'
+                    : language === 'de'
+                    ? 'Verwenden Sie diesen Pfeil, um die genaue Qibla-Richtung von Ihrem aktuellen Standort zur Heiligen Kaaba in Mekka zu finden. Richten Sie Ihr Gerät für das Gebet in die angezeigte Richtung aus.'
+                    : language === 'fr'
+                    ? 'Utilisez cette flèche pour trouver la direction exacte de la Qibla depuis votre position actuelle vers la Sainte Kaaba à La Mecque. Alignez votre appareil avec la direction indiquée pour la prière.'
+                    : language === 'es'
+                    ? 'Use esta flecha para encontrar la dirección exacta de la Qibla desde su ubicación actual hacia la Sagrada Kaaba en La Meca. Alinee su dispositivo con la dirección indicada para la oración.'
+                    : language === 'fa'
+                    ? 'از این پیکان برای یافتن جهت دقیق قبله از موقعیت فعلی خود به سمت کعبه مشرفه در مکه استفاده کنید. دستگاه خود را با جهت نشان داده شده برای نماز تراز کنید.'
+                    : language === 'id'
+                    ? 'Gunakan panah ini untuk menemukan arah Kiblat yang akurat dari lokasi Anda saat ini menuju Ka\'bah Suci di Makkah. Sejajarkan perangkat Anda dengan arah yang ditunjukkan untuk sholat.'
+                    : language === 'tr'
+                    ? 'Mevcut konumunuzdan Mekke\'deki Kutsal Kabe\'ye doğru doğru Kıble yönünü bulmak için bu oku kullanın. Namaz için cihazınızı belirtilen yöne hizalayın.'
                     : 'Use this arrow to find the accurate Qibla direction from your current location towards the Holy Kaaba in Makkah. Align your device with the indicated direction for prayer.'}
                 </p>
               </div>

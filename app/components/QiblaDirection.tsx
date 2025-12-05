@@ -57,7 +57,13 @@ export default function QiblaDirection({ cityName, cityNameAr, latitude, longitu
     const directions = {
       ar: ['شمال', 'شمال شرق', 'شرق', 'جنوب شرق', 'جنوب', 'جنوب غرب', 'غرب', 'شمال غرب'],
       en: ['North', 'North-East', 'East', 'South-East', 'South', 'South-West', 'West', 'North-West'],
-      ur: ['شمال', 'شمال مشرق', 'مشرق', 'جنوب مشرق', 'جنوب', 'جنوب مغرب', 'مغرب', 'شمال مغرب']
+      ur: ['شمال', 'شمال مشرق', 'مشرق', 'جنوب مشرق', 'جنوب', 'جنوب مغرب', 'مغرب', 'شمال مغرب'],
+      de: ['Norden', 'Nordosten', 'Osten', 'Südosten', 'Süden', 'Südwesten', 'Westen', 'Nordwesten'],
+      fr: ['Nord', 'Nord-Est', 'Est', 'Sud-Est', 'Sud', 'Sud-Ouest', 'Ouest', 'Nord-Ouest'],
+      es: ['Norte', 'Noreste', 'Este', 'Sureste', 'Sur', 'Suroeste', 'Oeste', 'Noroeste'],
+      fa: ['شمال', 'شمال شرقی', 'شرق', 'جنوب شرقی', 'جنوب', 'جنوب غربی', 'غرب', 'شمال غربی'],
+      id: ['Utara', 'Timur Laut', 'Timur', 'Tenggara', 'Selatan', 'Barat Daya', 'Barat', 'Barat Laut'],
+      tr: ['Kuzey', 'Kuzeydoğu', 'Doğu', 'Güneydoğu', 'Güney', 'Güneybatı', 'Batı', 'Kuzeybatı']
     };
 
     const index = Math.round(angle / 45) % 8;
@@ -78,20 +84,44 @@ export default function QiblaDirection({ cityName, cityNameAr, latitude, longitu
           <header className="text-center mb-6 sm:mb-8">
             <div className="flex items-center justify-center gap-2 mb-3">
               <Compass className="w-6 h-6 sm:w-8 sm:h-8 text-emerald-600" aria-hidden="true" />
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 font-[var(--font-tajawal)]" itemProp="name">
-                {language === 'ar' 
-                  ? `اتجاه القبلة من ${cityNameAr}` 
-                  : language === 'ur' 
-                  ? `${cityName} سے قبلہ کی سمت` 
-                  : `Qibla Direction from ${cityName}`}
-              </h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 font-[var(--font-tajawal)]">
+              {language === 'ar'
+                ? `اتجاه القبلة من ${cityNameAr}`
+                : language === 'ur'
+                ? `${cityName} سے قبلہ کی سمت`
+                : language === 'de'
+                ? `Qibla-Richtung von ${cityName}`
+                : language === 'fr'
+                ? `Direction de la Qibla depuis ${cityName}`
+                : language === 'es'
+                ? `Dirección de la Qibla desde ${cityName}`
+                : language === 'fa'
+                ? `جهت قبله از ${cityName}`
+                : language === 'id'
+                ? `Arah Kiblat dari ${cityName}`
+                : language === 'tr'
+                ? `${cityName}'den Kıble Yönü`
+                : `Qibla Direction from ${cityName}`}
+            </h2>
             </div>
             <p className="text-sm sm:text-base text-gray-600 font-[var(--font-tajawal)]" itemProp="description">
               {language === 'ar' 
                 ? `احسب الاتجاه الدقيق للقبلة من ${cityNameAr} إلى الكعبة المشرفة في مكة المكرمة. المسافة ${distanceToKaaba} كيلومتر والزاوية ${qiblaAngle.toFixed(1)} درجة.`
                 : language === 'ur'
                 ? `${cityName} سے مکہ مکرمہ میں خانہ کعبہ کی جانب قبلہ کی درست سمت معلوم کریں۔ فاصلہ ${distanceToKaaba} کلومیٹر اور زاویہ ${qiblaAngle.toFixed(1)} ڈگری۔`
-                : `Find the accurate Qibla direction from ${cityName} to the Holy Kaaba in Makkah. Distance ${distanceToKaaba} km at ${qiblaAngle.toFixed(1)}° angle.`}
+                : language === 'de'
+                ? `Finden Sie die genaue Qibla-Richtung von ${cityName} zur Heiligen Kaaba in Mekka. Entfernung ${distanceToKaaba} km bei ${qiblaAngle.toFixed(1)}\u00b0 Winkel.`
+                : language === 'fr'
+                ? `Trouvez la direction exacte de la Qibla depuis ${cityName} vers la Sainte Kaaba \u00e0 La Mecque. Distance ${distanceToKaaba} km \u00e0 ${qiblaAngle.toFixed(1)}\u00b0 d'angle.`
+                : language === 'es'
+                ? `Encuentre la dirección exacta de la Qibla desde ${cityName} hacia la Sagrada Kaaba en La Meca. Distancia ${distanceToKaaba} km a ${qiblaAngle.toFixed(1)}\u00b0 de ángulo.`
+                : language === 'fa'
+                ? `جهت دقیق قبله را از ${cityName} به سمت کعبه مشرفه در مکه پیدا کنید. فاصله ${distanceToKaaba} کیلومتر با زاویه ${qiblaAngle.toFixed(1)}\u00b0.`
+                : language === 'id'
+                ? `Temukan arah kiblat yang akurat dari ${cityName} ke Ka'bah Suci di Mekkah. Jarak ${distanceToKaaba} km pada sudut ${qiblaAngle.toFixed(1)}\u00b0.`
+                : language === 'tr'
+                ? `${cityName}'den Mekke'deki Kutsal Kabe'ye doğru doğru Kıble yönünü bulun. Mesafe ${distanceToKaaba} km, açı ${qiblaAngle.toFixed(1)}\u00b0.`
+                : `Find the accurate Qibla direction from ${cityName} to the Holy Kaaba in Makkah. Distance ${distanceToKaaba} km at ${qiblaAngle.toFixed(1)}\u00b0 angle.`}
             </p>
           </header>
 
@@ -131,7 +161,7 @@ export default function QiblaDirection({ cityName, cityNameAr, latitude, longitu
                 {/* Angle Display */}
                 <div className="mt-6 text-center">
                   <p className="text-white/80 text-sm mb-1 font-[var(--font-tajawal)]">
-                    {language === 'ar' ? 'زاوية القبلة' : language === 'ur' ? 'قبلہ کا زاویہ' : 'Qibla Angle'}
+                    {language === 'ar' ? 'زاوية القبلة' : language === 'ur' ? 'قبلہ کا زاویہ' : language === 'de' ? 'Qibla-Winkel' : language === 'fr' ? 'Angle de la Qibla' : language === 'es' ? 'Ángulo de la Qibla' : language === 'fa' ? 'زاویه قبله' : language === 'id' ? 'Sudut Kiblat' : 'Qibla Angle'}
                   </p>
                   <p className="text-4xl sm:text-5xl font-bold text-white font-mono" itemProp="additionalProperty" itemScope itemType="https://schema.org/PropertyValue">
                     <span itemProp="value">{qiblaAngle.toFixed(1)}</span><span itemProp="unitText">°</span>
@@ -151,14 +181,14 @@ export default function QiblaDirection({ cityName, cityNameAr, latitude, longitu
                       <Compass className="w-5 h-5 text-white" />
                     </div>
                     <h3 className="text-base sm:text-lg font-bold text-gray-800 font-[var(--font-tajawal)]">
-                      {language === 'ar' ? 'المسافة إلى مكة المكرمة' : language === 'ur' ? 'مکہ مکرمہ تک فاصلہ' : 'Distance to Makkah'}
+                      {language === 'ar' ? 'المسافة إلى مكة المكرمة' : language === 'ur' ? 'مکہ مکرمہ تک فاصلہ' : language === 'de' ? 'Entfernung nach Mekka' : language === 'fr' ? 'Distance jusqu\'à La Mecque' : language === 'es' ? 'Distancia a La Meca' : language === 'fa' ? 'فاصله تا مکه' : language === 'id' ? 'Jarak ke Mekkah' : language === 'tr' ? 'Mekke\'ye Mesafe' : 'Distance to Makkah'}
                     </h3>
                   </div>
                   <p className="text-3xl sm:text-4xl font-bold text-emerald-700 font-mono">
                     <span itemProp="distance" itemScope itemType="https://schema.org/Distance">
                       <span itemProp="value">{distanceToKaaba}</span> 
                       <span className="text-lg sm:text-xl ml-2" itemProp="unitText">
-                        {language === 'ar' ? 'كم' : language === 'ur' ? 'کلومیٹر' : 'km'}
+                        {language === 'ar' ? 'كم' : language === 'ur' ? 'کلومیٹر' : language === 'de' ? 'km' : language === 'fr' ? 'km' : language === 'es' ? 'km' : language === 'fa' ? 'کیلومتر' : language === 'id' ? 'km' : 'km'}
                       </span>
                     </span>
                   </p>
@@ -168,7 +198,7 @@ export default function QiblaDirection({ cityName, cityNameAr, latitude, longitu
                 <div className="space-y-3">
                   <div className="flex justify-between items-center pb-3 border-b border-gray-200">
                     <span className="text-gray-600 text-sm sm:text-base font-[var(--font-tajawal)]">
-                      {language === 'ar' ? `موقع ${cityNameAr}` : language === 'ur' ? `${cityName} کا مقام` : `${cityName} Location`}
+                      {language === 'ar' ? `موقع ${cityNameAr}` : language === 'ur' ? `${cityName} کا مقام` : language === 'de' ? `${cityName} Standort` : language === 'fr' ? `Position de ${cityName}` : language === 'es' ? `Ubicaci\u00f3n de ${cityName}` : language === 'fa' ? `مکان ${cityName}` : language === 'id' ? `Lokasi ${cityName}` : language === 'tr' ? `${cityName} Konumu` : `${cityName} Location`}
                     </span>
                     <span className="text-gray-800 font-semibold font-mono text-sm sm:text-base">
                       {latitude.toFixed(4)}°, {longitude.toFixed(4)}°
@@ -177,7 +207,7 @@ export default function QiblaDirection({ cityName, cityNameAr, latitude, longitu
                   
                   <div className="flex justify-between items-center">
                     <span className="text-gray-600 text-sm sm:text-base font-[var(--font-tajawal)]">
-                      {language === 'ar' ? 'الكعبة المشرفة' : language === 'ur' ? 'خانہ کعبہ' : 'Holy Kaaba'}
+                      {language === 'ar' ? 'الكعبة المشرفة' : language === 'ur' ? 'خانہ کعبہ' : language === 'de' ? 'Heilige Kaaba' : language === 'fr' ? 'Sainte Kaaba' : language === 'es' ? 'Sagrada Kaaba' : language === 'fa' ? 'خانه کعبه' : language === 'id' ? 'Ka\'bah Suci' : language === 'tr' ? 'Kutsal Kabe' : 'Holy Kaaba'}
                     </span>
                     <span className="text-gray-800 font-semibold font-mono text-sm sm:text-base">
                       {kaabaLat.toFixed(4)}°, {kaabaLng.toFixed(4)}°
@@ -188,24 +218,48 @@ export default function QiblaDirection({ cityName, cityNameAr, latitude, longitu
                 {/* Instructions */}
                 <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
                   <h3 className="sr-only">
-                    {language === 'ar' ? 'تعليمات الاستخدام' : language === 'ur' ? 'استعمال کی ہدایات' : 'Usage Instructions'}
+                    {language === 'ar' ? 'تعليمات الاستخدام' : language === 'ur' ? 'استعمال کی ہدایات' : language === 'de' ? 'Anweisungen' : language === 'es' ? 'Instrucciones' : language === 'fa' ? 'دستورالعمل استفاده' : 'Usage Instructions'}
                   </h3>
                   <p className="text-xs sm:text-sm text-gray-700 leading-relaxed font-[var(--font-tajawal)]">
-                    {language === 'ar'
+                      {language === 'ar'
                       ? `لمعرفة اتجاه القبلة من ${cityNameAr}، استخدم البوصلة أو تطبيق الهاتف. اتجه نحو ${getDirectionName(qiblaAngle)} بزاوية ${qiblaAngle.toFixed(1)} درجة للصلاة في اتجاه الكعبة المشرفة.`
                       : language === 'ur'
                       ? `${cityName} سے قبلہ کی سمت معلوم کرنے کے لیے کمپاس یا موبائل ایپ استعمال کریں۔ نماز کے لیے ${getDirectionName(qiblaAngle)} کی طرف ${qiblaAngle.toFixed(1)} ڈگری پر رخ کریں۔`
-                      : `To find Qibla direction from ${cityName}, use a compass or phone app. Face ${getDirectionName(qiblaAngle)} at ${qiblaAngle.toFixed(1)}° to pray towards the Holy Kaaba.`}
+                      : language === 'de'
+                      ? `Um die Qibla-Richtung von ${cityName} zu finden, verwenden Sie einen Kompass oder eine Handy-App. Richten Sie sich f\u00fcr das Gebet in Richtung ${getDirectionName(qiblaAngle)} bei ${qiblaAngle.toFixed(1)}\u00b0 aus.`
+                      : language === 'fr'
+                      ? `Pour trouver la direction de la Qibla depuis ${cityName}, utilisez une boussole ou une application mobile. Orientez-vous vers ${getDirectionName(qiblaAngle)} \u00e0 ${qiblaAngle.toFixed(1)}\u00b0 pour prier vers la Sainte Kaaba.`
+                      : language === 'es'
+                      ? `Para encontrar la dirección de la Qibla desde ${cityName}, use una brújula o una aplicación móvil. Diríjase hacia ${getDirectionName(qiblaAngle)} a ${qiblaAngle.toFixed(1)}\u00b0 para rezar hacia la Sagrada Kaaba.`
+                      : language === 'fa'
+                      ? `برای یافتن جهت قبله از ${cityName}، از قطب‌نما یا برنامه موبایل استفاده کنید. برای نماز به سمت ${getDirectionName(qiblaAngle)} در زاویه ${qiblaAngle.toFixed(1)}\u00b0 به سمت کعبه مشرفه رو کنید.`
+                      : language === 'id'
+                      ? `Untuk menemukan arah kiblat dari ${cityName}, gunakan kompas atau aplikasi ponsel. Hadap ke arah ${getDirectionName(qiblaAngle)} pada ${qiblaAngle.toFixed(1)}\u00b0 untuk sholat menghadap Ka'bah Suci.`
+                      : language === 'tr'
+                      ? `${cityName}'den Kıble yönünü bulmak için pusula veya telefon uygulaması kullanın. Namaz için Kutsal Kabe'ye doğru ${getDirectionName(qiblaAngle)} yönünde ${qiblaAngle.toFixed(1)}\u00b0'ye bakın.`
+                      : `To find Qibla direction from ${cityName}, use a compass or phone app. Face ${getDirectionName(qiblaAngle)} at ${qiblaAngle.toFixed(1)}\u00b0 to pray towards the Holy Kaaba.`}
                   </p>
                 </div>
 
                 {/* Note */}
                 <footer className="text-center pt-4 border-t border-gray-200">
                   <p className="text-xs text-gray-500 font-[var(--font-tajawal)]">
-                    {language === 'ar'
+                      {language === 'ar'
                       ? 'الحسابات مبنية على الإحداثيات الجغرافية باستخدام حساب المثلثات الكروية'
                       : language === 'ur'
                       ? 'حسابات جغرافیائی محل وقوع اور کروی مثلثیات پر مبنی ہیں'
+                      : language === 'de'
+                      ? 'Berechnungen basieren auf geografischen Koordinaten unter Verwendung sphärischer Trigonometrie'
+                      : language === 'fr'
+                      ? 'Calculs basés sur les coordonnées géographiques en utilisant la trigonométrie sphérique'
+                      : language === 'es'
+                      ? 'Cálculos basados en coordenadas geográficas usando trigonometría esférica'
+                      : language === 'fa'
+                      ? 'محاسبات بر اساس مختصات جغرافیایی با استفاده از مثلثات کروی'
+                      : language === 'id'
+                      ? 'Perhitungan berdasarkan koordinat geografis menggunakan trigonometri bola'
+                      : language === 'tr'
+                      ? 'Hesaplamalar küresel trigonometri kullanılarak coğrafi koordinatlara dayalıdır'
                       : 'Calculations based on geographical coordinates using spherical trigonometry'}
                   </p>
                 </footer>
@@ -217,7 +271,7 @@ export default function QiblaDirection({ cityName, cityNameAr, latitude, longitu
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
             <div className="bg-white rounded-lg shadow p-4 text-center">
               <p className="text-xs sm:text-sm text-gray-600 mb-1 font-[var(--font-tajawal)]">
-                {language === 'ar' ? 'الاتجاه' : language === 'ur' ? 'سمت' : 'Direction'}
+                {language === 'ar' ? 'الاتجاه' : language === 'ur' ? 'سمت' : language === 'de' ? 'Richtung' : language === 'fr' ? 'Direction' : language === 'es' ? 'Dirección' : language === 'fa' ? 'جهت' : language === 'id' ? 'Arah' : language === 'tr' ? 'Yön' : 'Direction'}
               </p>
               <p className="text-lg sm:text-xl font-bold text-emerald-600 font-[var(--font-tajawal)]">
                 {getDirectionName(qiblaAngle)}
@@ -226,7 +280,7 @@ export default function QiblaDirection({ cityName, cityNameAr, latitude, longitu
             
             <div className="bg-white rounded-lg shadow p-4 text-center">
               <p className="text-xs sm:text-sm text-gray-600 mb-1 font-[var(--font-tajawal)]">
-                {language === 'ar' ? 'دقة' : language === 'ur' ? 'درستگی' : 'Accuracy'}
+                {language === 'ar' ? 'دقة' : language === 'ur' ? 'درستگی' : language === 'de' ? 'Genauigkeit' : language === 'fr' ? 'Précision' : language === 'es' ? 'Precisión' : language === 'fa' ? 'دقت' : language === 'id' ? 'Akurasi' : language === 'tr' ? 'Doğruluk' : 'Accuracy'}
               </p>
               <p className="text-lg sm:text-xl font-bold text-emerald-600">
                 ±1°
@@ -235,10 +289,10 @@ export default function QiblaDirection({ cityName, cityNameAr, latitude, longitu
             
             <div className="bg-white rounded-lg shadow p-4 text-center">
               <p className="text-xs sm:text-sm text-gray-600 mb-1 font-[var(--font-tajawal)]">
-                {language === 'ar' ? 'الطريقة' : language === 'ur' ? 'طریقہ' : 'Method'}
+                {language === 'ar' ? 'الطريقة' : language === 'ur' ? 'طریقہ' : language === 'de' ? 'Methode' : language === 'fr' ? 'Méthode' : language === 'es' ? 'Método' : language === 'fa' ? 'روش' : language === 'id' ? 'Metode' : language === 'tr' ? 'Yöntem' : 'Method'}
               </p>
               <p className="text-xs sm:text-sm font-semibold text-emerald-600 font-[var(--font-tajawal)]">
-                {language === 'ar' ? 'حساب دقيق' : language === 'ur' ? 'درست حساب' : 'Accurate Calc'}
+                {language === 'ar' ? 'حساب دقيق' : language === 'ur' ? 'درست حساب' : language === 'de' ? 'Genaue Berechnung' : language === 'fr' ? 'Calcul précis' : language === 'es' ? 'Cálculo preciso' : language === 'fa' ? 'محاسبه دقیق' : language === 'id' ? 'Perhitungan Akurat' : language === 'tr' ? 'Hassas Hesaplama' : 'Accurate Calc'}
               </p>
             </div>
           </div>

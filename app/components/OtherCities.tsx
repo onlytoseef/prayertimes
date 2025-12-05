@@ -73,7 +73,19 @@ export default function OtherCities(props: OtherCitiesProps) {
             {language === 'ar' 
               ? `مواقيت الصلاة في مدن ${countryNameAr} الأخرى`
               : language === 'ur'
-              ? `${countryName} کے دیگر شہروں میں نماز کے اوقات`
+              ? `${countryNameAr} کے دیگر شہروں میں نماز کے اوقات`
+              : language === 'de'
+              ? `Gebetszeiten in anderen Städten von ${countryName}`
+              : language === 'fr'
+              ? `Horaires de prière dans d'autres villes de ${countryName}`
+              : language === 'es'
+              ? `Horarios de oración en otras ciudades de ${countryName}`
+              : language === 'fa'
+              ? `اوقات نماز در شهرهای دیگر ${countryNameAr}`
+              : language === 'id'
+              ? `Waktu sholat di kota lain di ${countryName}`
+              : language === 'tr'
+              ? `${countryName}'deki diğer şehirlerde namaz vakitleri`
               : `Prayer times in other cities of ${countryName}`}
           </h3>
           
@@ -90,6 +102,18 @@ export default function OtherCities(props: OtherCitiesProps) {
                       ? `مواقيت الصلاة في ${city.nameAr}`
                       : language === 'ur'
                       ? `${city.nameAr} میں نماز کے اوقات`
+                      : language === 'de'
+                      ? `Gebetszeiten in ${city.name}`
+                      : language === 'fr'
+                      ? `Horaires de prière à ${city.name}`
+                      : language === 'es'
+                      ? `Horarios de oración en ${city.name}`
+                      : language === 'fa'
+                      ? `اوقات نماز در ${city.nameAr}`
+                      : language === 'id'
+                      ? `Waktu sholat di ${city.name}`
+                      : language === 'tr'
+                      ? `${city.name} namaz vakitleri`
                       : `Prayer time in ${city.name}`}
                   </p>
                 </div>

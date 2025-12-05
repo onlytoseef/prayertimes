@@ -39,7 +39,7 @@ export default function CityDescription({
         <Info className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-600 flex-shrink-0 mt-1" />
         <div className="flex-1 min-w-0">
           <h2 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-2 sm:mb-3 font-[var(--font-tajawal)] leading-tight">
-            {language === 'en' ? `About ${cityName}` : language === 'ur' ? `${cityNameAr} کے بارے میں` : `عن ${cityNameAr}`}
+            {language === 'en' ? `About ${cityName}` : language === 'ur' ? `${cityNameAr} کے بارے میں` : language === 'de' ? `Über ${cityName}` : language === 'fr' ? `À propos de ${cityName}` : language === 'es' ? `Acerca de ${cityName}` : language === 'fa' ? `درباره ${cityName}` : language === 'id' ? `Tentang ${cityName}` : `عن ${cityNameAr}`}
           </h2>
           <p className="text-gray-700 leading-relaxed font-[var(--font-tajawal)] text-sm xs:text-base sm:text-lg md:text-xl break-words">
             {description}
@@ -54,7 +54,7 @@ export default function CityDescription({
             <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-600 flex-shrink-0" />
             <div className="min-w-0 flex-1">
               <p className="text-xs sm:text-sm text-gray-600 font-[var(--font-tajawal)] mb-0.5">
-                {language === 'en' ? 'Location' : language === 'ur' ? 'مقام' : 'الموقع'}
+                {language === 'en' ? 'Location' : language === 'ur' ? 'مقام' : language === 'de' ? 'Standort' : language === 'fr' ? 'Emplacement' : language === 'es' ? 'Ubicación' : language === 'fa' ? 'مکان' : language === 'id' ? 'Lokasi' : 'الموقع'}
               </p>
               <p className="font-semibold text-gray-800 font-[var(--font-tajawal)] text-sm sm:text-base truncate">
                 {language === 'en' ? cityName : cityNameAr}, {countryName}
@@ -66,10 +66,10 @@ export default function CityDescription({
             <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-600 flex-shrink-0" />
             <div className="min-w-0 flex-1">
               <p className="text-xs sm:text-sm text-gray-600 font-[var(--font-tajawal)] mb-0.5">
-                {language === 'en' ? 'Updated' : language === 'ur' ? 'اپ ڈیٹ' : 'تحديث'}
+                {language === 'en' ? 'Updated' : language === 'ur' ? 'اپ ڈیٹ' : language === 'de' ? 'Aktualisiert' : language === 'fr' ? 'Mis à jour' : language === 'es' ? 'Actualizado' : language === 'fa' ? 'به‌روزرسانی شده' : language === 'id' ? 'Diperbarui' : 'تحديث'}
               </p>
               <p className="font-semibold text-gray-800 text-sm sm:text-base">
-                {language === 'en' ? 'Daily' : language === 'ur' ? 'روزانہ' : 'يومياً'}
+                {language === 'en' ? 'Daily' : language === 'ur' ? 'روزانہ' : language === 'de' ? 'Täglich' : language === 'fr' ? 'Quotidien' : language === 'es' ? 'Diario' : language === 'fa' ? 'روزانه' : language === 'id' ? 'Harian' : 'يومياً'}
               </p>
             </div>
           </div>

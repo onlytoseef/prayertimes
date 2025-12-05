@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useLanguage } from '../context/LanguageContext';
+import { useLanguage, Language } from '../context/LanguageContext';
 
 type BreadcrumbProps = {
   items: {
@@ -9,7 +9,7 @@ type BreadcrumbProps = {
     labelAr?: string;
     href?: string;
   }[];
-  language: 'ar' | 'en' | 'ur';
+  language: Language;
 };
 
 export default function Breadcrumb({ items, language }: BreadcrumbProps) {

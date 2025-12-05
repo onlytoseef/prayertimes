@@ -70,9 +70,15 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://prayertimes.com',
     languages: {
-      'ar': 'https://prayertimes.com/ar',
+      'ar': 'https://prayertimes.com/',
       'en': 'https://prayertimes.com/en',
       'ur': 'https://prayertimes.com/ur',
+      'de': 'https://prayertimes.com/de',
+      'fr': 'https://prayertimes.com/fr',
+      'es': 'https://prayertimes.com/es',
+      'fa': 'https://prayertimes.com/fa',
+      'id': 'https://prayertimes.com/id',
+      'tr': 'https://prayertimes.com/tr',
     },
   },
   verification: {

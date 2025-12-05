@@ -58,6 +58,18 @@ export default function CountriesList({ language: propLanguage }: CountriesListP
             ? 'اختر دولتك من القائمة أدناه لعرض مواقيت الصلاة الدقيقة لجميع المدن. نوفر أوقات الصلاة لأكثر من 29 دولة إسلامية حول العالم.'
             : language === 'ur'
             ? 'تمام شہروں کے لیے درست نماز کے اوقات دیکھنے کے لیے نیچے سے اپنا ملک منتخب کریں۔ ہم دنیا بھر کے 29 سے زیادہ اسلامی ممالک کے نماز کے اوقات فراہم کرتے ہیں۔'
+            : language === 'de'
+            ? 'Wählen Sie Ihr Land aus der Liste unten aus, um genaue Gebetszeiten für alle Städte anzuzeigen. Wir bieten Gebetszeiten für über 29 islamische Länder weltweit.'
+            : language === 'fr'
+            ? 'Sélectionnez votre pays dans la liste ci-dessous pour afficher les horaires de prière précis pour toutes les villes. Nous fournissons les horaires de prière pour plus de 29 pays islamiques du monde entier.'
+            : language === 'es'
+            ? 'Seleccione su país de la lista a continuación para ver horarios de oración precisos para todas las ciudades. Proporcionamos horarios de oración para más de 29 países islámicos en todo el mundo.'
+            : language === 'fa'
+            ? 'کشور خود را از لیست زیر انتخاب کنید تا اوقات دقیق نماز برای تمام شهرها را مشاهده کنید. ما اوقات نماز را برای بیش از 29 کشور اسلامی در سراسر جهان ارائه می‌دهیم.'
+            : language === 'id'
+            ? 'Pilih negara Anda dari daftar di bawah ini untuk melihat waktu sholat yang akurat untuk semua kota. Kami menyediakan waktu sholat untuk lebih dari 29 negara Islam di seluruh dunia.'
+            : language === 'tr'
+            ? 'Tüm şehirler için doğru namaz vakitlerini görüntülemek için aşağıdaki listeden ülkenizi seçin. Dünya çapında 29\'dan fazla İslam ülkesi için namaz vakitleri sağlıyoruz.'
             : 'Select your country from the list below to view accurate prayer times for all cities. We provide prayer times for over 29 Islamic countries worldwide.'}
         </p>
       </header>
@@ -75,8 +87,17 @@ export default function CountriesList({ language: propLanguage }: CountriesListP
                 ? 'ابحث عن بلدك...'
                 : language === 'ur'
                 ? 'اپنا ملک تلاش کریں...'
-                : 'Search for your country...'
-            }
+                : language === 'de'
+                ? 'Suchen Sie Ihr Land...'
+                : language === 'fr'
+                ? 'Recherchez votre pays...'
+                : language === 'es'
+                ? 'Busque su país...'
+                : language === 'id'
+                ? 'Cari negara Anda...'
+                : language === 'tr'
+                ? 'Ülkenizi arayın...'
+                : 'Search for your country...'}
             className="w-full pl-12 pr-4 py-3 sm:py-4 text-base sm:text-lg rounded-xl sm:rounded-2xl border-2 border-gray-200 focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-200 transition-all duration-300 font-[var(--font-tajawal)] bg-white shadow-md"
             dir={language === 'ar' || language === 'ur' ? 'rtl' : 'ltr'}
           />
@@ -87,6 +108,10 @@ export default function CountriesList({ language: propLanguage }: CountriesListP
               ? `تم العثور على ${filteredCountries.length} دولة`
               : language === 'ur'
               ? `${filteredCountries.length} ممالک ملے`
+              : language === 'de'
+              ? `${filteredCountries.length} ${filteredCountries.length === 1 ? 'Land' : 'L\u00e4nder'} gefunden`
+              : language === 'es'
+              ? `${filteredCountries.length} ${filteredCountries.length === 1 ? 'país' : 'países'} encontrado${filteredCountries.length === 1 ? '' : 's'}`
               : `Found ${filteredCountries.length} ${filteredCountries.length === 1 ? 'country' : 'countries'}`}
           </p>
         )}
@@ -97,7 +122,7 @@ export default function CountriesList({ language: propLanguage }: CountriesListP
         <div className="bg-white rounded-xl p-4 sm:p-5 shadow-md text-center border-2 border-emerald-100">
           <p className="text-3xl sm:text-4xl font-bold text-emerald-600 mb-1">{filteredCountries.length}</p>
           <p className="text-xs sm:text-sm text-gray-600 font-[var(--font-tajawal)]">
-            {language === 'ar' ? 'دولة' : language === 'ur' ? 'ممالک' : 'Countries'}
+            {language === 'ar' ? 'دولة' : language === 'ur' ? 'ممالک' : language === 'de' ? 'L\u00e4nder' : language === 'fr' ? 'Pays' : language === 'es' ? 'Países' : 'Countries'}
           </p>
         </div>
         <div className="bg-white rounded-xl p-4 sm:p-5 shadow-md text-center border-2 border-emerald-100">
@@ -105,19 +130,19 @@ export default function CountriesList({ language: propLanguage }: CountriesListP
             {filteredCountries.reduce((sum, c) => sum + c.cities.length, 0)}
           </p>
           <p className="text-xs sm:text-sm text-gray-600 font-[var(--font-tajawal)]">
-            {language === 'ar' ? 'مدينة' : language === 'ur' ? 'شہر' : 'Cities'}
+            {language === 'ar' ? 'مدينة' : language === 'ur' ? 'شہر' : language === 'de' ? 'St\u00e4dte' : language === 'fr' ? 'Villes' : language === 'es' ? 'Ciudades' : 'Cities'}
           </p>
         </div>
         <div className="bg-white rounded-xl p-4 sm:p-5 shadow-md text-center border-2 border-emerald-100">
           <p className="text-3xl sm:text-4xl font-bold text-emerald-600 mb-1">5</p>
           <p className="text-xs sm:text-sm text-gray-600 font-[var(--font-tajawal)]">
-            {language === 'ar' ? 'صلوات' : language === 'ur' ? 'نمازیں' : 'Prayers'}
+            {language === 'ar' ? 'صلوات' : language === 'ur' ? 'نمازیں' : language === 'de' ? 'Gebete' : language === 'fr' ? 'Pri\u00e8res' : language === 'es' ? 'Oraciones' : 'Prayers'}
           </p>
         </div>
         <div className="bg-white rounded-xl p-4 sm:p-5 shadow-md text-center border-2 border-emerald-100">
           <p className="text-3xl sm:text-4xl font-bold text-emerald-600 mb-1">24/7</p>
           <p className="text-xs sm:text-sm text-gray-600 font-[var(--font-tajawal)]">
-            {language === 'ar' ? 'تحديث' : language === 'ur' ? 'اپ ڈیٹ' : 'Updated'}
+            {language === 'ar' ? 'تحديث' : language === 'ur' ? 'اپ ڈیٹ' : language === 'de' ? 'Aktualisiert' : language === 'fr' ? 'Mis à jour' : language === 'es' ? 'Actualizado' : language === 'fa' ? 'به‌روزرسانی' : language === 'id' ? 'Diperbarui' : language === 'tr' ? 'Güncellendi' : 'Updated'}
           </p>
         </div>
       </div>
@@ -166,20 +191,32 @@ export default function CountriesList({ language: propLanguage }: CountriesListP
                   {language === 'ar' 
                     ? 'مواقيت الصلاة في' 
                     : language === 'ur' 
-                    ? 'نماز کے اوقات' 
+                    ? 'نماز کے اوقات'
+                    : language === 'de'
+                    ? 'Gebetszeiten in'
+                    : language === 'fr'
+                    ? 'Horaires de prière en'
+                    : language === 'es'
+                    ? 'Horarios de oración en'
+                    : language === 'fa'
+                    ? 'اوقات نماز در'
+                    : language === 'id'
+                    ? 'Waktu sholat di'
+                    : language === 'tr'
+                    ? 'Namaz vakitleri'
                     : 'Prayer Times in'}
                 </p>
                 
                 {/* Country Name */}
                 <h3 className="font-bold mb-1 sm:mb-2 font-[var(--font-tajawal)] text-sm sm:text-base md:text-lg text-gray-800 group-hover:text-emerald-600 transition-colors leading-tight">
-                  {language === 'en' ? country.name : country.nameAr}
+                  {language === 'ar' || language === 'ur' || language === 'fa' ? country.nameAr : country.name}
                 </h3>
                 
                 {/* City Count Badge */}
                 <div className="inline-flex items-center gap-1 bg-emerald-50 group-hover:bg-emerald-100 px-2 py-1 rounded-full transition-colors">
                   <MapPin className="w-3 h-3 text-emerald-600" />
                   <span className="text-[10px] sm:text-xs text-emerald-700 font-semibold">
-                    {country.cities.length} {language === 'ar' ? 'مدينة' : language === 'ur' ? 'شہر' : (country.cities.length === 1 ? 'city' : 'cities')}
+                    {country.cities.length} {language === 'ar' ? 'مدينة' : language === 'ur' ? 'شہر' : language === 'de' ? (country.cities.length === 1 ? 'Stadt' : 'Städte') : language === 'fr' ? (country.cities.length === 1 ? 'ville' : 'villes') : language === 'es' ? (country.cities.length === 1 ? 'ciudad' : 'ciudades') : language === 'fa' ? 'شهر' : language === 'id' ? 'kota' : language === 'tr' ? 'şehir' : (country.cities.length === 1 ? 'city' : 'cities')}
                   </span>
                 </div>
                 
@@ -197,6 +234,12 @@ export default function CountriesList({ language: propLanguage }: CountriesListP
                 ? 'لم يتم العثور على نتائج'
                 : language === 'ur'
                 ? 'کوئی نتیجہ نہیں ملا'
+                : language === 'de'
+                ? 'Keine Ergebnisse gefunden'
+                : language === 'fr'
+                ? 'Aucun r\u00e9sultat trouv\u00e9'
+                : language === 'es'
+                ? 'No se encontraron resultados'
                 : 'No results found'}
             </p>
           </div>
@@ -212,6 +255,18 @@ export default function CountriesList({ language: propLanguage }: CountriesListP
               ? 'مواقيت الصلاة الدقيقة لجميع أنحاء العالم'
               : language === 'ur'
               ? 'پوری دنیا کے لیے درست نماز کے اوقات'
+              : language === 'de'
+              ? 'Präzise Gebetszeiten weltweit'
+              : language === 'fr'
+              ? 'Horaires de prière précis dans le monde entier'
+              : language === 'es'
+              ? 'Horarios de oración precisos en todo el mundo'
+              : language === 'fa'
+              ? 'اوقات دقیق نماز در سراسر جهان'
+              : language === 'id'
+              ? 'Waktu Sholat Akurat di Seluruh Dunia'
+              : language === 'tr'
+              ? 'Dünya Çapında Doğru Namaz Vakitleri'
               : 'Accurate Prayer Times Worldwide'}
           </h3>
           <p className="text-emerald-50 text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed font-[var(--font-tajawal)]">
@@ -219,6 +274,18 @@ export default function CountriesList({ language: propLanguage }: CountriesListP
               ? 'نوفر أوقات الصلاة الدقيقة بناءً على موقعك الجغرافي، محدثة يومياً مع التقويم الهجري واتجاه القبلة لكل مدينة.'
               : language === 'ur'
               ? 'ہم آپ کے جغرافیائی محل وقوع کی بنیاد پر درست نماز کے اوقات فراہم کرتے ہیں، جو روزانہ ہجری کیلنڈر اور ہر شہر کے لیے قبلہ کی سمت کے ساتھ اپ ڈیٹ ہوتے ہیں۔'
+              : language === 'de'
+              ? 'Wir bieten präzise Gebetszeiten basierend auf Ihrem geografischen Standort, täglich aktualisiert mit dem islamischen Kalender und der Qibla-Richtung für jede Stadt.'
+              : language === 'fr'
+              ? 'Nous fournissons des horaires de prière précis basés sur votre localisation géographique, mis à jour quotidiennement avec le calendrier hégirien et la direction de la Qibla pour chaque ville.'
+              : language === 'es'
+              ? 'Proporcionamos horarios de oración precisos basados en su ubicación geográfica, actualizados diariamente con el calendario hegírico y la dirección de la Qibla para cada ciudad.'
+              : language === 'fa'
+              ? 'ما اوقات دقیق نماز را بر اساس موقعیت جغرافیایی شما ارائه می‌دهیم، که روزانه با تقویم هجری و جهت قبله برای هر شهر به‌روزرسانی می‌شود.'
+              : language === 'id'
+              ? 'Kami menyediakan waktu sholat yang akurat berdasarkan lokasi geografis Anda, diperbarui setiap hari dengan kalender Hijriah dan arah Kiblat untuk setiap kota.'
+              : language === 'tr'
+              ? 'Coğrafi konumunuza göre doğru namaz vakitlerini sağlıyoruz, her şehir için Hicri takvim ve Kıble yönü ile günlük olarak güncellenir.'
               : 'We provide accurate prayer times based on your geographical location, updated daily with Hijri calendar and Qibla direction for every city.'}
           </p>
         </div>
