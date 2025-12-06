@@ -397,5 +397,849 @@
       {"name": "Taiz", "nameAr": "تعز", "slug": "taiz", "latitude": 13.5795, "longitude": 44.0216},
       {"name": "Hodeidah", "nameAr": "الحديدة", "slug": "hodeidah", "latitude": 14.7978, "longitude": 42.9545}
     ]
+  },
+  "india": {
+    "name": "India",
+    "nameAr": "الهند",
+    "code": "IN",
+    "flag": "🇮🇳",
+    "slug": "india",
+    "cities": [
+      {"name": "Delhi", "nameAr": "دلهي", "slug": "delhi", "latitude": 28.7041, "longitude": 77.1025},
+      {"name": "Mumbai", "nameAr": "مومباي", "slug": "mumbai", "latitude": 19.0760, "longitude": 72.8777},
+      {"name": "Hyderabad", "nameAr": "حيدراباد", "slug": "hyderabad", "latitude": 17.3850, "longitude": 78.4867},
+      {"name": "Lucknow", "nameAr": "لكناو", "slug": "lucknow", "latitude": 26.8467, "longitude": 80.9462},
+      {"name": "Kolkata", "nameAr": "كولكاتا", "slug": "kolkata", "latitude": 22.5726, "longitude": 88.3639}
+    ]
+  },
+  "bangladesh": {
+    "name": "Bangladesh",
+    "nameAr": "بنغلاديش",
+    "code": "BD",
+    "flag": "🇧🇩",
+    "slug": "bangladesh",
+    "cities": [
+      {"name": "Dhaka", "nameAr": "دكا", "slug": "dhaka", "latitude": 23.8103, "longitude": 90.4125},
+      {"name": "Chittagong", "nameAr": "شيتاغونغ", "slug": "chittagong", "latitude": 22.3569, "longitude": 91.7832},
+      {"name": "Khulna", "nameAr": "خولنا", "slug": "khulna", "latitude": 22.8456, "longitude": 89.5403},
+      {"name": "Sylhet", "nameAr": "سيلهيت", "slug": "sylhet", "latitude": 24.8949, "longitude": 91.8687}
+    ]
+  },
+  "nigeria": {
+    "name": "Nigeria",
+    "nameAr": "نيجيريا",
+    "code": "NG",
+    "flag": "🇳🇬",
+    "slug": "nigeria",
+    "cities": [
+      {"name": "Abuja", "nameAr": "أبوجا", "slug": "abuja", "latitude": 9.0765, "longitude": 7.3986},
+      {"name": "Lagos", "nameAr": "لاغوس", "slug": "lagos", "latitude": 6.5244, "longitude": 3.3792},
+      {"name": "Kano", "nameAr": "كانو", "slug": "kano", "latitude": 12.0022, "longitude": 8.5920},
+      {"name": "Ibadan", "nameAr": "إبادان", "slug": "ibadan", "latitude": 7.3775, "longitude": 3.9470}
+    ]
+  },
+  "afghanistan": {
+    "name": "Afghanistan",
+    "nameAr": "أفغانستان",
+    "code": "AF",
+    "flag": "🇦🇫",
+    "slug": "afghanistan",
+    "cities": [
+      {"name": "Kabul", "nameAr": "كابول", "slug": "kabul", "latitude": 34.5553, "longitude": 69.2075},
+      {"name": "Kandahar", "nameAr": "قندهار", "slug": "kandahar", "latitude": 31.6289, "longitude": 65.7372},
+      {"name": "Herat", "nameAr": "هرات", "slug": "herat", "latitude": 34.3482, "longitude": 62.1997},
+      {"name": "Mazar-i-Sharif", "nameAr": "مزار شريف", "slug": "mazar-i-sharif", "latitude": 36.7069, "longitude": 67.1108}
+    ]
+  },
+  "uzbekistan": {
+    "name": "Uzbekistan",
+    "nameAr": "أوزبكستان",
+    "code": "UZ",
+    "flag": "🇺🇿",
+    "slug": "uzbekistan",
+    "cities": [
+      {"name": "Tashkent", "nameAr": "طشقند", "slug": "tashkent", "latitude": 41.2995, "longitude": 69.2401},
+      {"name": "Samarkand", "nameAr": "سمرقند", "slug": "samarkand", "latitude": 39.6270, "longitude": 66.9750},
+      {"name": "Bukhara", "nameAr": "بخارى", "slug": "bukhara", "latitude": 39.7750, "longitude": 64.4286}
+    ]
+  },
+  "china": {
+    "name": "China",
+    "nameAr": "الصين",
+    "code": "CN",
+    "flag": "🇨🇳",
+    "slug": "china",
+    "cities": [
+      {"name": "Urumqi", "nameAr": "أورومتشي", "slug": "urumqi", "latitude": 43.8256, "longitude": 87.6168},
+      {"name": "Kashgar", "nameAr": "كاشغر", "slug": "kashgar", "latitude": 39.4677, "longitude": 75.9997},
+      {"name": "Beijing", "nameAr": "بكين", "slug": "beijing", "latitude": 39.9042, "longitude": 116.4074}
+    ]
+  },
+  "tanzania": {
+    "name": "Tanzania",
+    "nameAr": "تنزانيا",
+    "code": "TZ",
+    "flag": "🇹🇿",
+    "slug": "tanzania",
+    "cities": [
+      {"name": "Dar es Salaam", "nameAr": "دار السلام", "slug": "dar-es-salaam", "latitude": -6.7924, "longitude": 39.2083},
+      {"name": "Zanzibar", "nameAr": "زنجبار", "slug": "zanzibar", "latitude": -6.1659, "longitude": 39.2026},
+      {"name": "Dodoma", "nameAr": "دودوما", "slug": "dodoma", "latitude": -6.1630, "longitude": 35.7516}
+    ]
+  },
+  "malaysia": {
+    "name": "Malaysia",
+    "nameAr": "ماليزيا",
+    "code": "MY",
+    "flag": "🇲🇾",
+    "slug": "malaysia",
+    "cities": [
+      {"name": "Kuala Lumpur", "nameAr": "كوالالمبور", "slug": "kuala-lumpur", "latitude": 3.1390, "longitude": 101.6869},
+      {"name": "Johor Bahru", "nameAr": "جوهور بهرو", "slug": "johor-bahru", "latitude": 1.4927, "longitude": 103.7414},
+      {"name": "Penang", "nameAr": "بينانغ", "slug": "penang", "latitude": 5.4141, "longitude": 100.3288},
+      {"name": "Kota Bharu", "nameAr": "كوتا بهرو", "slug": "kota-bharu", "latitude": 6.1254, "longitude": 102.2381}
+    ]
+  },
+  "senegal": {
+    "name": "Senegal",
+    "nameAr": "السنغال",
+    "code": "SN",
+    "flag": "🇸🇳",
+    "slug": "senegal",
+    "cities": [
+      {"name": "Dakar", "nameAr": "داكار", "slug": "dakar", "latitude": 14.7167, "longitude": -17.4677},
+      {"name": "Touba", "nameAr": "طوبى", "slug": "touba", "latitude": 14.8500, "longitude": -15.8833}
+    ]
+  },
+  "burkina-faso": {
+    "name": "Burkina Faso",
+    "nameAr": "بوركينا فاسو",
+    "code": "BF",
+    "flag": "🇧🇫",
+    "slug": "burkina-faso",
+    "cities": [
+      {"name": "Ouagadougou", "nameAr": "واغادوغو", "slug": "ouagadougou", "latitude": 12.3714, "longitude": -1.5197},
+      {"name": "Bobo-Dioulasso", "nameAr": "بوبو ديولاسو", "slug": "bobo-dioulasso", "latitude": 11.1775, "longitude": -4.2979}
+    ]
+  },
+  "azerbaijan": {
+    "name": "Azerbaijan",
+    "nameAr": "أذربيجان",
+    "code": "AZ",
+    "flag": "🇦🇿",
+    "slug": "azerbaijan",
+    "cities": [
+      {"name": "Baku", "nameAr": "باكو", "slug": "baku", "latitude": 40.4093, "longitude": 49.8671},
+      {"name": "Ganja", "nameAr": "كنجة", "slug": "ganja", "latitude": 40.6828, "longitude": 46.3606},
+      {"name": "Sumqayit", "nameAr": "سومقاييت", "slug": "sumqayit", "latitude": 40.5897, "longitude": 49.6319}
+    ]
+  },
+  "tajikistan": {
+    "name": "Tajikistan",
+    "nameAr": "طاجيكستان",
+    "code": "TJ",
+    "flag": "🇹🇯",
+    "slug": "tajikistan",
+    "cities": [
+      {"name": "Dushanbe", "nameAr": "دوشنبه", "slug": "dushanbe", "latitude": 38.5598, "longitude": 68.7738},
+      {"name": "Khujand", "nameAr": "خوجند", "slug": "khujand", "latitude": 40.2828, "longitude": 69.6222}
+    ]
+  },
+  "kyrgyzstan": {
+    "name": "Kyrgyzstan",
+    "nameAr": "قيرغيزستان",
+    "code": "KG",
+    "flag": "🇰🇬",
+    "slug": "kyrgyzstan",
+    "cities": [
+      {"name": "Bishkek", "nameAr": "بشكيك", "slug": "bishkek", "latitude": 42.8746, "longitude": 74.5698},
+      {"name": "Osh", "nameAr": "أوش", "slug": "osh", "latitude": 40.5283, "longitude": 72.7985}
+    ]
+  },
+  "sierra-leone": {
+    "name": "Sierra Leone",
+    "nameAr": "سيراليون",
+    "code": "SL",
+    "flag": "🇸🇱",
+    "slug": "sierra-leone",
+    "cities": [
+      {"name": "Freetown", "nameAr": "فريتاون", "slug": "freetown", "latitude": 8.4657, "longitude": -13.2317},
+      {"name": "Bo", "nameAr": "بو", "slug": "bo", "latitude": 7.9647, "longitude": -11.7389}
+    ]
+  },
+  "turkmenistan": {
+    "name": "Turkmenistan",
+    "nameAr": "تركمانستان",
+    "code": "TM",
+    "flag": "🇹🇲",
+    "slug": "turkmenistan",
+    "cities": [
+      {"name": "Ashgabat", "nameAr": "عشق آباد", "slug": "ashgabat", "latitude": 37.9601, "longitude": 58.3261},
+      {"name": "Turkmenabat", "nameAr": "تركمان آباد", "slug": "turkmenabat", "latitude": 39.0933, "longitude": 63.5784}
+    ]
+  },
+  "ivory-coast": {
+    "name": "Ivory Coast",
+    "nameAr": "ساحل العاج",
+    "code": "CI",
+    "flag": "🇨🇮",
+    "slug": "ivory-coast",
+    "cities": [
+      {"name": "Abidjan", "nameAr": "أبيدجان", "slug": "abidjan", "latitude": 5.3600, "longitude": -4.0083},
+      {"name": "Yamoussoukro", "nameAr": "ياموسوكرو", "slug": "yamoussoukro", "latitude": 6.8276, "longitude": -5.2893}
+    ]
+  },
+  "bosnia-herzegovina": {
+    "name": "Bosnia and Herzegovina",
+    "nameAr": "البوسنة والهرسك",
+    "code": "BA",
+    "flag": "🇧🇦",
+    "slug": "bosnia-herzegovina",
+    "cities": [
+      {"name": "Sarajevo", "nameAr": "سراييفو", "slug": "sarajevo", "latitude": 43.8563, "longitude": 18.4131},
+      {"name": "Banja Luka", "nameAr": "بانيا لوكا", "slug": "banja-luka", "latitude": 44.7722, "longitude": 17.1910},
+      {"name": "Mostar", "nameAr": "موستار", "slug": "mostar", "latitude": 43.3438, "longitude": 17.8078}
+    ]
+  },
+  "guinea": {
+    "name": "Guinea",
+    "nameAr": "غينيا",
+    "code": "GN",
+    "flag": "🇬🇳",
+    "slug": "guinea",
+    "cities": [
+      {"name": "Conakry", "nameAr": "كوناكري", "slug": "conakry", "latitude": 9.6412, "longitude": -13.5784},
+      {"name": "Nzérékoré", "nameAr": "نزيريكوري", "slug": "nzerekore", "latitude": 7.7561, "longitude": -8.8179}
+    ]
+  },
+  "gambia": {
+    "name": "Gambia",
+    "nameAr": "غامبيا",
+    "code": "GM",
+    "flag": "🇬🇲",
+    "slug": "gambia",
+    "cities": [
+      {"name": "Banjul", "nameAr": "بانجول", "slug": "banjul", "latitude": 13.4549, "longitude": -16.5790},
+      {"name": "Serekunda", "nameAr": "سيريكوندا", "slug": "serekunda", "latitude": 13.4389, "longitude": -16.6774}
+    ]
+  },
+  "benin": {
+    "name": "Benin",
+    "nameAr": "بنين",
+    "code": "BJ",
+    "flag": "🇧🇯",
+    "slug": "benin",
+    "cities": [
+      {"name": "Porto-Novo", "nameAr": "بورتو نوفو", "slug": "porto-novo", "latitude": 6.4969, "longitude": 2.6289},
+      {"name": "Cotonou", "nameAr": "كوتونو", "slug": "cotonou", "latitude": 6.3654, "longitude": 2.4183}
+    ]
+  },
+  "maldives": {
+    "name": "Maldives",
+    "nameAr": "جزر المالديف",
+    "code": "MV",
+    "flag": "🇲🇻",
+    "slug": "maldives",
+    "cities": [
+      {"name": "Malé", "nameAr": "ماليه", "slug": "male", "latitude": 4.1755, "longitude": 73.5093},
+      {"name": "Addu City", "nameAr": "مدينة آدو", "slug": "addu-city", "latitude": -0.6290, "longitude": 73.1555}
+    ]
+  },
+  "brunei": {
+    "name": "Brunei",
+    "nameAr": "بروناي",
+    "code": "BN",
+    "flag": "🇧🇳",
+    "slug": "brunei",
+    "cities": [
+      {"name": "Bandar Seri Begawan", "nameAr": "بندر سري بكاوان", "slug": "bandar-seri-begawan", "latitude": 4.9031, "longitude": 114.9398},
+      {"name": "Kuala Belait", "nameAr": "كوالا بيليت", "slug": "kuala-belait", "latitude": 4.5833, "longitude": 114.2167}
+    ]
+  },
+  "kazakhstan": {
+    "name": "Kazakhstan",
+    "nameAr": "كازاخستان",
+    "code": "KZ",
+    "flag": "🇰🇿",
+    "slug": "kazakhstan",
+    "cities": [
+      {"name": "Almaty", "nameAr": "ألماتي", "slug": "almaty", "latitude": 43.2220, "longitude": 76.8512},
+      {"name": "Nur-Sultan", "nameAr": "نور سلطان", "slug": "nur-sultan", "latitude": 51.1694, "longitude": 71.4491},
+      {"name": "Shymkent", "nameAr": "شيمكنت", "slug": "shymkent", "latitude": 42.3000, "longitude": 69.6000}
+    ]
+  },
+  "central-african-republic": {
+    "name": "Central African Republic",
+    "nameAr": "جمهورية أفريقيا الوسطى",
+    "code": "CF",
+    "flag": "🇨🇫",
+    "slug": "central-african-republic",
+    "cities": [
+      {"name": "Bangui", "nameAr": "بانغي", "slug": "bangui", "latitude": 4.3947, "longitude": 18.5582}
+    ]
+  },
+  "cameroon": {
+    "name": "Cameroon",
+    "nameAr": "الكاميرون",
+    "code": "CM",
+    "flag": "🇨🇲",
+    "slug": "cameroon",
+    "cities": [
+      {"name": "Yaoundé", "nameAr": "ياوندي", "slug": "yaounde", "latitude": 3.8480, "longitude": 11.5021},
+      {"name": "Douala", "nameAr": "دوالا", "slug": "douala", "latitude": 4.0511, "longitude": 9.7679}
+    ]
+  },
+  "ethiopia": {
+    "name": "Ethiopia",
+    "nameAr": "إثيوبيا",
+    "code": "ET",
+    "flag": "🇪🇹",
+    "slug": "ethiopia",
+    "cities": [
+      {"name": "Addis Ababa", "nameAr": "أديس أبابا", "slug": "addis-ababa", "latitude": 9.0320, "longitude": 38.7469},
+      {"name": "Dire Dawa", "nameAr": "ديري داوا", "slug": "dire-dawa", "latitude": 9.5930, "longitude": 41.8664}
+    ]
+  },
+  "ghana": {
+    "name": "Ghana",
+    "nameAr": "غانا",
+    "code": "GH",
+    "flag": "🇬🇭",
+    "slug": "ghana",
+    "cities": [
+      {"name": "Accra", "nameAr": "أكرا", "slug": "accra", "latitude": 5.6037, "longitude": -0.1870},
+      {"name": "Kumasi", "nameAr": "كوماسي", "slug": "kumasi", "latitude": 6.6885, "longitude": -1.6244}
+    ]
+  },
+  "mozambique": {
+    "name": "Mozambique",
+    "nameAr": "موزمبيق",
+    "code": "MZ",
+    "flag": "🇲🇿",
+    "slug": "mozambique",
+    "cities": [
+      {"name": "Maputo", "nameAr": "مابوتو", "slug": "maputo", "latitude": -25.9692, "longitude": 32.5732},
+      {"name": "Nampula", "nameAr": "نامبولا", "slug": "nampula", "latitude": -15.1165, "longitude": 39.2666}
+    ]
+  },
+  "thailand": {
+    "name": "Thailand",
+    "nameAr": "تايلاند",
+    "code": "TH",
+    "flag": "🇹🇭",
+    "slug": "thailand",
+    "cities": [
+      {"name": "Bangkok", "nameAr": "بانكوك", "slug": "bangkok", "latitude": 13.7563, "longitude": 100.5018},
+      {"name": "Pattani", "nameAr": "فطاني", "slug": "pattani", "latitude": 6.8680, "longitude": 101.2502}
+    ]
+  },
+  "philippines": {
+    "name": "Philippines",
+    "nameAr": "الفلبين",
+    "code": "PH",
+    "flag": "🇵🇭",
+    "slug": "philippines",
+    "cities": [
+      {"name": "Manila", "nameAr": "مانيلا", "slug": "manila", "latitude": 14.5995, "longitude": 120.9842},
+      {"name": "Marawi", "nameAr": "ماراوي", "slug": "marawi", "latitude": 8.0030, "longitude": 124.2928}
+    ]
+  },
+  "sri-lanka": {
+    "name": "Sri Lanka",
+    "nameAr": "سريلانكا",
+    "code": "LK",
+    "flag": "🇱🇰",
+    "slug": "sri-lanka",
+    "cities": [
+      {"name": "Colombo", "nameAr": "كولومبو", "slug": "colombo", "latitude": 6.9271, "longitude": 79.8612},
+      {"name": "Kandy", "nameAr": "كاندي", "slug": "kandy", "latitude": 7.2906, "longitude": 80.6337}
+    ]
+  },
+  "nepal": {
+    "name": "Nepal",
+    "nameAr": "نيبال",
+    "code": "NP",
+    "flag": "🇳🇵",
+    "slug": "nepal",
+    "cities": [
+      {"name": "Kathmandu", "nameAr": "كاتماندو", "slug": "kathmandu", "latitude": 27.7172, "longitude": 85.3240},
+      {"name": "Pokhara", "nameAr": "بوخارا", "slug": "pokhara", "latitude": 28.2096, "longitude": 83.9856}
+    ]
+  },
+  "kenya": {
+    "name": "Kenya",
+    "nameAr": "كينيا",
+    "code": "KE",
+    "flag": "🇰🇪",
+    "slug": "kenya",
+    "cities": [
+      {"name": "Nairobi", "nameAr": "نيروبي", "slug": "nairobi", "latitude": 1.2921, "longitude": 36.8219},
+      {"name": "Mombasa", "nameAr": "مومباسا", "slug": "mombasa", "latitude": -4.0435, "longitude": 39.6682}
+    ]
+  },
+  "albania": {
+    "name": "Albania",
+    "nameAr": "ألبانيا",
+    "code": "AL",
+    "flag": "🇦🇱",
+    "slug": "albania",
+    "cities": [
+      {"name": "Tirana", "nameAr": "تيرانا", "slug": "tirana", "latitude": 41.3275, "longitude": 19.8187},
+      {"name": "Durrës", "nameAr": "دوريس", "slug": "durres", "latitude": 41.3239, "longitude": 19.4565},
+      {"name": "Vlorë", "nameAr": "فلورا", "slug": "vlore", "latitude": 40.4686, "longitude": 19.4910}
+    ]
+  },
+  "kosovo": {
+    "name": "Kosovo",
+    "nameAr": "كوسوفو",
+    "code": "XK",
+    "flag": "🇽🇰",
+    "slug": "kosovo",
+    "cities": [
+      {"name": "Pristina", "nameAr": "بريشتينا", "slug": "pristina", "latitude": 42.6629, "longitude": 21.1655},
+      {"name": "Prizren", "nameAr": "بريزرن", "slug": "prizren", "latitude": 42.2139, "longitude": 20.7397}
+    ]
+  },
+  "north-macedonia": {
+    "name": "North Macedonia",
+    "nameAr": "مقدونيا الشمالية",
+    "code": "MK",
+    "flag": "🇲🇰",
+    "slug": "north-macedonia",
+    "cities": [
+      {"name": "Skopje", "nameAr": "سكوبيه", "slug": "skopje", "latitude": 41.9973, "longitude": 21.4280},
+      {"name": "Tetovo", "nameAr": "تيتوفو", "slug": "tetovo", "latitude": 42.0111, "longitude": 20.9714}
+    ]
+  },
+  "bulgaria": {
+    "name": "Bulgaria",
+    "nameAr": "بلغاريا",
+    "code": "BG",
+    "flag": "🇧🇬",
+    "slug": "bulgaria",
+    "cities": [
+      {"name": "Sofia", "nameAr": "صوفيا", "slug": "sofia", "latitude": 42.6977, "longitude": 23.3219},
+      {"name": "Plovdiv", "nameAr": "بلوفديف", "slug": "plovdiv", "latitude": 42.1354, "longitude": 24.7453}
+    ]
+  },
+  "russia": {
+    "name": "Russia",
+    "nameAr": "روسيا",
+    "code": "RU",
+    "flag": "🇷🇺",
+    "slug": "russia",
+    "cities": [
+      {"name": "Moscow", "nameAr": "موسكو", "slug": "moscow", "latitude": 55.7558, "longitude": 37.6173},
+      {"name": "Kazan", "nameAr": "قازان", "slug": "kazan", "latitude": 55.7887, "longitude": 49.1221},
+      {"name": "Grozny", "nameAr": "غروزني", "slug": "grozny", "latitude": 43.3178, "longitude": 45.6986}
+    ]
+  },
+  "ukraine": {
+    "name": "Ukraine",
+    "nameAr": "أوكرانيا",
+    "code": "UA",
+    "flag": "🇺🇦",
+    "slug": "ukraine",
+    "cities": [
+      {"name": "Kyiv", "nameAr": "كييف", "slug": "kyiv", "latitude": 50.4501, "longitude": 30.5234},
+      {"name": "Odesa", "nameAr": "أوديسا", "slug": "odesa", "latitude": 46.4825, "longitude": 30.7233}
+    ]
+  },
+  "france": {
+    "name": "France",
+    "nameAr": "فرنسا",
+    "code": "FR",
+    "flag": "🇫🇷",
+    "slug": "france",
+    "cities": [
+      {"name": "Paris", "nameAr": "باريس", "slug": "paris", "latitude": 48.8566, "longitude": 2.3522},
+      {"name": "Marseille", "nameAr": "مرسيليا", "slug": "marseille", "latitude": 43.2965, "longitude": 5.3698},
+      {"name": "Lyon", "nameAr": "ليون", "slug": "lyon", "latitude": 45.7640, "longitude": 4.8357}
+    ]
+  },
+  "germany": {
+    "name": "Germany",
+    "nameAr": "ألمانيا",
+    "code": "DE",
+    "flag": "🇩🇪",
+    "slug": "germany",
+    "cities": [
+      {"name": "Berlin", "nameAr": "برلين", "slug": "berlin", "latitude": 52.5200, "longitude": 13.4050},
+      {"name": "Frankfurt", "nameAr": "فرانكفورت", "slug": "frankfurt", "latitude": 50.1109, "longitude": 8.6821},
+      {"name": "Munich", "nameAr": "ميونخ", "slug": "munich", "latitude": 48.1351, "longitude": 11.5820}
+    ]
+  },
+  "united-kingdom": {
+    "name": "United Kingdom",
+    "nameAr": "المملكة المتحدة",
+    "code": "GB",
+    "flag": "🇬🇧",
+    "slug": "united-kingdom",
+    "cities": [
+      {"name": "London", "nameAr": "لندن", "slug": "london", "latitude": 51.5074, "longitude": -0.1278},
+      {"name": "Birmingham", "nameAr": "برمنغهام", "slug": "birmingham", "latitude": 52.4862, "longitude": -1.8904},
+      {"name": "Manchester", "nameAr": "مانشستر", "slug": "manchester", "latitude": 53.4808, "longitude": -2.2426}
+    ]
+  },
+  "spain": {
+    "name": "Spain",
+    "nameAr": "إسبانيا",
+    "code": "ES",
+    "flag": "🇪🇸",
+    "slug": "spain",
+    "cities": [
+      {"name": "Madrid", "nameAr": "مدريد", "slug": "madrid", "latitude": 40.4168, "longitude": -3.7038},
+      {"name": "Barcelona", "nameAr": "برشلونة", "slug": "barcelona", "latitude": 41.3851, "longitude": 2.1734},
+      {"name": "Valencia", "nameAr": "فالنسيا", "slug": "valencia", "latitude": 39.4699, "longitude": -0.3763}
+    ]
+  },
+  "italy": {
+    "name": "Italy",
+    "nameAr": "إيطاليا",
+    "code": "IT",
+    "flag": "🇮🇹",
+    "slug": "italy",
+    "cities": [
+      {"name": "Rome", "nameAr": "روما", "slug": "rome", "latitude": 41.9028, "longitude": 12.4964},
+      {"name": "Milan", "nameAr": "ميلان", "slug": "milan", "latitude": 45.4642, "longitude": 9.1900},
+      {"name": "Turin", "nameAr": "تورينو", "slug": "turin", "latitude": 45.0703, "longitude": 7.6869}
+    ]
+  },
+  "united-states": {
+    "name": "United States",
+    "nameAr": "الولايات المتحدة",
+    "code": "US",
+    "flag": "🇺🇸",
+    "slug": "united-states",
+    "cities": [
+      {"name": "New York", "nameAr": "نيويورك", "slug": "new-york", "latitude": 40.7128, "longitude": -74.0060},
+      {"name": "Los Angeles", "nameAr": "لوس أنجلوس", "slug": "los-angeles", "latitude": 34.0522, "longitude": -118.2437},
+      {"name": "Chicago", "nameAr": "شيكاغو", "slug": "chicago", "latitude": 41.8781, "longitude": -87.6298},
+      {"name": "Houston", "nameAr": "هيوستن", "slug": "houston", "latitude": 29.7604, "longitude": -95.3698},
+      {"name": "Detroit", "nameAr": "ديترويت", "slug": "detroit", "latitude": 42.3314, "longitude": -83.0458}
+    ]
+  },
+  "canada": {
+    "name": "Canada",
+    "nameAr": "كندا",
+    "code": "CA",
+    "flag": "🇨🇦",
+    "slug": "canada",
+    "cities": [
+      {"name": "Toronto", "nameAr": "تورونتو", "slug": "toronto", "latitude": 43.6532, "longitude": -79.3832},
+      {"name": "Montreal", "nameAr": "مونتريال", "slug": "montreal", "latitude": 45.5017, "longitude": -73.5673},
+      {"name": "Vancouver", "nameAr": "فانكوفر", "slug": "vancouver", "latitude": 49.2827, "longitude": -123.1207}
+    ]
+  },
+  "netherlands": {
+    "name": "Netherlands",
+    "nameAr": "هولندا",
+    "code": "NL",
+    "flag": "🇳🇱",
+    "slug": "netherlands",
+    "cities": [
+      {"name": "Amsterdam", "nameAr": "أمستردام", "slug": "amsterdam", "latitude": 52.3676, "longitude": 4.9041},
+      {"name": "Rotterdam", "nameAr": "روتردام", "slug": "rotterdam", "latitude": 51.9225, "longitude": 4.4792},
+      {"name": "The Hague", "nameAr": "لاهاي", "slug": "the-hague", "latitude": 52.0705, "longitude": 4.3007}
+    ]
+  },
+  "belgium": {
+    "name": "Belgium",
+    "nameAr": "بلجيكا",
+    "code": "BE",
+    "flag": "🇧🇪",
+    "slug": "belgium",
+    "cities": [
+      {"name": "Brussels", "nameAr": "بروكسل", "slug": "brussels", "latitude": 50.8503, "longitude": 4.3517},
+      {"name": "Antwerp", "nameAr": "أنتويرب", "slug": "antwerp", "latitude": 51.2194, "longitude": 4.4025}
+    ]
+  },
+  "austria": {
+    "name": "Austria",
+    "nameAr": "النمسا",
+    "code": "AT",
+    "flag": "🇦🇹",
+    "slug": "austria",
+    "cities": [
+      {"name": "Vienna", "nameAr": "فيينا", "slug": "vienna", "latitude": 48.2082, "longitude": 16.3738},
+      {"name": "Graz", "nameAr": "غراتس", "slug": "graz", "latitude": 47.0707, "longitude": 15.4395}
+    ]
+  },
+  "sweden": {
+    "name": "Sweden",
+    "nameAr": "السويد",
+    "code": "SE",
+    "flag": "🇸🇪",
+    "slug": "sweden",
+    "cities": [
+      {"name": "Stockholm", "nameAr": "ستوكهولم", "slug": "stockholm", "latitude": 59.3293, "longitude": 18.0686},
+      {"name": "Malmö", "nameAr": "مالمو", "slug": "malmo", "latitude": 55.6050, "longitude": 13.0038}
+    ]
+  },
+  "norway": {
+    "name": "Norway",
+    "nameAr": "النرويج",
+    "code": "NO",
+    "flag": "🇳🇴",
+    "slug": "norway",
+    "cities": [
+      {"name": "Oslo", "nameAr": "أوسلو", "slug": "oslo", "latitude": 59.9139, "longitude": 10.7522},
+      {"name": "Bergen", "nameAr": "بيرغن", "slug": "bergen", "latitude": 60.3913, "longitude": 5.3221}
+    ]
+  },
+  "denmark": {
+    "name": "Denmark",
+    "nameAr": "الدنمارك",
+    "code": "DK",
+    "flag": "🇩🇰",
+    "slug": "denmark",
+    "cities": [
+      {"name": "Copenhagen", "nameAr": "كوبنهاغن", "slug": "copenhagen", "latitude": 55.6761, "longitude": 12.5683},
+      {"name": "Aarhus", "nameAr": "آرهوس", "slug": "aarhus", "latitude": 56.1629, "longitude": 10.2039}
+    ]
+  },
+  "switzerland": {
+    "name": "Switzerland",
+    "nameAr": "سويسرا",
+    "code": "CH",
+    "flag": "🇨🇭",
+    "slug": "switzerland",
+    "cities": [
+      {"name": "Zurich", "nameAr": "زيورخ", "slug": "zurich", "latitude": 47.3769, "longitude": 8.5417},
+      {"name": "Geneva", "nameAr": "جنيف", "slug": "geneva", "latitude": 46.2044, "longitude": 6.1432}
+    ]
+  },
+  "greece": {
+    "name": "Greece",
+    "nameAr": "اليونان",
+    "code": "GR",
+    "flag": "🇬🇷",
+    "slug": "greece",
+    "cities": [
+      {"name": "Athens", "nameAr": "أثينا", "slug": "athens", "latitude": 37.9838, "longitude": 23.7275},
+      {"name": "Thessaloniki", "nameAr": "سالونيك", "slug": "thessaloniki", "latitude": 40.6401, "longitude": 22.9444}
+    ]
+  },
+  "serbia": {
+    "name": "Serbia",
+    "nameAr": "صربيا",
+    "code": "RS",
+    "flag": "🇷🇸",
+    "slug": "serbia",
+    "cities": [
+      {"name": "Belgrade", "nameAr": "بلغراد", "slug": "belgrade", "latitude": 44.7866, "longitude": 20.4489},
+      {"name": "Novi Sad", "nameAr": "نوفي ساد", "slug": "novi-sad", "latitude": 45.2671, "longitude": 19.8335}
+    ]
+  },
+  "montenegro": {
+    "name": "Montenegro",
+    "nameAr": "الجبل الأسود",
+    "code": "ME",
+    "flag": "🇲🇪",
+    "slug": "montenegro",
+    "cities": [
+      {"name": "Podgorica", "nameAr": "بودغوريتسا", "slug": "podgorica", "latitude": 42.4304, "longitude": 19.2594},
+      {"name": "Bar", "nameAr": "بار", "slug": "bar", "latitude": 42.0941, "longitude": 19.0876}
+    ]
+  },
+  "croatia": {
+    "name": "Croatia",
+    "nameAr": "كرواتيا",
+    "code": "HR",
+    "flag": "🇭🇷",
+    "slug": "croatia",
+    "cities": [
+      {"name": "Zagreb", "nameAr": "زغرب", "slug": "zagreb", "latitude": 45.8150, "longitude": 15.9819},
+      {"name": "Split", "nameAr": "سبليت", "slug": "split", "latitude": 43.5081, "longitude": 16.4402}
+    ]
+  },
+  "slovenia": {
+    "name": "Slovenia",
+    "nameAr": "سلوفينيا",
+    "code": "SI",
+    "flag": "🇸🇮",
+    "slug": "slovenia",
+    "cities": [
+      {"name": "Ljubljana", "nameAr": "ليوبليانا", "slug": "ljubljana", "latitude": 46.0569, "longitude": 14.5058},
+      {"name": "Maribor", "nameAr": "ماريبور", "slug": "maribor", "latitude": 46.5547, "longitude": 15.6459}
+    ]
+  },
+  "romania": {
+    "name": "Romania",
+    "nameAr": "رومانيا",
+    "code": "RO",
+    "flag": "🇷🇴",
+    "slug": "romania",
+    "cities": [
+      {"name": "Bucharest", "nameAr": "بوخارست", "slug": "bucharest", "latitude": 44.4268, "longitude": 26.1025},
+      {"name": "Cluj-Napoca", "nameAr": "كلوج نابوكا", "slug": "cluj-napoca", "latitude": 46.7712, "longitude": 23.6236}
+    ]
+  },
+  "georgia": {
+    "name": "Georgia",
+    "nameAr": "جورجيا",
+    "code": "GE",
+    "flag": "🇬🇪",
+    "slug": "georgia",
+    "cities": [
+      {"name": "Tbilisi", "nameAr": "تبليسي", "slug": "tbilisi", "latitude": 41.7151, "longitude": 44.8271},
+      {"name": "Batumi", "nameAr": "باتومي", "slug": "batumi", "latitude": 41.6168, "longitude": 41.6367}
+    ]
+  },
+  "armenia": {
+    "name": "Armenia",
+    "nameAr": "أرمينيا",
+    "code": "AM",
+    "flag": "🇦🇲",
+    "slug": "armenia",
+    "cities": [
+      {"name": "Yerevan", "nameAr": "يريفان", "slug": "yerevan", "latitude": 40.1792, "longitude": 44.4991},
+      {"name": "Gyumri", "nameAr": "غيومري", "slug": "gyumri", "latitude": 40.7894, "longitude": 43.8475}
+    ]
+  },
+  "south-africa": {
+    "name": "South Africa",
+    "nameAr": "جنوب أفريقيا",
+    "code": "ZA",
+    "flag": "🇿🇦",
+    "slug": "south-africa",
+    "cities": [
+      {"name": "Cape Town", "nameAr": "كيب تاون", "slug": "cape-town", "latitude": -33.9249, "longitude": 18.4241},
+      {"name": "Johannesburg", "nameAr": "جوهانسبرغ", "slug": "johannesburg", "latitude": -26.2041, "longitude": 28.0473},
+      {"name": "Durban", "nameAr": "ديربان", "slug": "durban", "latitude": -29.8587, "longitude": 31.0218}
+    ]
+  },
+  "zimbabwe": {
+    "name": "Zimbabwe",
+    "nameAr": "زيمبابوي",
+    "code": "ZW",
+    "flag": "🇿🇼",
+    "slug": "zimbabwe",
+    "cities": [
+      {"name": "Harare", "nameAr": "هراري", "slug": "harare", "latitude": -17.8252, "longitude": 31.0335},
+      {"name": "Bulawayo", "nameAr": "بولاوايو", "slug": "bulawayo", "latitude": -20.1500, "longitude": 28.5833}
+    ]
+  },
+  "uganda": {
+    "name": "Uganda",
+    "nameAr": "أوغندا",
+    "code": "UG",
+    "flag": "🇺🇬",
+    "slug": "uganda",
+    "cities": [
+      {"name": "Kampala", "nameAr": "كمبالا", "slug": "kampala", "latitude": 0.3476, "longitude": 32.5825},
+      {"name": "Entebbe", "nameAr": "عنتيبي", "slug": "entebbe", "latitude": 0.0639, "longitude": 32.4795}
+    ]
+  },
+  "rwanda": {
+    "name": "Rwanda",
+    "nameAr": "رواندا",
+    "code": "RW",
+    "flag": "🇷🇼",
+    "slug": "rwanda",
+    "cities": [
+      {"name": "Kigali", "nameAr": "كيغالي", "slug": "kigali", "latitude": -1.9536, "longitude": 30.0606},
+      {"name": "Butare", "nameAr": "بوتاري", "slug": "butare", "latitude": -2.5970, "longitude": 29.7390}
+    ]
+  },
+  "malawi": {
+    "name": "Malawi",
+    "nameAr": "ملاوي",
+    "code": "MW",
+    "flag": "🇲🇼",
+    "slug": "malawi",
+    "cities": [
+      {"name": "Lilongwe", "nameAr": "ليلونغوي", "slug": "lilongwe", "latitude": -13.9626, "longitude": 33.7741},
+      {"name": "Blantyre", "nameAr": "بلانتاير", "slug": "blantyre", "latitude": -15.7861, "longitude": 35.0058}
+    ]
+  },
+  "zambia": {
+    "name": "Zambia",
+    "nameAr": "زامبيا",
+    "code": "ZM",
+    "flag": "🇿🇲",
+    "slug": "zambia",
+    "cities": [
+      {"name": "Lusaka", "nameAr": "لوساكا", "slug": "lusaka", "latitude": -15.3875, "longitude": 28.3228},
+      {"name": "Ndola", "nameAr": "ندولا", "slug": "ndola", "latitude": -12.9585, "longitude": 28.6366}
+    ]
+  },
+  "botswana": {
+    "name": "Botswana",
+    "nameAr": "بوتسوانا",
+    "code": "BW",
+    "flag": "🇧🇼",
+    "slug": "botswana",
+    "cities": [
+      {"name": "Gaborone", "nameAr": "غابورون", "slug": "gaborone", "latitude": -24.6282, "longitude": 25.9231},
+      {"name": "Francistown", "nameAr": "فرانسيستاون", "slug": "francistown", "latitude": -21.1700, "longitude": 27.5100}
+    ]
+  },
+  "namibia": {
+    "name": "Namibia",
+    "nameAr": "ناميبيا",
+    "code": "NA",
+    "flag": "🇳🇦",
+    "slug": "namibia",
+    "cities": [
+      {"name": "Windhoek", "nameAr": "ويندهوك", "slug": "windhoek", "latitude": -22.5597, "longitude": 17.0832},
+      {"name": "Walvis Bay", "nameAr": "خليج والفيس", "slug": "walvis-bay", "latitude": -22.9575, "longitude": 14.5053}
+    ]
+  },
+  "angola": {
+    "name": "Angola",
+    "nameAr": "أنغولا",
+    "code": "AO",
+    "flag": "🇦🇴",
+    "slug": "angola",
+    "cities": [
+      {"name": "Luanda", "nameAr": "لواندا", "slug": "luanda", "latitude": -8.8383, "longitude": 13.2344},
+      {"name": "Huambo", "nameAr": "هوامبو", "slug": "huambo", "latitude": -12.7764, "longitude": 15.7389}
+    ]
+  },
+  "japan": {
+    "name": "Japan",
+    "nameAr": "اليابان",
+    "code": "JP",
+    "flag": "🇯🇵",
+    "slug": "japan",
+    "cities": [
+      {"name": "Tokyo", "nameAr": "طوكيو", "slug": "tokyo", "latitude": 35.6762, "longitude": 139.6503},
+      {"name": "Osaka", "nameAr": "أوساكا", "slug": "osaka", "latitude": 34.6937, "longitude": 135.5023}
+    ]
+  },
+  "south-korea": {
+    "name": "South Korea",
+    "nameAr": "كوريا الجنوبية",
+    "code": "KR",
+    "flag": "🇰🇷",
+    "slug": "south-korea",
+    "cities": [
+      {"name": "Seoul", "nameAr": "سيول", "slug": "seoul", "latitude": 37.5665, "longitude": 126.9780},
+      {"name": "Busan", "nameAr": "بوسان", "slug": "busan", "latitude": 35.1796, "longitude": 129.0756}
+    ]
+  },
+  "australia": {
+    "name": "Australia",
+    "nameAr": "أستراليا",
+    "code": "AU",
+    "flag": "🇦🇺",
+    "slug": "australia",
+    "cities": [
+      {"name": "Sydney", "nameAr": "سيدني", "slug": "sydney", "latitude": -33.8688, "longitude": 151.2093},
+      {"name": "Melbourne", "nameAr": "ملبورن", "slug": "melbourne", "latitude": -37.8136, "longitude": 144.9631},
+      {"name": "Perth", "nameAr": "بيرث", "slug": "perth", "latitude": -31.9505, "longitude": 115.8605}
+    ]
+  },
+  "new-zealand": {
+    "name": "New Zealand",
+    "nameAr": "نيوزيلندا",
+    "code": "NZ",
+    "flag": "🇳🇿",
+    "slug": "new-zealand",
+    "cities": [
+      {"name": "Auckland", "nameAr": "أوكلاند", "slug": "auckland", "latitude": -36.8485, "longitude": 174.7633},
+      {"name": "Wellington", "nameAr": "ويلينغتون", "slug": "wellington", "latitude": -41.2865, "longitude": 174.7762}
+    ]
   }
 }
